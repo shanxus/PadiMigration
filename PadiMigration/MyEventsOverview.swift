@@ -180,7 +180,7 @@ class MyEventsOverview: UIViewController {
     }
     
     func updateEventsCollectionView() {
-        let indexForOverview = IndexPath(row: 0, section: 2)
+        let indexForOverview = IndexPath(row: 0, section: 1)
         if let overviewTV = self.layoutTableView.cellForRow(at: indexForOverview) as? MyEventOverviewEventsTVC {
             overviewTV.eventsCollectionView.reloadData()
         }

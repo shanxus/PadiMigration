@@ -47,6 +47,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - SkeletonView (1.2)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - Firebase/DynamicLinks
   - Firebase/Storage
   - Kingfisher (~> 4.0)
+  - SkeletonView
   - SwiftyJSON
 
 SPEC REPOS:
@@ -73,6 +75,7 @@ SPEC REPOS:
     - Kingfisher
     - leveldb-library
     - nanopb
+    - SkeletonView
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -89,8 +92,9 @@ SPEC CHECKSUMS:
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  SkeletonView: d68962d45d1af038f6a110d2274b183df8f82752
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 2198c72f8336ddd1b1d232bccd06e1c377083eb8
+PODFILE CHECKSUM: 3d1b39e09f56d1318965cf7aa87a0740e75bf911
 
 COCOAPODS: 1.5.0

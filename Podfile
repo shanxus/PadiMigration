@@ -15,5 +15,6 @@ target 'PadiMigration' do
   pod 'Firebase/Storage'
   pod 'Firebase/DynamicLinks'
   pod 'Kingfisher', '~> 4.0'
+  pod "SkeletonView"
 
 end

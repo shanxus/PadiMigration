@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SkeletonView
 
 enum FriendsVCType: String {
     case friendOverview = "friendOverview"
@@ -62,8 +63,11 @@ class MyFriendOverviewVC: UIViewController {
         handleViewTitleTxt()
         handleActionTxt()
         
+        //friendListingTable.isSkeletonable = true
         friendListingTable.dataSource = self
         friendListingTable.delegate = self
+        
+        
         friendListingTable.isUserInteractionEnabled = false
         friendListingTable.tableFooterView = UIView()
         friendListingTable.backgroundColor = headerColor
@@ -162,6 +166,7 @@ extension MyFriendOverviewVC: UITableViewDelegate {
     }
 }
 
+/*
 extension MyFriendOverviewVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -210,8 +215,67 @@ extension MyFriendOverviewVC: UITableViewDataSource {
         return UITableViewCell()
     }
 }
+*/
 
-
+extension MyFriendOverviewVC: SkeletonTableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let count = friends?.count {
+            return count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "myFriendOverviewTVC", for: indexPath) as? MyFriendOverviewTVC {
+            
+            guard let currentUserID = Auth.auth().currentUser?.uid else {return MyFriendOverviewTVC()}
+            
+            let helper = ExamplePadiMember()
+            if let friends = friends {
+                let userID = friends[indexPath.row]
+                
+                cell.friendImage.isSkeletonable = true
+                cell.friendImage.showAnimatedGradientSkeleton()
+                helper.fetchUserImageURL(userID: userID) { (url: String) in
+                    let urlString = URL(string: url)
+                    cell.friendImage.kf.setImage(with: urlString)
+                    cell.friendImage.hideSkeleton()
+                }
+                
+                cell.friendName.isSkeletonable = true
+                cell.friendName.showAnimatedGradientSkeleton()
+                helper.fetchName(userID: userID) { (name: String) in
+                    DispatchQueue.main.async {
+                        cell.friendName.text = name
+                        cell.friendName.hideSkeleton()
+                    }
+                }
+                
+                cell.friendType.isSkeletonable = true
+                cell.friendType.showAnimatedGradientSkeleton()
+                helper.fetchFriendType(currentUserID: currentUserID, friendID: userID) { (type: String) in
+                    DispatchQueue.main.async {
+                        cell.friendType.text = type
+                        cell.friendType.hideSkeleton()
+                    }
+                }
+                
+                let VCtype = friendVCType
+                if VCtype == FriendsVCType.eventFriendList {
+                    let exist = selected.contains(friends[indexPath.row])
+                    cell.accessoryType = (exist == true) ? .checkmark : .none
+                }
+            }
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "myFriendOverviewTVC"
+    }
+    
+}
 
 
 
