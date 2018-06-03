@@ -7,21 +7,179 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		741EBDC420C3B9C40061B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDC320C3B9C40061B342 /* AppDelegate.swift */; };
-		741EBDC620C3B9C40061B342 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDC520C3B9C40061B342 /* ViewController.swift */; };
-		741EBDC920C3B9C40061B342 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 741EBDC720C3B9C40061B342 /* Main.storyboard */; };
 		741EBDCB20C3B9C60061B342 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 741EBDCA20C3B9C60061B342 /* Assets.xcassets */; };
 		741EBDCE20C3B9C60061B342 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 741EBDCC20C3B9C60061B342 /* LaunchScreen.storyboard */; };
+		741EBDD620C3BE330061B342 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 741EBDD520C3BE320061B342 /* GoogleService-Info.plist */; };
+		741EBDDA20C3BEE90061B342 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 741EBDD820C3BEE80061B342 /* Main.storyboard */; };
+		741EBDDD20C3BFF70061B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDDC20C3BFF70061B342 /* AppDelegate.swift */; };
+		741EBDE120C3C0B60061B342 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDDF20C3C0B60061B342 /* CustomView.swift */; };
+		741EBDE220C3C0B60061B342 /* CustomCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDE020C3C0B60061B342 /* CustomCV.swift */; };
+		741EBDE720C3C1040061B342 /* PadiCustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDE420C3C1040061B342 /* PadiCustomAnimation.swift */; };
+		741EBDE820C3C1040061B342 /* GeneralService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDE520C3C1040061B342 /* GeneralService.swift */; };
+		741EBDE920C3C1040061B342 /* EntityHelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDE620C3C1040061B342 /* EntityHelperClass.swift */; };
+		741EBDED20C3C1460061B342 /* PassSeletedInvoved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDEC20C3C1450061B342 /* PassSeletedInvoved.swift */; };
+		741EBDEF20C3C1660061B342 /* EditEventNameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDEE20C3C1650061B342 /* EditEventNameProtocol.swift */; };
+		741EBDFA20C3C1BF0061B342 /* PayRelation+RelationTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDF120C3C1BF0061B342 /* PayRelation+RelationTable.swift */; };
+		741EBDFB20C3C1BF0061B342 /* PadiEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDF220C3C1BF0061B342 /* PadiEvent.swift */; };
+		741EBDFC20C3C1BF0061B342 /* PadiPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDF320C3C1BF0061B342 /* PadiPay.swift */; };
+		741EBDFD20C3C1BF0061B342 /* PayPayer+Payee+PersonalPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDF420C3C1BF0061B342 /* PayPayer+Payee+PersonalPay.swift */; };
+		741EBDFE20C3C1BF0061B342 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDF520C3C1BF0061B342 /* MainUser.swift */; };
+		741EBDFF20C3C1BF0061B342 /* PayInvolvedMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDF620C3C1BF0061B342 /* PayInvolvedMember.swift */; };
+		741EBE0020C3C1BF0061B342 /* PadiFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDF720C3C1BF0061B342 /* PadiFriend.swift */; };
+		741EBE0120C3C1BF0061B342 /* DBPathStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDF820C3C1BF0061B342 /* DBPathStrings.swift */; };
+		741EBE0220C3C1BF0061B342 /* PadiMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBDF920C3C1BF0061B342 /* PadiMember.swift */; };
+		741EBE0620C3C2180061B342 /* MyEventOverviewEventsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE0420C3C2180061B342 /* MyEventOverviewEventsCVC.swift */; };
+		741EBE0720C3C2180061B342 /* MyEventOverviewFavoriteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE0520C3C2180061B342 /* MyEventOverviewFavoriteCVC.swift */; };
+		741EBE0B20C3C2B50061B342 /* SharedEventsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE0A20C3C2B50061B342 /* SharedEventsTVC.swift */; };
+		741EBE0E20C3C2E00061B342 /* ShowPayRelationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE0D20C3C2DF0061B342 /* ShowPayRelationTVC.swift */; };
+		741EBE1120C3C3090061B342 /* InspectionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE1020C3C3090061B342 /* InspectionTVC.swift */; };
+		741EBE1620C3C3480061B342 /* NewPersonalPayRecordsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE1320C3C3470061B342 /* NewPersonalPayRecordsTVC.swift */; };
+		741EBE1720C3C3480061B342 /* PayersListCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE1420C3C3470061B342 /* PayersListCVC.swift */; };
+		741EBE1820C3C3480061B342 /* PayeesListCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE1520C3C3480061B342 /* PayeesListCVC.swift */; };
+		741EBE1B20C3C3800061B342 /* PayerSelectTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE1A20C3C3800061B342 /* PayerSelectTVC.swift */; };
+		741EBE1E20C3C3A70061B342 /* MyFriendOverviewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE1D20C3C3A60061B342 /* MyFriendOverviewTVC.swift */; };
+		741EBE2120C3C3D30061B342 /* AddNewFriendTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE2020C3C3D20061B342 /* AddNewFriendTVC.swift */; };
+		741EBE2520C3C40F0061B342 /* AddNewPaymentActionBlockTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE2320C3C40E0061B342 /* AddNewPaymentActionBlockTVC.swift */; };
+		741EBE2620C3C40F0061B342 /* AddNewPaymentInfoBlockTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE2420C3C40F0061B342 /* AddNewPaymentInfoBlockTVC.swift */; };
+		741EBE2A20C3C4520061B342 /* AddNewEventActionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE2820C3C4510061B342 /* AddNewEventActionTVC.swift */; };
+		741EBE2B20C3C4520061B342 /* AddNewEventInfoBlockTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE2920C3C4520061B342 /* AddNewEventInfoBlockTVC.swift */; };
+		741EBE2F20C3C4870061B342 /* ShowEventsListCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE2D20C3C4860061B342 /* ShowEventsListCVC.swift */; };
+		741EBE3020C3C4870061B342 /* AddNewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE2E20C3C4860061B342 /* AddNewTVC.swift */; };
+		741EBE3820C3C5170061B342 /* MemberShouldPayTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE3220C3C5150061B342 /* MemberShouldPayTVC.swift */; };
+		741EBE3920C3C5170061B342 /* SinglePayMemberTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE3320C3C5150061B342 /* SinglePayMemberTVC.swift */; };
+		741EBE3A20C3C5170061B342 /* SinglePayInfoDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE3420C3C5160061B342 /* SinglePayInfoDetailTVC.swift */; };
+		741EBE3B20C3C5170061B342 /* SinglePayImageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE3520C3C5160061B342 /* SinglePayImageTVC.swift */; };
+		741EBE3C20C3C5170061B342 /* ShowPaymentForSinglePayTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE3620C3C5170061B342 /* ShowPaymentForSinglePayTVC.swift */; };
+		741EBE3D20C3C5170061B342 /* SinglePayInfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE3720C3C5170061B342 /* SinglePayInfoTVC.swift */; };
+		741EBE4720C3C58D0061B342 /* EventMembersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE3F20C3C58C0061B342 /* EventMembersTVC.swift */; };
+		741EBE4820C3C58D0061B342 /* EventInfoDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE4020C3C58C0061B342 /* EventInfoDetailTVC.swift */; };
+		741EBE4920C3C58D0061B342 /* EventPictureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE4120C3C58D0061B342 /* EventPictureTVC.swift */; };
+		741EBE4A20C3C58D0061B342 /* ShowPaymentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE4220C3C58D0061B342 /* ShowPaymentTVC.swift */; };
+		741EBE4B20C3C58D0061B342 /* EventMembersCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE4320C3C58D0061B342 /* EventMembersCVC.swift */; };
+		741EBE4C20C3C58D0061B342 /* EventPayCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE4420C3C58D0061B342 /* EventPayCVC.swift */; };
+		741EBE4D20C3C58D0061B342 /* EventInfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE4520C3C58D0061B342 /* EventInfoTVC.swift */; };
+		741EBE4E20C3C58D0061B342 /* EventPayTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE4620C3C58D0061B342 /* EventPayTVC.swift */; };
+		741EBE5420C3C5DD0061B342 /* MyEventOverviewFavoriteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE5020C3C5DC0061B342 /* MyEventOverviewFavoriteTVC.swift */; };
+		741EBE5520C3C5DD0061B342 /* MyEventOverviewEventsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE5120C3C5DD0061B342 /* MyEventOverviewEventsTVC.swift */; };
+		741EBE5620C3C5DD0061B342 /* MyEventOverViewTitleTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE5220C3C5DD0061B342 /* MyEventOverViewTitleTVC.swift */; };
+		741EBE5720C3C5DD0061B342 /* MyEventOverviewPictureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE5320C3C5DD0061B342 /* MyEventOverviewPictureTVC.swift */; };
+		741EBE6B20C3C85D0061B342 /* ShowPayRelationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE5A20C3C85A0061B342 /* ShowPayRelationVC.swift */; };
+		741EBE6C20C3C85D0061B342 /* EventsSharedWithMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE5B20C3C85A0061B342 /* EventsSharedWithMeVC.swift */; };
+		741EBE6D20C3C85D0061B342 /* AddNewEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE5C20C3C85A0061B342 /* AddNewEventVC.swift */; };
+		741EBE6E20C3C85D0061B342 /* SinglePayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE5D20C3C85A0061B342 /* SinglePayVC.swift */; };
+		741EBE6F20C3C85D0061B342 /* AddNewSelfDefinedFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE5E20C3C85B0061B342 /* AddNewSelfDefinedFriendVC.swift */; };
+		741EBE7020C3C85D0061B342 /* InspectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE5F20C3C85B0061B342 /* InspectionVC.swift */; };
+		741EBE7120C3C85D0061B342 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6020C3C85B0061B342 /* SignUpVC.swift */; };
+		741EBE7220C3C85D0061B342 /* ShowEditTxtFieldVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6120C3C85B0061B342 /* ShowEditTxtFieldVC.swift */; };
+		741EBE7320C3C85D0061B342 /* MyFriendOverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6220C3C85B0061B342 /* MyFriendOverviewVC.swift */; };
+		741EBE7420C3C85D0061B342 /* MyEventsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6320C3C85C0061B342 /* MyEventsOverview.swift */; };
+		741EBE7520C3C85D0061B342 /* AddPersonalPayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6420C3C85C0061B342 /* AddPersonalPayVC.swift */; };
+		741EBE7620C3C85D0061B342 /* PayInvolvedSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6520C3C85C0061B342 /* PayInvolvedSelectVC.swift */; };
+		741EBE7720C3C85D0061B342 /* SingleEventViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6620C3C85C0061B342 /* SingleEventViewVC.swift */; };
+		741EBE7820C3C85D0061B342 /* AddNewPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6720C3C85C0061B342 /* AddNewPaymentVC.swift */; };
+		741EBE7920C3C85D0061B342 /* AddNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6820C3C85C0061B342 /* AddNewVC.swift */; };
+		741EBE7A20C3C85D0061B342 /* CurrentUserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6920C3C85C0061B342 /* CurrentUserInfoVC.swift */; };
+		741EBE7B20C3C85D0061B342 /* AddNewFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE6A20C3C85D0061B342 /* AddNewFriendVC.swift */; };
+		741EBE7F20C3C88D0061B342 /* ShowPayeesHelperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE7E20C3C88D0061B342 /* ShowPayeesHelperVC.swift */; };
+		741EBE8220C3C8B00061B342 /* AddNewPaymentHelperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE8120C3C8B00061B342 /* AddNewPaymentHelperVC.swift */; };
+		741EBE8520C3C8D10061B342 /* AddNewEventHelperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE8420C3C8D10061B342 /* AddNewEventHelperVC.swift */; };
+		741EBE8920C3C9320061B342 /* EventInfoHelperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE8720C3C9320061B342 /* EventInfoHelperVC.swift */; };
+		741EBE8A20C3C9320061B342 /* MemberPayHelperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE8820C3C9320061B342 /* MemberPayHelperVC.swift */; };
+		741EBE8D20C3C9D10061B342 /* SingleEventPayHelperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE8C20C3C9D10061B342 /* SingleEventPayHelperVC.swift */; };
+		741EBE8F20C3CA0A0061B342 /* SinglePayInfoHelperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE8E20C3CA0A0061B342 /* SinglePayInfoHelperVC.swift */; };
+		741EBE9220C3CA300061B342 /* MyEventOverviewHelperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE9120C3CA2F0061B342 /* MyEventOverviewHelperVC.swift */; };
+		74980E4D084E10606D44BA28 /* Pods_PadiMigration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19E60C47E62DBF45B6A6647 /* Pods_PadiMigration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		741EBDC020C3B9C30061B342 /* PadiMigration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadiMigration.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		741EBDC320C3B9C40061B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		741EBDC520C3B9C40061B342 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		741EBDC820C3B9C40061B342 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		741EBDCA20C3B9C60061B342 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		741EBDCD20C3B9C60061B342 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		741EBDCF20C3B9C60061B342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		741EBDD520C3BE320061B342 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		741EBDD920C3BEE80061B342 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		741EBDDB20C3BFF60061B342 /* PadiMigration-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PadiMigration-Bridging-Header.h"; sourceTree = "<group>"; };
+		741EBDDC20C3BFF70061B342 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		741EBDDF20C3C0B60061B342 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomView.swift; path = PadiMigration/CustomView.swift; sourceTree = SOURCE_ROOT; };
+		741EBDE020C3C0B60061B342 /* CustomCV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCV.swift; path = PadiMigration/CustomCV.swift; sourceTree = SOURCE_ROOT; };
+		741EBDE420C3C1040061B342 /* PadiCustomAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PadiCustomAnimation.swift; path = PadiMigration/PadiCustomAnimation.swift; sourceTree = SOURCE_ROOT; };
+		741EBDE520C3C1040061B342 /* GeneralService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralService.swift; path = PadiMigration/GeneralService.swift; sourceTree = SOURCE_ROOT; };
+		741EBDE620C3C1040061B342 /* EntityHelperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntityHelperClass.swift; path = PadiMigration/EntityHelperClass.swift; sourceTree = SOURCE_ROOT; };
+		741EBDEC20C3C1450061B342 /* PassSeletedInvoved.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassSeletedInvoved.swift; path = PadiMigration/PassSeletedInvoved.swift; sourceTree = SOURCE_ROOT; };
+		741EBDEE20C3C1650061B342 /* EditEventNameProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEventNameProtocol.swift; path = PadiMigration/EditEventNameProtocol.swift; sourceTree = SOURCE_ROOT; };
+		741EBDF120C3C1BF0061B342 /* PayRelation+RelationTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PayRelation+RelationTable.swift"; path = "PadiMigration/PayRelation+RelationTable.swift"; sourceTree = SOURCE_ROOT; };
+		741EBDF220C3C1BF0061B342 /* PadiEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PadiEvent.swift; path = PadiMigration/PadiEvent.swift; sourceTree = SOURCE_ROOT; };
+		741EBDF320C3C1BF0061B342 /* PadiPay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PadiPay.swift; path = PadiMigration/PadiPay.swift; sourceTree = SOURCE_ROOT; };
+		741EBDF420C3C1BF0061B342 /* PayPayer+Payee+PersonalPay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PayPayer+Payee+PersonalPay.swift"; path = "PadiMigration/PayPayer+Payee+PersonalPay.swift"; sourceTree = SOURCE_ROOT; };
+		741EBDF520C3C1BF0061B342 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainUser.swift; path = PadiMigration/MainUser.swift; sourceTree = SOURCE_ROOT; };
+		741EBDF620C3C1BF0061B342 /* PayInvolvedMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayInvolvedMember.swift; path = PadiMigration/PayInvolvedMember.swift; sourceTree = SOURCE_ROOT; };
+		741EBDF720C3C1BF0061B342 /* PadiFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PadiFriend.swift; path = PadiMigration/PadiFriend.swift; sourceTree = SOURCE_ROOT; };
+		741EBDF820C3C1BF0061B342 /* DBPathStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBPathStrings.swift; path = PadiMigration/DBPathStrings.swift; sourceTree = SOURCE_ROOT; };
+		741EBDF920C3C1BF0061B342 /* PadiMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PadiMember.swift; path = PadiMigration/PadiMember.swift; sourceTree = SOURCE_ROOT; };
+		741EBE0420C3C2180061B342 /* MyEventOverviewEventsCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventOverviewEventsCVC.swift; path = PadiMigration/MyEventOverviewEventsCVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE0520C3C2180061B342 /* MyEventOverviewFavoriteCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventOverviewFavoriteCVC.swift; path = PadiMigration/MyEventOverviewFavoriteCVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE0A20C3C2B50061B342 /* SharedEventsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedEventsTVC.swift; path = PadiMigration/SharedEventsTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE0D20C3C2DF0061B342 /* ShowPayRelationTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowPayRelationTVC.swift; path = PadiMigration/ShowPayRelationTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE1020C3C3090061B342 /* InspectionTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InspectionTVC.swift; path = PadiMigration/InspectionTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE1320C3C3470061B342 /* NewPersonalPayRecordsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewPersonalPayRecordsTVC.swift; path = PadiMigration/NewPersonalPayRecordsTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE1420C3C3470061B342 /* PayersListCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayersListCVC.swift; path = PadiMigration/PayersListCVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE1520C3C3480061B342 /* PayeesListCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayeesListCVC.swift; path = PadiMigration/PayeesListCVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE1A20C3C3800061B342 /* PayerSelectTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayerSelectTVC.swift; path = PadiMigration/PayerSelectTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE1D20C3C3A60061B342 /* MyFriendOverviewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyFriendOverviewTVC.swift; path = PadiMigration/MyFriendOverviewTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE2020C3C3D20061B342 /* AddNewFriendTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewFriendTVC.swift; path = PadiMigration/AddNewFriendTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE2320C3C40E0061B342 /* AddNewPaymentActionBlockTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewPaymentActionBlockTVC.swift; path = PadiMigration/AddNewPaymentActionBlockTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE2420C3C40F0061B342 /* AddNewPaymentInfoBlockTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewPaymentInfoBlockTVC.swift; path = PadiMigration/AddNewPaymentInfoBlockTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE2820C3C4510061B342 /* AddNewEventActionTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewEventActionTVC.swift; path = PadiMigration/AddNewEventActionTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE2920C3C4520061B342 /* AddNewEventInfoBlockTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewEventInfoBlockTVC.swift; path = PadiMigration/AddNewEventInfoBlockTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE2D20C3C4860061B342 /* ShowEventsListCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowEventsListCVC.swift; path = PadiMigration/ShowEventsListCVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE2E20C3C4860061B342 /* AddNewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewTVC.swift; path = PadiMigration/AddNewTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE3220C3C5150061B342 /* MemberShouldPayTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberShouldPayTVC.swift; path = PadiMigration/MemberShouldPayTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE3320C3C5150061B342 /* SinglePayMemberTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SinglePayMemberTVC.swift; path = PadiMigration/SinglePayMemberTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE3420C3C5160061B342 /* SinglePayInfoDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SinglePayInfoDetailTVC.swift; path = PadiMigration/SinglePayInfoDetailTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE3520C3C5160061B342 /* SinglePayImageTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SinglePayImageTVC.swift; path = PadiMigration/SinglePayImageTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE3620C3C5170061B342 /* ShowPaymentForSinglePayTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowPaymentForSinglePayTVC.swift; path = PadiMigration/ShowPaymentForSinglePayTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE3720C3C5170061B342 /* SinglePayInfoTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SinglePayInfoTVC.swift; path = PadiMigration/SinglePayInfoTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE3F20C3C58C0061B342 /* EventMembersTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventMembersTVC.swift; path = PadiMigration/EventMembersTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE4020C3C58C0061B342 /* EventInfoDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventInfoDetailTVC.swift; path = PadiMigration/EventInfoDetailTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE4120C3C58D0061B342 /* EventPictureTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventPictureTVC.swift; path = PadiMigration/EventPictureTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE4220C3C58D0061B342 /* ShowPaymentTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowPaymentTVC.swift; path = PadiMigration/ShowPaymentTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE4320C3C58D0061B342 /* EventMembersCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventMembersCVC.swift; path = PadiMigration/EventMembersCVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE4420C3C58D0061B342 /* EventPayCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventPayCVC.swift; path = PadiMigration/EventPayCVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE4520C3C58D0061B342 /* EventInfoTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventInfoTVC.swift; path = PadiMigration/EventInfoTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE4620C3C58D0061B342 /* EventPayTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventPayTVC.swift; path = PadiMigration/EventPayTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE5020C3C5DC0061B342 /* MyEventOverviewFavoriteTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventOverviewFavoriteTVC.swift; path = PadiMigration/MyEventOverviewFavoriteTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE5120C3C5DD0061B342 /* MyEventOverviewEventsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventOverviewEventsTVC.swift; path = PadiMigration/MyEventOverviewEventsTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE5220C3C5DD0061B342 /* MyEventOverViewTitleTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventOverViewTitleTVC.swift; path = PadiMigration/MyEventOverViewTitleTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE5320C3C5DD0061B342 /* MyEventOverviewPictureTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventOverviewPictureTVC.swift; path = PadiMigration/MyEventOverviewPictureTVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE5A20C3C85A0061B342 /* ShowPayRelationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowPayRelationVC.swift; path = PadiMigration/ShowPayRelationVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE5B20C3C85A0061B342 /* EventsSharedWithMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsSharedWithMeVC.swift; path = PadiMigration/EventsSharedWithMeVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE5C20C3C85A0061B342 /* AddNewEventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewEventVC.swift; path = PadiMigration/AddNewEventVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE5D20C3C85A0061B342 /* SinglePayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SinglePayVC.swift; path = PadiMigration/SinglePayVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE5E20C3C85B0061B342 /* AddNewSelfDefinedFriendVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewSelfDefinedFriendVC.swift; path = PadiMigration/AddNewSelfDefinedFriendVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE5F20C3C85B0061B342 /* InspectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InspectionVC.swift; path = PadiMigration/InspectionVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6020C3C85B0061B342 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpVC.swift; path = PadiMigration/SignUpVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6120C3C85B0061B342 /* ShowEditTxtFieldVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowEditTxtFieldVC.swift; path = PadiMigration/ShowEditTxtFieldVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6220C3C85B0061B342 /* MyFriendOverviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyFriendOverviewVC.swift; path = PadiMigration/MyFriendOverviewVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6320C3C85C0061B342 /* MyEventsOverview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventsOverview.swift; path = PadiMigration/MyEventsOverview.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6420C3C85C0061B342 /* AddPersonalPayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPersonalPayVC.swift; path = PadiMigration/AddPersonalPayVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6520C3C85C0061B342 /* PayInvolvedSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayInvolvedSelectVC.swift; path = PadiMigration/PayInvolvedSelectVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6620C3C85C0061B342 /* SingleEventViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleEventViewVC.swift; path = PadiMigration/SingleEventViewVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6720C3C85C0061B342 /* AddNewPaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewPaymentVC.swift; path = PadiMigration/AddNewPaymentVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6820C3C85C0061B342 /* AddNewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewVC.swift; path = PadiMigration/AddNewVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6920C3C85C0061B342 /* CurrentUserInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentUserInfoVC.swift; path = PadiMigration/CurrentUserInfoVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE6A20C3C85D0061B342 /* AddNewFriendVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewFriendVC.swift; path = PadiMigration/AddNewFriendVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE7E20C3C88D0061B342 /* ShowPayeesHelperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowPayeesHelperVC.swift; path = PadiMigration/ShowPayeesHelperVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE8120C3C8B00061B342 /* AddNewPaymentHelperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewPaymentHelperVC.swift; path = PadiMigration/AddNewPaymentHelperVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE8420C3C8D10061B342 /* AddNewEventHelperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewEventHelperVC.swift; path = PadiMigration/AddNewEventHelperVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE8720C3C9320061B342 /* EventInfoHelperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventInfoHelperVC.swift; path = PadiMigration/EventInfoHelperVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE8820C3C9320061B342 /* MemberPayHelperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberPayHelperVC.swift; path = PadiMigration/ViewController/HelperVC/SinglePayView/MemberPayHelperVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE8C20C3C9D10061B342 /* SingleEventPayHelperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleEventPayHelperVC.swift; path = PadiMigration/SingleEventPayHelperVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE8E20C3CA0A0061B342 /* SinglePayInfoHelperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SinglePayInfoHelperVC.swift; path = PadiMigration/SinglePayInfoHelperVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE9120C3CA2F0061B342 /* MyEventOverviewHelperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventOverviewHelperVC.swift; path = PadiMigration/MyEventOverviewHelperVC.swift; sourceTree = SOURCE_ROOT; };
+		741EBE9320C3CD750061B342 /* PadiMigration.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PadiMigration.entitlements; sourceTree = "<group>"; };
+		C9505EC15197C802D5C2DCBC /* Pods-PadiMigration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadiMigration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration.debug.xcconfig"; sourceTree = "<group>"; };
+		E19E60C47E62DBF45B6A6647 /* Pods_PadiMigration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PadiMigration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FADDE318F71BC61A6E432A3C /* Pods-PadiMigration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadiMigration.release.xcconfig"; path = "Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +187,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74980E4D084E10606D44BA28 /* Pods_PadiMigration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103923E1181E0CA390148F73 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9505EC15197C802D5C2DCBC /* Pods-PadiMigration.debug.xcconfig */,
+				FADDE318F71BC61A6E432A3C /* Pods-PadiMigration.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		741EBDB720C3B9C30061B342 = {
 			isa = PBXGroup;
 			children = (
+				741EBDD520C3BE320061B342 /* GoogleService-Info.plist */,
 				741EBDC220C3B9C40061B342 /* PadiMigration */,
 				741EBDC120C3B9C30061B342 /* Products */,
+				103923E1181E0CA390148F73 /* Pods */,
+				BBDAD566BE3C3D5C765B2844 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +225,331 @@
 		741EBDC220C3B9C40061B342 /* PadiMigration */ = {
 			isa = PBXGroup;
 			children = (
-				741EBDC320C3B9C40061B342 /* AppDelegate.swift */,
-				741EBDC520C3B9C40061B342 /* ViewController.swift */,
-				741EBDC720C3B9C40061B342 /* Main.storyboard */,
+				741EBE9320C3CD750061B342 /* PadiMigration.entitlements */,
+				741EBE5820C3C5E70061B342 /* ViewController */,
+				741EBE0820C3C2310061B342 /* TableViewCell */,
+				741EBE0320C3C1CC0061B342 /* CollectionViewCell */,
+				741EBDF020C3C1750061B342 /* PadiEntity */,
+				741EBDEA20C3C1130061B342 /* Protocols */,
+				741EBDE320C3C0C70061B342 /* EntityHelperClass */,
+				741EBDDE20C3C0920061B342 /* New Functions */,
+				741EBDDC20C3BFF70061B342 /* AppDelegate.swift */,
+				741EBDD820C3BEE80061B342 /* Main.storyboard */,
 				741EBDCA20C3B9C60061B342 /* Assets.xcassets */,
 				741EBDCC20C3B9C60061B342 /* LaunchScreen.storyboard */,
 				741EBDCF20C3B9C60061B342 /* Info.plist */,
+				741EBDDB20C3BFF60061B342 /* PadiMigration-Bridging-Header.h */,
 			);
 			path = PadiMigration;
+			sourceTree = "<group>";
+		};
+		741EBDDE20C3C0920061B342 /* New Functions */ = {
+			isa = PBXGroup;
+			children = (
+				741EBDE020C3C0B60061B342 /* CustomCV.swift */,
+				741EBDDF20C3C0B60061B342 /* CustomView.swift */,
+			);
+			path = "New Functions";
+			sourceTree = "<group>";
+		};
+		741EBDE320C3C0C70061B342 /* EntityHelperClass */ = {
+			isa = PBXGroup;
+			children = (
+				741EBDE620C3C1040061B342 /* EntityHelperClass.swift */,
+				741EBDE520C3C1040061B342 /* GeneralService.swift */,
+				741EBDE420C3C1040061B342 /* PadiCustomAnimation.swift */,
+			);
+			path = EntityHelperClass;
+			sourceTree = "<group>";
+		};
+		741EBDEA20C3C1130061B342 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				741EBDEB20C3C11F0061B342 /* AddNewPayment */,
+				741EBDEE20C3C1650061B342 /* EditEventNameProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		741EBDEB20C3C11F0061B342 /* AddNewPayment */ = {
+			isa = PBXGroup;
+			children = (
+				741EBDEC20C3C1450061B342 /* PassSeletedInvoved.swift */,
+			);
+			path = AddNewPayment;
+			sourceTree = "<group>";
+		};
+		741EBDF020C3C1750061B342 /* PadiEntity */ = {
+			isa = PBXGroup;
+			children = (
+				741EBDF820C3C1BF0061B342 /* DBPathStrings.swift */,
+				741EBDF520C3C1BF0061B342 /* MainUser.swift */,
+				741EBDF220C3C1BF0061B342 /* PadiEvent.swift */,
+				741EBDF720C3C1BF0061B342 /* PadiFriend.swift */,
+				741EBDF920C3C1BF0061B342 /* PadiMember.swift */,
+				741EBDF320C3C1BF0061B342 /* PadiPay.swift */,
+				741EBDF620C3C1BF0061B342 /* PayInvolvedMember.swift */,
+				741EBDF420C3C1BF0061B342 /* PayPayer+Payee+PersonalPay.swift */,
+				741EBDF120C3C1BF0061B342 /* PayRelation+RelationTable.swift */,
+			);
+			path = PadiEntity;
+			sourceTree = "<group>";
+		};
+		741EBE0320C3C1CC0061B342 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE0420C3C2180061B342 /* MyEventOverviewEventsCVC.swift */,
+				741EBE0520C3C2180061B342 /* MyEventOverviewFavoriteCVC.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		741EBE0820C3C2310061B342 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE4F20C3C5970061B342 /* MyEventOverview */,
+				741EBE3E20C3C5240061B342 /* SingleEventView */,
+				741EBE3120C3C4900061B342 /* SinglePayView */,
+				741EBE2C20C3C45B0061B342 /* AddNewView */,
+				741EBE2720C3C4180061B342 /* AddNewEventView */,
+				741EBE2220C3C3E00061B342 /* AddNewPaymentView */,
+				741EBE1F20C3C3B00061B342 /* AddNewFriendView */,
+				741EBE1C20C3C38B0061B342 /* MyFriendOverviewVC */,
+				741EBE1920C3C3520061B342 /* PayerSelectVC */,
+				741EBE1220C3C3140061B342 /* AddPersonalPayVC */,
+				741EBE0F20C3C2E80061B342 /* InspectionVC */,
+				741EBE0C20C3C2BB0061B342 /* ShowPayRelationVC */,
+				741EBE0920C3C2450061B342 /* EventsSharedWithMeVC */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		741EBE0920C3C2450061B342 /* EventsSharedWithMeVC */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE0A20C3C2B50061B342 /* SharedEventsTVC.swift */,
+			);
+			path = EventsSharedWithMeVC;
+			sourceTree = "<group>";
+		};
+		741EBE0C20C3C2BB0061B342 /* ShowPayRelationVC */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE0D20C3C2DF0061B342 /* ShowPayRelationTVC.swift */,
+			);
+			path = ShowPayRelationVC;
+			sourceTree = "<group>";
+		};
+		741EBE0F20C3C2E80061B342 /* InspectionVC */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE1020C3C3090061B342 /* InspectionTVC.swift */,
+			);
+			path = InspectionVC;
+			sourceTree = "<group>";
+		};
+		741EBE1220C3C3140061B342 /* AddPersonalPayVC */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE1320C3C3470061B342 /* NewPersonalPayRecordsTVC.swift */,
+				741EBE1520C3C3480061B342 /* PayeesListCVC.swift */,
+				741EBE1420C3C3470061B342 /* PayersListCVC.swift */,
+			);
+			path = AddPersonalPayVC;
+			sourceTree = "<group>";
+		};
+		741EBE1920C3C3520061B342 /* PayerSelectVC */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE1A20C3C3800061B342 /* PayerSelectTVC.swift */,
+			);
+			path = PayerSelectVC;
+			sourceTree = "<group>";
+		};
+		741EBE1C20C3C38B0061B342 /* MyFriendOverviewVC */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE1D20C3C3A60061B342 /* MyFriendOverviewTVC.swift */,
+			);
+			path = MyFriendOverviewVC;
+			sourceTree = "<group>";
+		};
+		741EBE1F20C3C3B00061B342 /* AddNewFriendView */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE2020C3C3D20061B342 /* AddNewFriendTVC.swift */,
+			);
+			path = AddNewFriendView;
+			sourceTree = "<group>";
+		};
+		741EBE2220C3C3E00061B342 /* AddNewPaymentView */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE2320C3C40E0061B342 /* AddNewPaymentActionBlockTVC.swift */,
+				741EBE2420C3C40F0061B342 /* AddNewPaymentInfoBlockTVC.swift */,
+			);
+			path = AddNewPaymentView;
+			sourceTree = "<group>";
+		};
+		741EBE2720C3C4180061B342 /* AddNewEventView */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE2820C3C4510061B342 /* AddNewEventActionTVC.swift */,
+				741EBE2920C3C4520061B342 /* AddNewEventInfoBlockTVC.swift */,
+			);
+			path = AddNewEventView;
+			sourceTree = "<group>";
+		};
+		741EBE2C20C3C45B0061B342 /* AddNewView */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE2E20C3C4860061B342 /* AddNewTVC.swift */,
+				741EBE2D20C3C4860061B342 /* ShowEventsListCVC.swift */,
+			);
+			path = AddNewView;
+			sourceTree = "<group>";
+		};
+		741EBE3120C3C4900061B342 /* SinglePayView */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE3220C3C5150061B342 /* MemberShouldPayTVC.swift */,
+				741EBE3620C3C5170061B342 /* ShowPaymentForSinglePayTVC.swift */,
+				741EBE3520C3C5160061B342 /* SinglePayImageTVC.swift */,
+				741EBE3420C3C5160061B342 /* SinglePayInfoDetailTVC.swift */,
+				741EBE3720C3C5170061B342 /* SinglePayInfoTVC.swift */,
+				741EBE3320C3C5150061B342 /* SinglePayMemberTVC.swift */,
+			);
+			path = SinglePayView;
+			sourceTree = "<group>";
+		};
+		741EBE3E20C3C5240061B342 /* SingleEventView */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE4020C3C58C0061B342 /* EventInfoDetailTVC.swift */,
+				741EBE4520C3C58D0061B342 /* EventInfoTVC.swift */,
+				741EBE4320C3C58D0061B342 /* EventMembersCVC.swift */,
+				741EBE3F20C3C58C0061B342 /* EventMembersTVC.swift */,
+				741EBE4420C3C58D0061B342 /* EventPayCVC.swift */,
+				741EBE4620C3C58D0061B342 /* EventPayTVC.swift */,
+				741EBE4120C3C58D0061B342 /* EventPictureTVC.swift */,
+				741EBE4220C3C58D0061B342 /* ShowPaymentTVC.swift */,
+			);
+			path = SingleEventView;
+			sourceTree = "<group>";
+		};
+		741EBE4F20C3C5970061B342 /* MyEventOverview */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE5120C3C5DD0061B342 /* MyEventOverviewEventsTVC.swift */,
+				741EBE5020C3C5DC0061B342 /* MyEventOverviewFavoriteTVC.swift */,
+				741EBE5320C3C5DD0061B342 /* MyEventOverviewPictureTVC.swift */,
+				741EBE5220C3C5DD0061B342 /* MyEventOverViewTitleTVC.swift */,
+			);
+			path = MyEventOverview;
+			sourceTree = "<group>";
+		};
+		741EBE5820C3C5E70061B342 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE7C20C3C8650061B342 /* HelperVC */,
+				741EBE5920C3C5F10061B342 /* VC */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		741EBE5920C3C5F10061B342 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE5C20C3C85A0061B342 /* AddNewEventVC.swift */,
+				741EBE6A20C3C85D0061B342 /* AddNewFriendVC.swift */,
+				741EBE6720C3C85C0061B342 /* AddNewPaymentVC.swift */,
+				741EBE5E20C3C85B0061B342 /* AddNewSelfDefinedFriendVC.swift */,
+				741EBE6820C3C85C0061B342 /* AddNewVC.swift */,
+				741EBE6420C3C85C0061B342 /* AddPersonalPayVC.swift */,
+				741EBE6920C3C85C0061B342 /* CurrentUserInfoVC.swift */,
+				741EBE5B20C3C85A0061B342 /* EventsSharedWithMeVC.swift */,
+				741EBE5F20C3C85B0061B342 /* InspectionVC.swift */,
+				741EBE6320C3C85C0061B342 /* MyEventsOverview.swift */,
+				741EBE6220C3C85B0061B342 /* MyFriendOverviewVC.swift */,
+				741EBE6520C3C85C0061B342 /* PayInvolvedSelectVC.swift */,
+				741EBE6120C3C85B0061B342 /* ShowEditTxtFieldVC.swift */,
+				741EBE5A20C3C85A0061B342 /* ShowPayRelationVC.swift */,
+				741EBE6020C3C85B0061B342 /* SignUpVC.swift */,
+				741EBE6620C3C85C0061B342 /* SingleEventViewVC.swift */,
+				741EBE5D20C3C85A0061B342 /* SinglePayVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		741EBE7C20C3C8650061B342 /* HelperVC */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE9020C3CA110061B342 /* MyEventOverview */,
+				741EBE8B20C3C9400061B342 /* SinglePayView */,
+				741EBE8620C3C8E60061B342 /* SingleEventView */,
+				741EBE8320C3C8B30061B342 /* AddNewEventView */,
+				741EBE8020C3C8900061B342 /* AddNewPaymentView */,
+				741EBE7D20C3C86F0061B342 /* AddNewPersonalPayVC */,
+			);
+			path = HelperVC;
+			sourceTree = "<group>";
+		};
+		741EBE7D20C3C86F0061B342 /* AddNewPersonalPayVC */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE7E20C3C88D0061B342 /* ShowPayeesHelperVC.swift */,
+			);
+			path = AddNewPersonalPayVC;
+			sourceTree = "<group>";
+		};
+		741EBE8020C3C8900061B342 /* AddNewPaymentView */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE8120C3C8B00061B342 /* AddNewPaymentHelperVC.swift */,
+			);
+			path = AddNewPaymentView;
+			sourceTree = "<group>";
+		};
+		741EBE8320C3C8B30061B342 /* AddNewEventView */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE8420C3C8D10061B342 /* AddNewEventHelperVC.swift */,
+			);
+			path = AddNewEventView;
+			sourceTree = "<group>";
+		};
+		741EBE8620C3C8E60061B342 /* SingleEventView */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE8C20C3C9D10061B342 /* SingleEventPayHelperVC.swift */,
+				741EBE8720C3C9320061B342 /* EventInfoHelperVC.swift */,
+			);
+			path = SingleEventView;
+			sourceTree = "<group>";
+		};
+		741EBE8B20C3C9400061B342 /* SinglePayView */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE8E20C3CA0A0061B342 /* SinglePayInfoHelperVC.swift */,
+				741EBE8820C3C9320061B342 /* MemberPayHelperVC.swift */,
+			);
+			path = SinglePayView;
+			sourceTree = "<group>";
+		};
+		741EBE9020C3CA110061B342 /* MyEventOverview */ = {
+			isa = PBXGroup;
+			children = (
+				741EBE9120C3CA2F0061B342 /* MyEventOverviewHelperVC.swift */,
+			);
+			path = MyEventOverview;
+			sourceTree = "<group>";
+		};
+		BBDAD566BE3C3D5C765B2844 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E19E60C47E62DBF45B6A6647 /* Pods_PadiMigration.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +559,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 741EBDD220C3B9C60061B342 /* Build configuration list for PBXNativeTarget "PadiMigration" */;
 			buildPhases = (
+				D370DCF33E3F42FCD17CB1CD /* [CP] Check Pods Manifest.lock */,
 				741EBDBC20C3B9C30061B342 /* Sources */,
 				741EBDBD20C3B9C30061B342 /* Frameworks */,
 				741EBDBE20C3B9C30061B342 /* Resources */,
+				8CDCFD335F682A7280B2A2C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +586,12 @@
 				TargetAttributes = {
 					741EBDBF20C3B9C30061B342 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -124,39 +620,164 @@
 			files = (
 				741EBDCE20C3B9C60061B342 /* LaunchScreen.storyboard in Resources */,
 				741EBDCB20C3B9C60061B342 /* Assets.xcassets in Resources */,
-				741EBDC920C3B9C40061B342 /* Main.storyboard in Resources */,
+				741EBDD620C3BE330061B342 /* GoogleService-Info.plist in Resources */,
+				741EBDDA20C3BEE90061B342 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8CDCFD335F682A7280B2A2C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D370DCF33E3F42FCD17CB1CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PadiMigration-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		741EBDBC20C3B9C30061B342 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				741EBDC620C3B9C40061B342 /* ViewController.swift in Sources */,
-				741EBDC420C3B9C40061B342 /* AppDelegate.swift in Sources */,
+				741EBE3C20C3C5170061B342 /* ShowPaymentForSinglePayTVC.swift in Sources */,
+				741EBE1620C3C3480061B342 /* NewPersonalPayRecordsTVC.swift in Sources */,
+				741EBE4C20C3C58D0061B342 /* EventPayCVC.swift in Sources */,
+				741EBE7520C3C85D0061B342 /* AddPersonalPayVC.swift in Sources */,
+				741EBE8D20C3C9D10061B342 /* SingleEventPayHelperVC.swift in Sources */,
+				741EBE6F20C3C85D0061B342 /* AddNewSelfDefinedFriendVC.swift in Sources */,
+				741EBDFD20C3C1BF0061B342 /* PayPayer+Payee+PersonalPay.swift in Sources */,
+				741EBE7120C3C85D0061B342 /* SignUpVC.swift in Sources */,
+				741EBE8920C3C9320061B342 /* EventInfoHelperVC.swift in Sources */,
+				741EBE4720C3C58D0061B342 /* EventMembersTVC.swift in Sources */,
+				741EBE4E20C3C58D0061B342 /* EventPayTVC.swift in Sources */,
+				741EBE5720C3C5DD0061B342 /* MyEventOverviewPictureTVC.swift in Sources */,
+				741EBDDD20C3BFF70061B342 /* AppDelegate.swift in Sources */,
+				741EBE4820C3C58D0061B342 /* EventInfoDetailTVC.swift in Sources */,
+				741EBE7420C3C85D0061B342 /* MyEventsOverview.swift in Sources */,
+				741EBDFA20C3C1BF0061B342 /* PayRelation+RelationTable.swift in Sources */,
+				741EBDFE20C3C1BF0061B342 /* MainUser.swift in Sources */,
+				741EBE5520C3C5DD0061B342 /* MyEventOverviewEventsTVC.swift in Sources */,
+				741EBE2520C3C40F0061B342 /* AddNewPaymentActionBlockTVC.swift in Sources */,
+				741EBDFB20C3C1BF0061B342 /* PadiEvent.swift in Sources */,
+				741EBE8520C3C8D10061B342 /* AddNewEventHelperVC.swift in Sources */,
+				741EBE0B20C3C2B50061B342 /* SharedEventsTVC.swift in Sources */,
+				741EBE7720C3C85D0061B342 /* SingleEventViewVC.swift in Sources */,
+				741EBE4D20C3C58D0061B342 /* EventInfoTVC.swift in Sources */,
+				741EBE3B20C3C5170061B342 /* SinglePayImageTVC.swift in Sources */,
+				741EBE6E20C3C85D0061B342 /* SinglePayVC.swift in Sources */,
+				741EBE8A20C3C9320061B342 /* MemberPayHelperVC.swift in Sources */,
+				741EBDEF20C3C1660061B342 /* EditEventNameProtocol.swift in Sources */,
+				741EBE2620C3C40F0061B342 /* AddNewPaymentInfoBlockTVC.swift in Sources */,
+				741EBE5620C3C5DD0061B342 /* MyEventOverViewTitleTVC.swift in Sources */,
+				741EBE2120C3C3D30061B342 /* AddNewFriendTVC.swift in Sources */,
+				741EBE7B20C3C85D0061B342 /* AddNewFriendVC.swift in Sources */,
+				741EBE0720C3C2180061B342 /* MyEventOverviewFavoriteCVC.swift in Sources */,
+				741EBE7320C3C85D0061B342 /* MyFriendOverviewVC.swift in Sources */,
+				741EBE7020C3C85D0061B342 /* InspectionVC.swift in Sources */,
+				741EBE3820C3C5170061B342 /* MemberShouldPayTVC.swift in Sources */,
+				741EBE7620C3C85D0061B342 /* PayInvolvedSelectVC.swift in Sources */,
+				741EBE4920C3C58D0061B342 /* EventPictureTVC.swift in Sources */,
+				741EBDE920C3C1040061B342 /* EntityHelperClass.swift in Sources */,
+				741EBE1720C3C3480061B342 /* PayersListCVC.swift in Sources */,
+				741EBE0220C3C1BF0061B342 /* PadiMember.swift in Sources */,
+				741EBDE720C3C1040061B342 /* PadiCustomAnimation.swift in Sources */,
+				741EBE3020C3C4870061B342 /* AddNewTVC.swift in Sources */,
+				741EBDED20C3C1460061B342 /* PassSeletedInvoved.swift in Sources */,
+				741EBE9220C3CA300061B342 /* MyEventOverviewHelperVC.swift in Sources */,
+				741EBE6C20C3C85D0061B342 /* EventsSharedWithMeVC.swift in Sources */,
+				741EBE2B20C3C4520061B342 /* AddNewEventInfoBlockTVC.swift in Sources */,
+				741EBDE220C3C0B60061B342 /* CustomCV.swift in Sources */,
+				741EBDE820C3C1040061B342 /* GeneralService.swift in Sources */,
+				741EBE4B20C3C58D0061B342 /* EventMembersCVC.swift in Sources */,
+				741EBE2F20C3C4870061B342 /* ShowEventsListCVC.swift in Sources */,
+				741EBE0120C3C1BF0061B342 /* DBPathStrings.swift in Sources */,
+				741EBE6B20C3C85D0061B342 /* ShowPayRelationVC.swift in Sources */,
+				741EBDFF20C3C1BF0061B342 /* PayInvolvedMember.swift in Sources */,
+				741EBDE120C3C0B60061B342 /* CustomView.swift in Sources */,
+				741EBE0E20C3C2E00061B342 /* ShowPayRelationTVC.swift in Sources */,
+				741EBE8F20C3CA0A0061B342 /* SinglePayInfoHelperVC.swift in Sources */,
+				741EBE6D20C3C85D0061B342 /* AddNewEventVC.swift in Sources */,
+				741EBE0620C3C2180061B342 /* MyEventOverviewEventsCVC.swift in Sources */,
+				741EBE8220C3C8B00061B342 /* AddNewPaymentHelperVC.swift in Sources */,
+				741EBE7820C3C85D0061B342 /* AddNewPaymentVC.swift in Sources */,
+				741EBE7920C3C85D0061B342 /* AddNewVC.swift in Sources */,
+				741EBE3D20C3C5170061B342 /* SinglePayInfoTVC.swift in Sources */,
+				741EBE1120C3C3090061B342 /* InspectionTVC.swift in Sources */,
+				741EBE3A20C3C5170061B342 /* SinglePayInfoDetailTVC.swift in Sources */,
+				741EBE0020C3C1BF0061B342 /* PadiFriend.swift in Sources */,
+				741EBE7220C3C85D0061B342 /* ShowEditTxtFieldVC.swift in Sources */,
+				741EBE5420C3C5DD0061B342 /* MyEventOverviewFavoriteTVC.swift in Sources */,
+				741EBE1E20C3C3A70061B342 /* MyFriendOverviewTVC.swift in Sources */,
+				741EBE7A20C3C85D0061B342 /* CurrentUserInfoVC.swift in Sources */,
+				741EBE2A20C3C4520061B342 /* AddNewEventActionTVC.swift in Sources */,
+				741EBE7F20C3C88D0061B342 /* ShowPayeesHelperVC.swift in Sources */,
+				741EBE4A20C3C58D0061B342 /* ShowPaymentTVC.swift in Sources */,
+				741EBE3920C3C5170061B342 /* SinglePayMemberTVC.swift in Sources */,
+				741EBE1B20C3C3800061B342 /* PayerSelectTVC.swift in Sources */,
+				741EBE1820C3C3480061B342 /* PayeesListCVC.swift in Sources */,
+				741EBDFC20C3C1BF0061B342 /* PadiPay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		741EBDC720C3B9C40061B342 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				741EBDC820C3B9C40061B342 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		741EBDCC20C3B9C60061B342 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				741EBDCD20C3B9C60061B342 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		741EBDD820C3BEE80061B342 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				741EBDD920C3BEE80061B342 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -278,8 +899,11 @@
 		};
 		741EBDD320C3B9C60061B342 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9505EC15197C802D5C2DCBC /* Pods-PadiMigration.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = PadiMigration/PadiMigration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2R89L7B5LL;
 				INFOPLIST_FILE = PadiMigration/Info.plist;
@@ -289,6 +913,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = shan.PadiMigration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PadiMigration/PadiMigration-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -296,8 +922,11 @@
 		};
 		741EBDD420C3B9C60061B342 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FADDE318F71BC61A6E432A3C /* Pods-PadiMigration.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = PadiMigration/PadiMigration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2R89L7B5LL;
 				INFOPLIST_FILE = PadiMigration/Info.plist;
@@ -307,6 +936,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = shan.PadiMigration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PadiMigration/PadiMigration-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

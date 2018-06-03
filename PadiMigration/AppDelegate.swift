@@ -1,24 +1,27 @@
 //
 //  AppDelegate.swift
-//  PadiMigration
+//  FastQuantum
 //
-//  Created by Shan on 2018/6/3.
-//  Copyright © 2018年 Shan. All rights reserved.
+//  Created by Shan on 2018/3/5.
+//  Copyright © 2018年 ShanStation. All rights reserved.
 //
 
 import UIKit
+import Firebase
+//import FirebaseDynamicLinks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
         return true
     }
-
+ 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -41,6 +44,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        print("got called")
+        if let temp = userActivity.webpageURL {
+            let handled = DynamicLinks.dynamicLinks().handleUniversalLink(temp, completion: { (dynamicLink, error) in
+                
+                if let url = dynamicLink?.url {
+                    print("got url: ", url)
+                    if Auth.auth().isSignIn(withEmailLink: url.absoluteString) {
+                        if let account = UserDefaults.standard.string(forKey: "Email") {
+                            print("pass isSignIn")
+                            print("account email:", account)
+                            Auth.auth().signIn(withEmail: account, link: url.absoluteString, completion: { (user, error) in
+                                if error != nil {
+                                    print("error when try to sign in: ", error?.localizedDescription ?? "")
+                                } else {
+                                    let topVC = GeneralService.findTopVC()
+                                    if let tabView = topVC.storyboard?.instantiateViewController(withIdentifier: "tabView") as? UITabBarController {
+                                        topVC.present(tabView, animated: true, completion: {
+                                            if let currentUser = Auth.auth().currentUser {                                                
+                                                let id = currentUser.uid
+                                                let email = currentUser.email!
+                                                let name = email.components(separatedBy: "@").first!
+                                                GeneralService.createUserInDB(userID: id, email: email, name: name)
+                                            }
+                                        })
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }
+            })
+            return handled
+            
+        }
+        return false
+    }
 }
 
