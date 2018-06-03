@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import FirebaseDatabase
 import FirebaseAuth
+import SkeletonView
 
 class MyEventsOverview: UIViewController {
 
@@ -156,10 +157,13 @@ class MyEventsOverview: UIViewController {
     func loadCurrentUserImage() {
         if let currentUserID = Auth.auth().currentUser?.uid {
             let helper = ExamplePadiMember()
+            currentUserImage.isSkeletonable = true
+            currentUserImage.showAnimatedGradientSkeleton()
             helper.fetchUserImageURL(userID: currentUserID) { (imageURL: String) in
                 DispatchQueue.main.async {
                     let url = URL(string: imageURL)
                     self.currentUserImage.kf.setImage(with: url)
+                    self.currentUserImage.hideSkeleton()
                 }
             }
         }
