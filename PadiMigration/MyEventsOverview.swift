@@ -11,6 +11,7 @@ import Kingfisher
 import FirebaseDatabase
 import FirebaseAuth
 import SkeletonView
+import Instructions
 
 class MyEventsOverview: UIViewController {
 
@@ -37,6 +38,8 @@ class MyEventsOverview: UIViewController {
     }
     var eventDeleteListener: DatabaseReference?
     
+    let coachMarksController = CoachMarksController()
+    
     override func viewDidLoad() {
         
         if let currentUser = Auth.auth().currentUser {
@@ -44,6 +47,7 @@ class MyEventsOverview: UIViewController {
             print("email: ", currentUser.email!)
             print("uid: ", currentUser.uid)
             loadCurrentUserImage()
+            coachMarksController.dataSource = self
         }
         
         currentUserImage.isUserInteractionEnabled = true
@@ -63,14 +67,20 @@ class MyEventsOverview: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //super.viewDidAppear(true)
-        if let _ = Auth.auth().currentUser {                        
+        super.viewDidAppear(true)
+        if let _ = Auth.auth().currentUser {
+            coachMarksController.start(on: self)
         } else {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             if let loginVC = storyBoard.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpVC {
                 self.present(loginVC, animated: true, completion: nil)
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        coachMarksController.stop(immediately: true)
     }
     
     @objc func currentUserImageTapped(recognizer: UIGestureRecognizer) {
@@ -351,7 +361,34 @@ extension MyEventsOverview: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - implementation of dataSource and delegate for Instructions.
 
+extension MyEventsOverview: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 2
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
+        
+        if index == 0 {
+            return coachMarksController.helper.makeCoachMark(for: self.currentUserImage)
+        } else {
+            return coachMarksController.helper.makeCoachMark(for: self.viewTitleLabel)
+        }
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
+        
+        if index == 0 {
+            
+        }
+        coachViews.bodyView.hintLabel.text = "Hello! I'm a Coach Mark!"
+        coachViews.bodyView.nextLabel.text = "Ok!"
+        
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+}
 
 
 

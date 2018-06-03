@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 project '/Volumes/Transcend/iOS_project/PadiMigration/PadiMigration.xcodeproj'
 
@@ -16,5 +16,6 @@ target 'PadiMigration' do
   pod 'Firebase/DynamicLinks'
   pod 'Kingfisher', '~> 4.0'
   pod "SkeletonView"
+  pod 'Instructions', '~> 1.1.0'
 
 end
