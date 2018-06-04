@@ -9,9 +9,11 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import Instructions
 
 class EventsSharedWithMeVC: UIViewController {
 
+    @IBOutlet weak var navigationLabel: CustomView!
     @IBOutlet weak var viewTitleLabel: UILabel!
     @IBOutlet weak var sharedEventsTable: UITableView!
     
@@ -25,6 +27,8 @@ class EventsSharedWithMeVC: UIViewController {
         return Database.database().reference()
     }
     
+    let coachMarksController = CoachMarksController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,8 +37,23 @@ class EventsSharedWithMeVC: UIViewController {
         sharedEventsTable.tableFooterView = UIView()
         
         listenToSharedEvents()
+        
+        self.coachMarksController.dataSource = self
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInEventsSharedWithMeVC")
+        if finishShowingInstructions == false {
+            self.coachMarksController.start(on: self)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.coachMarksController.stop(immediately: true)
+    }
+    
     func listenToSharedEvents() {
         guard let currentUserID = Auth.auth().currentUser?.uid else {return}
         let helper = ExamplePadiEvent()
@@ -82,7 +101,18 @@ extension EventsSharedWithMeVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sharedEvents = sharedEvents else {return 0}
+        guard let sharedEvents = sharedEvents else {
+            let reminderTxt = UILabel()
+            let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+            reminderTxt.frame = frame
+            reminderTxt.textAlignment = .center
+            reminderTxt.text = "還沒有與您分享的活動哦！\n快加入好友並請好友分享活動給您吧！"
+            reminderTxt.numberOfLines = 0
+            reminderTxt.sizeToFit()
+            tableView.backgroundView = reminderTxt
+            return 0
+        }
+        tableView.backgroundView = UIView()
         return sharedEvents.count
     }
     
@@ -113,7 +143,25 @@ extension EventsSharedWithMeVC: UITableViewDataSource {
     
 }
 
-
+extension EventsSharedWithMeVC: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 1
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController,
+                              coachMarkAt index: Int) -> CoachMark {
+        return coachMarksController.helper.makeCoachMark(for: navigationLabel)
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
+        
+        coachViews.bodyView.hintLabel.text = "當您朋友將您加入一筆分款活動中時，您可以立即在這邊看到"
+        coachViews.bodyView.nextLabel.text = "Ok!"
+        
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+}
 
 
 

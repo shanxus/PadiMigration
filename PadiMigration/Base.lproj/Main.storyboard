@@ -13,7 +13,7 @@
         <!--新增-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="新增" id="BYZ-38-t0r" customClass="AddNewVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="新增" id="BYZ-38-t0r" customClass="AddNewVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-Lh-fhD" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-Lh-fhD" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="14" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2at-8O-PoH">
@@ -43,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddNewTVC" id="j4c-rw-qZ4" customClass="AddNewTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddNewTVC" id="j4c-rw-qZ4" customClass="AddNewTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j4c-rw-qZ4" id="W45-GS-VCx">
@@ -95,7 +95,7 @@
                             <constraint firstItem="3Zt-Lh-fhD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="14" id="k4Z-Lj-UAu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="新增" id="EcC-hg-EU0"/>
+                    <tabBarItem key="tabBarItem" title="新增" image="plus75" id="EcC-hg-EU0"/>
                     <connections>
                         <outlet property="selectionTableView" destination="80h-7v-epL" id="aRw-5V-JNQ"/>
                         <outlet property="viewTitle" destination="2at-8O-PoH" id="OW7-K0-so1"/>
@@ -110,7 +110,7 @@
         <!--新增活動-->
         <scene sceneID="cr9-KZ-HVM">
             <objects>
-                <viewController storyboardIdentifier="AddNewEventVC" title="新增活動" id="C4Y-ab-tNJ" customClass="AddNewEventVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewEventVC" title="新增活動" id="C4Y-ab-tNJ" customClass="AddNewEventVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j13-Nm-Gc6"/>
                         <viewControllerLayoutGuide type="bottom" id="YDq-Mj-KtY"/>
@@ -119,7 +119,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBG-eN-crT" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBG-eN-crT" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="14" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增活動" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFV-ln-Mi6">
@@ -169,7 +169,7 @@
                                     <constraint firstAttribute="height" constant="130" id="Qzn-bf-prE"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventInfoBlock" rowHeight="121" id="LEc-Fv-oDL" customClass="AddNewEventInfoBlockTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventInfoBlock" rowHeight="121" id="LEc-Fv-oDL" customClass="AddNewEventInfoBlockTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LEc-Fv-oDL" id="JVD-0M-ql4">
@@ -231,7 +231,7 @@
                                 <rect key="frame" x="0.0" y="194" width="375" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventActionBlock" id="K2V-UV-9i7" customClass="AddNewEventActionTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventActionBlock" id="K2V-UV-9i7" customClass="AddNewEventActionTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K2V-UV-9i7" id="b9y-6D-dco">
@@ -303,7 +303,7 @@
         <!--編輯活動名應-->
         <scene sceneID="764-gR-8g5">
             <objects>
-                <viewController storyboardIdentifier="showEditTxtFieldVC" title="編輯活動名應" id="LNu-4Z-TwE" customClass="ShowEditTxtFieldVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showEditTxtFieldVC" title="編輯活動名應" id="LNu-4Z-TwE" customClass="ShowEditTxtFieldVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Ue-4P-eQD"/>
                         <viewControllerLayoutGuide type="bottom" id="M0B-f0-DKU"/>
@@ -312,7 +312,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pf1-Jp-LJZ" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pf1-Jp-LJZ" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9e-ky-iI7">
@@ -413,7 +413,7 @@
         <!--我的好友-->
         <scene sceneID="PDs-fu-Y8m">
             <objects>
-                <viewController storyboardIdentifier="myFriendOverviewVC" title="我的好友" id="9O2-uT-64L" customClass="MyFriendOverviewVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myFriendOverviewVC" title="我的好友" id="9O2-uT-64L" customClass="MyFriendOverviewVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ArT-b1-FBY"/>
                         <viewControllerLayoutGuide type="bottom" id="Jli-Uf-7Pe"/>
@@ -422,7 +422,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7w-qr-PEG" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7w-qr-PEG" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的好友" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdd-B7-TTV">
@@ -457,7 +457,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myFriendOverviewTVC" rowHeight="70" id="WC8-v9-tpQ" customClass="MyFriendOverviewTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myFriendOverviewTVC" rowHeight="70" id="WC8-v9-tpQ" customClass="MyFriendOverviewTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WC8-v9-tpQ" id="y1Y-Ny-b2i">
@@ -524,10 +524,11 @@
                             <constraint firstAttribute="trailing" secondItem="YNz-J7-SOE" secondAttribute="trailing" id="lC7-Nl-3pu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的好友" id="dsV-ip-VGj"/>
+                    <tabBarItem key="tabBarItem" title="我的好友" image="user96" id="dsV-ip-VGj"/>
                     <connections>
                         <outlet property="actionButton" destination="mkm-RM-30Q" id="oyW-wY-5vW"/>
                         <outlet property="friendListingTable" destination="YNz-J7-SOE" id="MbM-lj-8Iy"/>
+                        <outlet property="navigationLabel" destination="G7w-qr-PEG" id="3p4-do-Z8R"/>
                         <outlet property="viewTitleLabel" destination="Bdd-B7-TTV" id="qzN-ii-jNh"/>
                     </connections>
                 </viewController>
@@ -538,7 +539,7 @@
         <!--使用者資訊頁面-->
         <scene sceneID="Uyn-R8-pJA">
             <objects>
-                <viewController storyboardIdentifier="CurrentUserInfoVC" title="使用者資訊頁面" id="xJj-3M-srz" customClass="CurrentUserInfoVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrentUserInfoVC" title="使用者資訊頁面" id="xJj-3M-srz" customClass="CurrentUserInfoVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TL2-w2-iZB"/>
                         <viewControllerLayoutGuide type="bottom" id="IRe-jf-HqH"/>
@@ -547,7 +548,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtY-si-gn0" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtY-si-gn0" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用者資訊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkY-lr-6ah">
@@ -672,7 +673,7 @@
         <!--我的活動總覽-->
         <scene sceneID="nC0-Wa-4le">
             <objects>
-                <viewController storyboardIdentifier="eventOverview" title="我的活動總覽" id="YM2-86-o4u" customClass="MyEventsOverview" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eventOverview" title="我的活動總覽" id="YM2-86-o4u" customClass="MyEventsOverview" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WIG-t2-6R6"/>
                         <viewControllerLayoutGuide type="bottom" id="nrK-MG-s0h"/>
@@ -681,7 +682,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeN-fs-Vfl" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeN-fs-Vfl" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="14" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動總覽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5s-Nf-LB6">
@@ -717,7 +718,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyEventOverviewPictureCell" rowHeight="200" id="d8n-nP-QRt" customClass="MyEventOverviewPictureTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyEventOverviewPictureCell" rowHeight="200" id="d8n-nP-QRt" customClass="MyEventOverviewPictureTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d8n-nP-QRt" id="cio-0B-7U1">
@@ -767,7 +768,7 @@
                                             <outlet property="value" destination="q1T-e3-45H" id="H3y-em-4NR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyEventOverviewFavoriteCell" rowHeight="200" id="mgt-3I-b7O" customClass="MyEventOverviewFavoriteTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyEventOverviewFavoriteCell" rowHeight="200" id="mgt-3I-b7O" customClass="MyEventOverviewFavoriteTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mgt-3I-b7O" id="9tN-fb-JZS">
@@ -802,7 +803,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myEventOverviewFavoriteCVC" id="Dch-e6-bsm" customClass="MyEventOverviewFavoriteCVC" customModule="FastQuantum" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myEventOverviewFavoriteCVC" id="Dch-e6-bsm" customClass="MyEventOverviewFavoriteCVC" customModule="PadiMigration" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="12" width="92" height="133"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -880,7 +881,7 @@
                                             <outlet property="viewAllLabel" destination="l6f-W0-cx0" id="KDn-bQ-J1I"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyEventOverviewEventsCell" rowHeight="285" id="hPz-Ho-iuO" customClass="MyEventOverviewEventsTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyEventOverviewEventsCell" rowHeight="285" id="hPz-Ho-iuO" customClass="MyEventOverviewEventsTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="428" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hPz-Ho-iuO" id="RGL-wY-q6p">
@@ -906,7 +907,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myEventOverviewEventsCVC" id="ZQR-Ww-9VL" customClass="MyEventOverviewEventsCVC" customModule="FastQuantum" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myEventOverviewEventsCVC" id="ZQR-Ww-9VL" customClass="MyEventOverviewEventsCVC" customModule="PadiMigration" customModuleProvider="target">
                                                             <rect key="frame" x="12.5" y="0.0" width="350" height="60"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1034,7 +1035,7 @@
                             <constraint firstItem="j3X-gB-FE0" firstAttribute="top" secondItem="aeN-fs-Vfl" secondAttribute="bottom" id="xXE-sa-6Bd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的活動總覽" id="VMN-cr-fjV"/>
+                    <tabBarItem key="tabBarItem" title="我的活動總覽" image="overview75" id="VMN-cr-fjV"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
@@ -1050,7 +1051,7 @@
         <!--公開活動-->
         <scene sceneID="mnz-1U-HTL">
             <objects>
-                <viewController title="公開活動" id="EzU-Qi-3Dp" customClass="EventsSharedWithMeVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="公開活動" id="EzU-Qi-3Dp" customClass="EventsSharedWithMeVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mGK-Sn-WaQ"/>
                         <viewControllerLayoutGuide type="bottom" id="EuS-VE-kGb"/>
@@ -1059,7 +1060,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXf-UB-HDn" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXf-UB-HDn" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享活動總覽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZe-2g-Zat">
@@ -1080,7 +1081,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sharedEventsCell" id="okm-Ym-sL9" customClass="SharedEventsTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sharedEventsCell" id="okm-Ym-sL9" customClass="SharedEventsTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="okm-Ym-sL9" id="JNK-n6-tE4">
@@ -1134,8 +1135,9 @@
                             <constraint firstItem="hXf-UB-HDn" firstAttribute="leading" secondItem="PCl-HT-JvD" secondAttribute="leading" id="sIk-iG-SZ5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="與我分享的活動" id="ADe-gs-dLi"/>
+                    <tabBarItem key="tabBarItem" title="與我分享的活動" image="SharedWithMe75" id="ADe-gs-dLi"/>
                     <connections>
+                        <outlet property="navigationLabel" destination="hXf-UB-HDn" id="3xK-Gd-4xa"/>
                         <outlet property="sharedEventsTable" destination="xew-JY-QcN" id="6cW-BM-2BA"/>
                         <outlet property="viewTitleLabel" destination="cZe-2g-Zat" id="xZg-G8-YBB"/>
                     </connections>
@@ -1299,7 +1301,7 @@
         <!--單項活動頁面-->
         <scene sceneID="e7v-w7-Ul8">
             <objects>
-                <viewController storyboardIdentifier="SingleEventVC" title="單項活動頁面" id="7t9-Sb-h0h" customClass="SingleEventViewVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingleEventVC" title="單項活動頁面" id="7t9-Sb-h0h" customClass="SingleEventViewVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vpe-8r-vH1"/>
                         <viewControllerLayoutGuide type="bottom" id="iiO-li-rZg"/>
@@ -1308,7 +1310,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pho-qQ-W9G" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pho-qQ-W9G" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="14" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="單項活動名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1y-a2-xcx">
@@ -1355,7 +1357,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="1136"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventImageCell" rowHeight="200" id="306-V9-cM0" customClass="EventPictureTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventImageCell" rowHeight="200" id="306-V9-cM0" customClass="EventPictureTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="306-V9-cM0" id="8du-C0-yHp">
@@ -1377,7 +1379,7 @@
                                             <outlet property="eventImage" destination="6dI-Tm-bs5" id="LEu-NE-xJZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowPaymentCell" rowHeight="40" id="DAe-fv-bAY" customClass="ShowPaymentTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowPaymentCell" rowHeight="40" id="DAe-fv-bAY" customClass="ShowPaymentTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DAe-fv-bAY" id="7tI-XQ-fzC">
@@ -1417,7 +1419,7 @@
                                             <outlet property="title" destination="R9x-I7-D78" id="l5t-0P-eZp"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventInfoCell" rowHeight="285" id="m3A-2q-V37" customClass="EventInfoTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventInfoCell" rowHeight="285" id="m3A-2q-V37" customClass="EventInfoTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="268" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3A-2q-V37" id="qRe-JC-IaK">
@@ -1438,7 +1440,7 @@
                                                     <rect key="frame" x="15" y="42" width="345" height="232"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventInfoDetailTVC" rowHeight="10" id="Ljq-sp-XeD" customClass="EventInfoDetailTVC" customModule="FastQuantum" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventInfoDetailTVC" rowHeight="10" id="Ljq-sp-XeD" customClass="EventInfoDetailTVC" customModule="PadiMigration" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="345" height="10"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ljq-sp-XeD" id="nIQ-Jh-UJe">
@@ -1446,7 +1448,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-AK-cjp">
-                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="22"/>
+                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="21.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="2KA-9Y-ipt"/>
                                                                             <constraint firstAttribute="height" constant="21" id="NbP-09-ntJ"/>
@@ -1456,7 +1458,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電影影影影" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1J-13-70n">
-                                                                        <rect key="frame" x="93" y="-4" width="200" height="17"/>
+                                                                        <rect key="frame" x="93" y="-4" width="200" height="16.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="200" id="1A7-RB-FkZ"/>
                                                                             <constraint firstAttribute="height" constant="16" id="7ob-nQ-JMW"/>
@@ -1495,7 +1497,7 @@
                                             <outlet property="title" destination="0A2-Ei-Tdj" id="RIG-gj-osk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleEventMembersTVC" rowHeight="200" id="lPK-pP-bgL" customClass="EventMembersTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleEventMembersTVC" rowHeight="200" id="lPK-pP-bgL" customClass="EventMembersTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="553" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lPK-pP-bgL" id="tRT-HM-rsU">
@@ -1530,7 +1532,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventMembersCVC" id="nxE-fM-ZSG" customClass="EventMembersCVC" customModule="FastQuantum" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventMembersCVC" id="nxE-fM-ZSG" customClass="EventMembersCVC" customModule="PadiMigration" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="12" width="92" height="133"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1601,7 +1603,7 @@
                                             <outlet property="title" destination="Ofh-OU-aor" id="c91-8T-aNC"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventPayTVC" rowHeight="285" id="v1l-fN-ST9" customClass="EventPayTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventPayTVC" rowHeight="285" id="v1l-fN-ST9" customClass="EventPayTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="753" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v1l-fN-ST9" id="cYm-Tc-SD5">
@@ -1627,7 +1629,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventPayCVC" id="lFA-NI-RwW" customClass="EventPayCVC" customModule="FastQuantum" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventPayCVC" id="lFA-NI-RwW" customClass="EventPayCVC" customModule="PadiMigration" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="0.0" width="345" height="60"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1773,7 +1775,7 @@
         <!--單項款項頁面-->
         <scene sceneID="LRI-Pr-4fZ">
             <objects>
-                <viewController storyboardIdentifier="singlePayVC" title="單項款項頁面" id="rJQ-8z-h4v" customClass="SinglePayVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="singlePayVC" title="單項款項頁面" id="rJQ-8z-h4v" customClass="SinglePayVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ehn-Eb-GCf"/>
                         <viewControllerLayoutGuide type="bottom" id="vvy-oo-FPd"/>
@@ -1782,7 +1784,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmq-CF-mqV" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmq-CF-mqV" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="14" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="單項款項名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0r-fL-4Vb">
@@ -1830,7 +1832,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="1136"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SinglePayImageCell" rowHeight="200" id="5ho-Qw-sL7" customClass="SinglePayImageTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SinglePayImageCell" rowHeight="200" id="5ho-Qw-sL7" customClass="SinglePayImageTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5ho-Qw-sL7" id="okP-yI-HcH">
@@ -1852,7 +1854,7 @@
                                             <outlet property="payImage" destination="Kby-PG-gNu" id="Zcp-J5-mFg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowPaymentCell" rowHeight="40" id="tL4-Hy-IXv" customClass="ShowPaymentForSinglePayTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowPaymentCell" rowHeight="40" id="tL4-Hy-IXv" customClass="ShowPaymentForSinglePayTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tL4-Hy-IXv" id="6X1-hi-4G1">
@@ -1892,7 +1894,7 @@
                                             <outlet property="title" destination="rBq-jg-ru5" id="4XM-R6-Pbx"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PayInfoCell" rowHeight="285" id="egG-Nw-B4Z" customClass="SinglePayInfoTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PayInfoCell" rowHeight="285" id="egG-Nw-B4Z" customClass="SinglePayInfoTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="268" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="egG-Nw-B4Z" id="zhB-Q8-2gF">
@@ -1913,7 +1915,7 @@
                                                     <rect key="frame" x="15" y="42" width="345" height="232"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PayInfoDetailTVC" rowHeight="10" id="gAb-Dg-aNR" customClass="SinglePayInfoDetailTVC" customModule="FastQuantum" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PayInfoDetailTVC" rowHeight="10" id="gAb-Dg-aNR" customClass="SinglePayInfoDetailTVC" customModule="PadiMigration" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="345" height="10"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gAb-Dg-aNR" id="Ing-ux-2i5">
@@ -1921,7 +1923,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFb-hM-1yg">
-                                                                        <rect key="frame" x="8" y="-7" width="70" height="22"/>
+                                                                        <rect key="frame" x="8" y="-6" width="70" height="21.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="Gul-Ns-aOD"/>
                                                                             <constraint firstAttribute="width" constant="70" id="nZp-Gw-8rl"/>
@@ -1931,7 +1933,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBD-yJ-qCD">
-                                                                        <rect key="frame" x="93" y="-4.5" width="200" height="17"/>
+                                                                        <rect key="frame" x="93" y="-3.5" width="200" height="16.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="16" id="Rsy-rU-VKq"/>
                                                                             <constraint firstAttribute="width" constant="200" id="kmY-Jb-66o"/>
@@ -1970,7 +1972,7 @@
                                             <outlet property="title" destination="Mcp-DZ-2s1" id="VIs-d5-0jz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SinglePayMembersTVC" rowHeight="531" id="sTr-uC-RCQ" customClass="SinglePayMemberTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SinglePayMembersTVC" rowHeight="531" id="sTr-uC-RCQ" customClass="SinglePayMemberTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="553" width="375" height="531"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sTr-uC-RCQ" id="M7P-bl-RFG">
@@ -1990,7 +1992,7 @@
                                                     <rect key="frame" x="0.0" y="32" width="375" height="498.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemberShouldPayTVC" rowHeight="120" id="5fz-H3-BhK" customClass="MemberShouldPayTVC" customModule="FastQuantum" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemberShouldPayTVC" rowHeight="120" id="5fz-H3-BhK" customClass="MemberShouldPayTVC" customModule="PadiMigration" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5fz-H3-BhK" id="UiI-qX-cgW">
@@ -2101,7 +2103,7 @@
         <!--Show Pay RelationVC-->
         <scene sceneID="pKQ-5g-a6w">
             <objects>
-                <viewController storyboardIdentifier="showPayRelationVC" id="mCL-KT-BNB" customClass="ShowPayRelationVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showPayRelationVC" id="mCL-KT-BNB" customClass="ShowPayRelationVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lmf-HF-b66"/>
                         <viewControllerLayoutGuide type="bottom" id="SPa-v0-VLE"/>
@@ -2110,7 +2112,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d71-Je-jeB" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d71-Je-jeB" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付款資訊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDb-7M-cLS">
@@ -2146,7 +2148,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowPayRelationTVC" id="sIc-4T-Nz6" customClass="ShowPayRelationTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowPayRelationTVC" id="sIc-4T-Nz6" customClass="ShowPayRelationTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sIc-4T-Nz6" id="3ih-jx-yP3">
@@ -2257,7 +2259,7 @@
         <!--新增款項-->
         <scene sceneID="7zO-CR-F5j">
             <objects>
-                <viewController storyboardIdentifier="addNewPaymentVC" title="新增款項" id="fvk-pc-2og" customClass="AddNewPaymentVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addNewPaymentVC" title="新增款項" id="fvk-pc-2og" customClass="AddNewPaymentVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n5M-jQ-0Lc"/>
                         <viewControllerLayoutGuide type="bottom" id="qRX-jF-Aqd"/>
@@ -2266,7 +2268,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8r-z3-dvk" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8r-z3-dvk" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="14" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增款項" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwx-3g-Sr5">
@@ -2316,7 +2318,7 @@
                                     <constraint firstAttribute="height" constant="130" id="uao-9L-RSy"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventInfoBlock" rowHeight="121" id="OCY-Me-Zhf" customClass="AddNewPaymentInfoBlockTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventInfoBlock" rowHeight="121" id="OCY-Me-Zhf" customClass="AddNewPaymentInfoBlockTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OCY-Me-Zhf" id="ljd-uk-USp">
@@ -2378,7 +2380,7 @@
                                 <rect key="frame" x="0.0" y="194" width="375" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventActionBlock" id="IDg-CD-1r9" customClass="AddNewPaymentActionBlockTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventActionBlock" id="IDg-CD-1r9" customClass="AddNewPaymentActionBlockTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IDg-CD-1r9" id="bKo-51-cAk">
@@ -2463,7 +2465,7 @@
         <!--選擇付款者-->
         <scene sceneID="JX1-xW-N9F">
             <objects>
-                <viewController storyboardIdentifier="PayerSelectVC" title="選擇付款者" id="dX4-81-d3x" customClass="PayInvolvedSelectVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PayerSelectVC" title="選擇付款者" id="dX4-81-d3x" customClass="PayInvolvedSelectVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nWE-3z-zDT"/>
                         <viewControllerLayoutGuide type="bottom" id="5Bb-9Y-AD2"/>
@@ -2472,7 +2474,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-jh-jp1" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-jh-jp1" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="選擇付款者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdy-7O-Oji">
@@ -2520,7 +2522,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="payerSelectTVC" id="CiD-2V-h0D" customClass="PayerSelectTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="payerSelectTVC" id="CiD-2V-h0D" customClass="PayerSelectTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CiD-2V-h0D" id="pvR-0R-H3O">
@@ -2602,7 +2604,7 @@
         <!--新增個人款項-->
         <scene sceneID="Vmz-O2-BoL">
             <objects>
-                <viewController storyboardIdentifier="addPPVC" title="新增個人款項" id="TFy-X7-aee" customClass="AddNewPersonalPayVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addPPVC" title="新增個人款項" id="TFy-X7-aee" customClass="AddNewPersonalPayVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VI0-wg-uf9"/>
                         <viewControllerLayoutGuide type="bottom" id="YUo-JU-Ohb"/>
@@ -2611,7 +2613,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cD-Az-vYf" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cD-Az-vYf" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增個人款項" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFj-gH-k4m">
@@ -2684,7 +2686,7 @@
                                     <constraint firstItem="tdE-ff-CkJ" firstAttribute="leading" secondItem="On5-Ed-iGn" secondAttribute="leadingMargin" id="Xev-mn-xiD"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jlf-PO-Mwm" customClass="CustomCV" customModule="FastQuantum" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jlf-PO-Mwm" customClass="CustomCV" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="105" width="375" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -2697,7 +2699,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="payerListCVC" id="yfH-4o-Ea8" customClass="PayersListCVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="payerListCVC" id="yfH-4o-Ea8" customClass="PayersListCVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-11.5" width="92" height="133"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -2756,7 +2758,7 @@
                                     <constraint firstItem="Ari-W0-BCc" firstAttribute="centerY" secondItem="yy9-cx-DBy" secondAttribute="centerY" id="P4P-YM-rKG"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="X5m-kf-B33" customClass="CustomCV" customModule="FastQuantum" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="X5m-kf-B33" customClass="CustomCV" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="250" width="375" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -2769,7 +2771,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="payeeListCVC" id="Hg7-lZ-Smd" customClass="PayeesListCVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="payeeListCVC" id="Hg7-lZ-Smd" customClass="PayeesListCVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-11.5" width="92" height="133"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -2805,7 +2807,7 @@
                                 <rect key="frame" x="0.0" y="395" width="375" height="272"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ppRecordsTVC" id="b58-f3-B9h" customClass="NewPersonalPayRecordsTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ppRecordsTVC" id="b58-f3-B9h" customClass="NewPersonalPayRecordsTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b58-f3-B9h" id="Mhf-FN-CJC">
@@ -2936,7 +2938,7 @@
         <!--Add New FriendVC-->
         <scene sceneID="zLG-ju-pJT">
             <objects>
-                <viewController id="vtp-d7-aTc" customClass="AddNewFriendVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vtp-d7-aTc" customClass="AddNewFriendVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jej-NZ-6oG"/>
                         <viewControllerLayoutGuide type="bottom" id="v9h-3f-h7B"/>
@@ -2945,7 +2947,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQI-Om-0nh" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQI-Om-0nh" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="14" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增好友" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jr9-9a-1Cb">
@@ -2980,7 +2982,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddNewFriendTVC" id="OWn-PX-Rh1" customClass="AddNewFriendTVC" customModule="FastQuantum" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddNewFriendTVC" id="OWn-PX-Rh1" customClass="AddNewFriendTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OWn-PX-Rh1" id="xJ1-mH-GdC">
@@ -3044,7 +3046,7 @@
         <!--Add New Self Defined FriendVC-->
         <scene sceneID="KUd-eb-aRD">
             <objects>
-                <viewController storyboardIdentifier="AddNewSelfDefinedFriendVC" id="Iu5-XP-HsL" customClass="AddNewSelfDefinedFriendVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewSelfDefinedFriendVC" id="Iu5-XP-HsL" customClass="AddNewSelfDefinedFriendVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Buz-Jp-O0i"/>
                         <viewControllerLayoutGuide type="bottom" id="v5t-j1-9bV"/>
@@ -3053,7 +3055,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jeg-HO-hE4" customClass="CustomView" customModule="FastQuantum" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jeg-HO-hE4" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增自定義好友" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zql-fL-aUs">
@@ -3145,7 +3147,7 @@
         <!--SignUPView-->
         <scene sceneID="YiQ-L8-UN7">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC" title="SignUPView" id="6vS-OK-BGR" customClass="SignUpVC" customModule="FastQuantum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" title="SignUPView" id="6vS-OK-BGR" customClass="SignUpVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VNm-iP-WxW"/>
                         <viewControllerLayoutGuide type="bottom" id="bzb-J1-Wbg"/>
@@ -3270,6 +3272,10 @@
         <image name="PadiEventDefault" width="147" height="147"/>
         <image name="PadiMemberDefault" width="147" height="147"/>
         <image name="PadiPayDefault" width="147" height="147"/>
+        <image name="SharedWithMe75" width="23" height="23"/>
         <image name="dog" width="720" height="720"/>
+        <image name="overview75" width="23" height="23"/>
+        <image name="plus75" width="23" height="23"/>
+        <image name="user96" width="32" height="32"/>
     </resources>
 </document>

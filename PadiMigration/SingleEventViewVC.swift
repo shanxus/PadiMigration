@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SwiftyJSON
+import Instructions
 
 class SingleEventViewVC: UIViewController {
 
@@ -40,6 +41,8 @@ class SingleEventViewVC: UIViewController {
     
     var eventMemberCV: UICollectionView?
     var eventMembersID: [String] = []
+    
+    let coachMarksController = CoachMarksController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +77,23 @@ class SingleEventViewVC: UIViewController {
         addLongPressRecognizer()
         listenEventChanges()
         listenEventName()
+        
+        self.coachMarksController.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInSingleEventVC")
+        if finishShowingInstructions == false {
+            self.coachMarksController.start(on: self)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.coachMarksController.stop(immediately: true)
     }
     
     @IBAction func editTapped(_ sender: Any) {
@@ -349,7 +369,38 @@ extension SingleEventViewVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
+extension SingleEventViewVC: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 2
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController,
+                              coachMarkAt index: Int) -> CoachMark {
+        
+        if index == 0 {
+            return coachMarksController.helper.makeCoachMark(for: editBtn)
+        } else {
+            let targetIndex = IndexPath(row: 0, section: 1)
+            let cell = layoutTableView.cellForRow(at: targetIndex)
+            let targetView = cell!.contentView
+            return coachMarksController.helper.makeCoachMark(for: targetView)
+        }
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
+        
+        if index == 0 {
+            coachViews.bodyView.hintLabel.text = "點擊這邊來編輯此筆分款活動"
+            coachViews.bodyView.nextLabel.text = "Ok!"
+        } else {
+            coachViews.bodyView.hintLabel.text = "點擊這邊來查看此筆活動的分款資訊"
+            coachViews.bodyView.nextLabel.text = "Ok!"
+        }
+        
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+}
 
 
 

@@ -10,6 +10,8 @@ import UIKit
 import Kingfisher
 import FirebaseDatabase
 import FirebaseAuth
+import SkeletonView
+import Instructions
 
 class MyEventsOverview: UIViewController {
 
@@ -36,6 +38,8 @@ class MyEventsOverview: UIViewController {
     }
     var eventDeleteListener: DatabaseReference?
     
+    let coachMarksController = CoachMarksController()
+    
     override func viewDidLoad() {
         
         if let currentUser = Auth.auth().currentUser {
@@ -43,6 +47,7 @@ class MyEventsOverview: UIViewController {
             print("email: ", currentUser.email!)
             print("uid: ", currentUser.uid)
             loadCurrentUserImage()
+            coachMarksController.dataSource = self
         }
         
         currentUserImage.isUserInteractionEnabled = true
@@ -62,14 +67,24 @@ class MyEventsOverview: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //super.viewDidAppear(true)
-        if let _ = Auth.auth().currentUser {                        
+        super.viewDidAppear(true)
+        if let _ = Auth.auth().currentUser {
+            
+            let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInOverviewVC")
+            if finishShowingInstructions == false {
+                coachMarksController.start(on: self)
+            }
         } else {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             if let loginVC = storyBoard.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpVC {
                 self.present(loginVC, animated: true, completion: nil)
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        coachMarksController.stop(immediately: true)
     }
     
     @objc func currentUserImageTapped(recognizer: UIGestureRecognizer) {
@@ -156,10 +171,13 @@ class MyEventsOverview: UIViewController {
     func loadCurrentUserImage() {
         if let currentUserID = Auth.auth().currentUser?.uid {
             let helper = ExamplePadiMember()
+            currentUserImage.isSkeletonable = true
+            currentUserImage.showAnimatedGradientSkeleton()
             helper.fetchUserImageURL(userID: currentUserID) { (imageURL: String) in
                 DispatchQueue.main.async {
                     let url = URL(string: imageURL)
                     self.currentUserImage.kf.setImage(with: url)
+                    self.currentUserImage.hideSkeleton()
                 }
             }
         }
@@ -180,7 +198,7 @@ class MyEventsOverview: UIViewController {
     }
     
     func updateEventsCollectionView() {
-        let indexForOverview = IndexPath(row: 0, section: 2)
+        let indexForOverview = IndexPath(row: 0, section: 1)
         if let overviewTV = self.layoutTableView.cellForRow(at: indexForOverview) as? MyEventOverviewEventsTVC {
             overviewTV.eventsCollectionView.reloadData()
         }
@@ -347,7 +365,36 @@ extension MyEventsOverview: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - implementation of dataSource and delegate for Instructions.
 
+extension MyEventsOverview: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 2
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
+        
+        if index == 0 {
+            return coachMarksController.helper.makeCoachMark(for: self.currentUserImage)
+        } else {
+            return coachMarksController.helper.makeCoachMark(for: self.viewTitleLabel)
+        }
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
+        
+        if index == 0 {
+            coachViews.bodyView.hintLabel.text = "在這邊設定您的頭像以及使用者暱稱"
+            coachViews.bodyView.nextLabel.text = "Ok!"
+        } else if index == 1 {
+            coachViews.bodyView.hintLabel.text = "所有您所創立的分款活動都會顯示在這個頁面"
+            coachViews.bodyView.nextLabel.text = "Ok!"
+        }
+        
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+}
 
 
 
