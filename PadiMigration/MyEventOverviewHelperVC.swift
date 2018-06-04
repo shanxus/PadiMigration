@@ -89,13 +89,19 @@ extension MyEventOverviewHelperVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if let events = events {
-            return events.count
-        } else {
+        guard let events = events else {
+            let reminderTxt = UILabel()
+            let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+            reminderTxt.frame = frame
+            reminderTxt.textAlignment = .center
+            reminderTxt.text = "您還沒有建立任何一筆分款活動！\n快跟好友一起分款吧！"
+            reminderTxt.numberOfLines = 0
+            reminderTxt.sizeToFit()
+            collectionView.backgroundView = reminderTxt
             return 0
         }
-    
+        collectionView.backgroundView = UIView()
+        return events.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

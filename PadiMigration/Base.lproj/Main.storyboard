@@ -95,7 +95,7 @@
                             <constraint firstItem="3Zt-Lh-fhD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="14" id="k4Z-Lj-UAu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="新增" id="EcC-hg-EU0"/>
+                    <tabBarItem key="tabBarItem" title="新增" image="plus75" id="EcC-hg-EU0"/>
                     <connections>
                         <outlet property="selectionTableView" destination="80h-7v-epL" id="aRw-5V-JNQ"/>
                         <outlet property="viewTitle" destination="2at-8O-PoH" id="OW7-K0-so1"/>
@@ -524,7 +524,7 @@
                             <constraint firstAttribute="trailing" secondItem="YNz-J7-SOE" secondAttribute="trailing" id="lC7-Nl-3pu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的好友" id="dsV-ip-VGj"/>
+                    <tabBarItem key="tabBarItem" title="我的好友" image="user96" id="dsV-ip-VGj"/>
                     <connections>
                         <outlet property="actionButton" destination="mkm-RM-30Q" id="oyW-wY-5vW"/>
                         <outlet property="friendListingTable" destination="YNz-J7-SOE" id="MbM-lj-8Iy"/>
@@ -1035,7 +1035,7 @@
                             <constraint firstItem="j3X-gB-FE0" firstAttribute="top" secondItem="aeN-fs-Vfl" secondAttribute="bottom" id="xXE-sa-6Bd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的活動總覽" id="VMN-cr-fjV"/>
+                    <tabBarItem key="tabBarItem" title="我的活動總覽" image="overview75" id="VMN-cr-fjV"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
@@ -1135,7 +1135,7 @@
                             <constraint firstItem="hXf-UB-HDn" firstAttribute="leading" secondItem="PCl-HT-JvD" secondAttribute="leading" id="sIk-iG-SZ5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="與我分享的活動" id="ADe-gs-dLi"/>
+                    <tabBarItem key="tabBarItem" title="與我分享的活動" image="SharedWithMe75" id="ADe-gs-dLi"/>
                     <connections>
                         <outlet property="navigationLabel" destination="hXf-UB-HDn" id="3xK-Gd-4xa"/>
                         <outlet property="sharedEventsTable" destination="xew-JY-QcN" id="6cW-BM-2BA"/>
@@ -3272,6 +3272,10 @@
         <image name="PadiEventDefault" width="147" height="147"/>
         <image name="PadiMemberDefault" width="147" height="147"/>
         <image name="PadiPayDefault" width="147" height="147"/>
+        <image name="SharedWithMe75" width="23" height="23"/>
         <image name="dog" width="720" height="720"/>
+        <image name="overview75" width="23" height="23"/>
+        <image name="plus75" width="23" height="23"/>
+        <image name="user96" width="32" height="32"/>
     </resources>
 </document>
