@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import SkeletonView
+import Instructions
 
 enum FriendsVCType: String {
     case friendOverview = "friendOverview"
@@ -27,6 +28,7 @@ class friendOverviewInfo {
 
 class MyFriendOverviewVC: UIViewController {
 
+    @IBOutlet weak var navigationLabel: CustomView!
     @IBOutlet weak var viewTitleLabel: UILabel!
     @IBOutlet weak var friendListingTable: UITableView!
     @IBOutlet weak var actionButton: UIButton!
@@ -57,6 +59,8 @@ class MyFriendOverviewVC: UIViewController {
     var friendVCType: FriendsVCType?
     var prepareDisplaying: friendOverviewInfo?
     
+    let coachMarksController = CoachMarksController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,6 +85,18 @@ class MyFriendOverviewVC: UIViewController {
                 self.friends = list
             }
         }
+        
+        self.coachMarksController.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.coachMarksController.start(on: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.coachMarksController.stop(immediately: true)
     }
     
     @objc func longPressOnFriendCell(recognizer: UIGestureRecognizer) {
@@ -166,63 +182,21 @@ extension MyFriendOverviewVC: UITableViewDelegate {
     }
 }
 
-/*
-extension MyFriendOverviewVC: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = friends?.count {
-            return count
-        }
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "myFriendOverviewTVC", for: indexPath) as? MyFriendOverviewTVC {
-            
-            guard let currentUserID = Auth.auth().currentUser?.uid else {return MyFriendOverviewTVC()}
-            
-            let helper = ExamplePadiMember()
-            if let friends = friends {
-                let userID = friends[indexPath.row]
-                helper.fetchUserImageURL(userID: userID) { (url: String) in
-                    let urlString = URL(string: url)
-                    cell.friendImage.kf.setImage(with: urlString)
-                }
-                
-                helper.fetchName(userID: userID) { (name: String) in
-                    DispatchQueue.main.async {
-                        cell.friendName.text = name
-                    }
-                }
-                
-                helper.fetchFriendType(currentUserID: currentUserID, friendID: userID) { (type: String) in
-                    DispatchQueue.main.async {
-                        cell.friendType.text = type
-                    }
-                }
-                
-                let VCtype = friendVCType
-                if VCtype == FriendsVCType.eventFriendList {
-                    let exist = selected.contains(friends[indexPath.row])
-                    cell.accessoryType = (exist == true) ? .checkmark : .none
-                }
-            }
-            return cell
-        }
-        return UITableViewCell()
-    }
-}
-*/
-
 extension MyFriendOverviewVC: SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = friends?.count {
-            return count
+        guard let count = friends?.count else {
+            let reminderTxt = UILabel()
+            let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+            reminderTxt.frame = frame
+            reminderTxt.textAlignment = .center
+            reminderTxt.text = "您還沒有加入任何好友！\n快搜尋好友帳號並加入好友吧！"
+            reminderTxt.numberOfLines = 0
+            reminderTxt.sizeToFit()
+            tableView.backgroundView = reminderTxt
+            return 0
         }
-        return 0
+        tableView.backgroundView = UIView()
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -277,7 +251,25 @@ extension MyFriendOverviewVC: SkeletonTableViewDataSource {
     
 }
 
-
+extension MyFriendOverviewVC: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 1
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController,
+                              coachMarkAt index: Int) -> CoachMark {
+        return coachMarksController.helper.makeCoachMark(for: navigationLabel)
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
+        
+        coachViews.bodyView.hintLabel.text = "您的好友將會顯示在這個頁面"
+        coachViews.bodyView.nextLabel.text = "Ok!"
+        
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+}
 
 
 

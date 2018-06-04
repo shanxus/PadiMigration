@@ -69,7 +69,11 @@ class MyEventsOverview: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if let _ = Auth.auth().currentUser {
-            coachMarksController.start(on: self)
+            
+            let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInOverviewVC")
+            if finishShowingInstructions == false {
+                coachMarksController.start(on: self)
+            }
         } else {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             if let loginVC = storyBoard.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpVC {
@@ -381,10 +385,12 @@ extension MyEventsOverview: CoachMarksControllerDataSource, CoachMarksController
         let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
         
         if index == 0 {
-            
+            coachViews.bodyView.hintLabel.text = "在這邊設定您的頭像以及使用者暱稱"
+            coachViews.bodyView.nextLabel.text = "Ok!"
+        } else if index == 1 {
+            coachViews.bodyView.hintLabel.text = "所有您所創立的分款活動都會顯示在這個頁面"
+            coachViews.bodyView.nextLabel.text = "Ok!"
         }
-        coachViews.bodyView.hintLabel.text = "Hello! I'm a Coach Mark!"
-        coachViews.bodyView.nextLabel.text = "Ok!"
         
         return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
     }

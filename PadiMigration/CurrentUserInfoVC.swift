@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import Instructions
 
 class CurrentUserInfoVC: UIViewController {
 
@@ -26,6 +27,8 @@ class CurrentUserInfoVC: UIViewController {
     }
     @IBOutlet weak var editButton: UIButton!
     
+    let coachMarksController = CoachMarksController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUserbasicInfo()
@@ -36,10 +39,23 @@ class CurrentUserInfoVC: UIViewController {
         userName.addGestureRecognizer(tapUserName)
         
         enableSignOutBtnCheck()
+        
+        self.coachMarksController.dataSource = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInCurrentUserInfoVC")
+        if finishShowingInstructions == false {
+            self.coachMarksController.start(on: self)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.coachMarksController.stop(immediately: true)
     }
     
     @IBAction func dimissTapped(_ sender: Any) {
@@ -244,6 +260,34 @@ extension CurrentUserInfoVC: UIImagePickerControllerDelegate, UINavigationContro
     }
 }
 
+extension CurrentUserInfoVC: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 2
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController,
+                              coachMarkAt index: Int) -> CoachMark {
+        if index == 0 {
+            return coachMarksController.helper.makeCoachMark(for: editButton)
+        } else {
+            return coachMarksController.helper.makeCoachMark(for: signOutBtn)
+        }
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
+        
+        if index == 0 {
+            coachViews.bodyView.hintLabel.text = "點擊編輯鈕後，點擊頭像或使用者名稱來編輯"
+            coachViews.bodyView.nextLabel.text = "Ok!"
+        } else if index == 1 {
+            coachViews.bodyView.hintLabel.text = "點擊登出會登出目前使用帳號"
+            coachViews.bodyView.nextLabel.text = "Ok!"
+        }
+        
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+}
 
 
 
