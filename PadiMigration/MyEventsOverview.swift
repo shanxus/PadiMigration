@@ -116,7 +116,7 @@ class MyEventsOverview: UIViewController {
     
     func addLongPressRecognizer() {
         let rec = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPressInPayRecords))
-        let layoutIndex = IndexPath(row: 0, section: 2)
+        let layoutIndex = IndexPath(row: 0, section: 1)
         if let cell = layoutTableView.cellForRow(at: layoutIndex) as? MyEventOverviewEventsTVC {
             eventsCV = cell.eventsCollectionView
             cell.eventsCollectionView.addGestureRecognizer(rec)
@@ -145,7 +145,6 @@ class MyEventsOverview: UIViewController {
     func listenEventAdded(userID: String) {
         let listenHelper = ExamplePadiEvent()
         listenHelper.listenAdd(forSpecificUser: userID) { (event) in
-            print("listenEventAdded got called...")
             var isContained: Bool = false
             for each in self.mainUserEvents {
                 if each.getID() == event.getID() {

@@ -40,6 +40,8 @@ class AddNewPaymentVC: UIViewController {
         }
     }
     
+    var selectedDefaultIconName: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -74,9 +76,9 @@ class AddNewPaymentVC: UIViewController {
     @IBAction func addNewPaymentTapped(_ sender: Any) {
         if self.isEditingPay == true {  // saving changes for a existing pay.
             guard let pay = payID, let user = userID else {return}
-            addNewPaymentHelper.handleSavingChanges(forPay: pay, userID: user, imageData: paymentImgData, newTitle: paymentNameLabel?.text)
+            addNewPaymentHelper.handleSavingChanges(forPay: pay, userID: user, imageType: selectedDefaultIconName, newTitle: paymentNameLabel?.text)
         } else {    // saving new created pay.
-            addNewPaymentHelper.handleAddingNewPayment(belongsToEvent: belongsToEventID, paymentNameLabel: paymentNameLabel, imageData: paymentImgData)
+            addNewPaymentHelper.handleAddingNewPayment(belongsToEvent: belongsToEventID, paymentNameLabel: paymentNameLabel, imageType: selectedDefaultIconName)
         }
     }
     
@@ -124,35 +126,12 @@ class AddNewPaymentVC: UIViewController {
     }
     
     @objc func handleChangePayImage() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
         let topVC = GeneralService.findTopVC()
+        if let defaultIconVC = topVC.storyboard?.instantiateViewController(withIdentifier: "DefaultPayIconVC") as? DefaultIconSelectVC {
+            defaultIconVC.delegate = self
+            topVC.present(defaultIconVC, animated: true, completion: nil)
+        }
         
-        let alert = UIAlertController(title: "更改款項圖片", message: "請選擇圖片來源，或者繼續使用預設圖片", preferredStyle: .actionSheet)
-        let fromPhotoLibrary = UIAlertAction(title: "相片圖庫", style: .default) { (action) in
-            imagePicker.sourceType = .photoLibrary
-            topVC.present(imagePicker, animated: true, completion: nil)
-        }
-        let fromCamera = UIAlertAction(title: "相機", style: .default) { (action) in
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                imagePicker.sourceType = .camera
-                topVC.present(imagePicker, animated: true, completion: nil)
-            }
-        }
-        let fromDefault = UIAlertAction(title: "使用預設圖片", style: .default) { (action) in
-            if let defaultIconVC = topVC.storyboard?.instantiateViewController(withIdentifier: "DefaultPayIconVC") as? DefaultIconSelectVC {
-                topVC.present(defaultIconVC, animated: true, completion: nil)
-            }
-        }
-        let cancel = UIAlertAction(title: "取消", style: .destructive) { (action) in
-            
-        }
-        alert.addAction(fromPhotoLibrary)
-        alert.addAction(fromCamera)
-        alert.addAction(fromDefault)
-        alert.addAction(cancel)
-        
-        topVC.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -176,20 +155,16 @@ extension AddNewPaymentVC: UITableViewDataSource {
             let helper = ExamplePay()
             
             helper.fetchPayAttribute(for: DBPathStrings.namePath, payID: pay, userID: user, completion: { (fetched: JSON) in
-                let name = fetched.stringValue
-                cell.paymentTitle.text = name
+                DispatchQueue.main.async {
+                    let name = fetched.stringValue
+                    cell.paymentTitle.text = name
+                }
             })
             
-            if let selectedPayImage = paymentImgView?.image {
-                cell.paymentImage.image = selectedPayImage
-            } else {
-                helper.fetchPayAttribute(for: DBPathStrings.imageURLPath, payID: pay, userID: user, completion: { (fetched: JSON) in
-                    let imgURL = URL(string: fetched.stringValue)
-                    cell.paymentImage.kf.setImage(with: imgURL)
-                    DispatchQueue.main.async {
-                        self.paymentInfoBlockTableView.reloadData()
-                    }
-                })
+            helper.fetchPayImage(payID: pay, userID: user) { (type: String) in
+                DispatchQueue.main.async {
+                    cell.paymentImage.image = UIImage(named: type)
+                }
             }
         }
         return cell
@@ -227,36 +202,19 @@ extension AddNewPaymentVC: UITableViewDelegate {
     }
 }
 
-extension AddNewPaymentVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let selectedImg = info[UIImagePickerControllerOriginalImage] as! UIImage
-        guard let resizedImg = UIImageJPEGRepresentation(selectedImg, 0.3) else {
-            picker.dismiss(animated: true, completion: nil)
-            return
-        }
-        paymentImgData = resizedImg
-        if let img = UIImage(data: resizedImg) {
-            paymentImgView?.image = img
-            
-            /* call didSet to notify image has been changed when editing a view. */
-            if isEditingPay == true {
-                hasImageChanged = true
-            }
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
-
 extension AddNewPaymentVC: PassEventNameBack {
     func passEventName(event name: String) {
         paymentNameLabel?.text = name
     }
 }
 
+extension AddNewPaymentVC: defaultIconSelectionDelegate {
+    func pass(selectedType: String) {
+        
+        selectedDefaultIconName = selectedType
+        paymentImgView?.image = UIImage(named: selectedType)
+    }
+}
 
 
 

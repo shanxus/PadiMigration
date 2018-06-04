@@ -503,103 +503,6 @@ extension PadiPay {
     }
 }
 
-extension PadiPay {
-    func generateExamplePayData() -> [String:Any]{
-        
-        var targetDictionary: [String:Any]! = [:]
-        var infoDic: [String:Any] = [:]
-        
-//        let memberListDic = ["U00001":["name":"Shan", "imageURL":"jidjidji"],
-//                    "U00002":["name":"Joe", "imageURL":"jidjidji"],
-//                    "U00003":["name":"Sunny", "imageURL":"jidjidji"],
-//                    "U00004":["name":"Winson", "imageURL":"jidjidji"],
-//                    "U00005":["name":"Apple", "imageURL":"jidjidji"],
-//                    "U00006":["name":"Kenlin", "imageURL":"jidjidji"]]
-//        
-//        let payerList = ["U00001":["payValue":"500", "isInvolved":"false"],
-//                         "U00003":["payValue":"300", "isInvolved":"true"]]
-//        
-//        // payeeList: ["payeeID":["payerID":"payValue"]]
-//        let payeeList = ["U00002":["U00001":["payValue":"141"], "U00003":["payValue":"50"]],
-//                         "U00004":["U00001":["payValue":"141"], "U00003":["payValue":"50"]],
-//                         "U00005":["U00001":["payValue":"141"], "U00003":["payValue":"50"]]]
-//        
-//
-//        // personalPay: ["personalPayID":["payerID":["personalPayBelongsToID", "value"]]]
-//        let personalPay = ["PP0001":["U00001":["personalPayBelongsToID":"U00001", "value":"75"]],
-//                            "PP0002":["U00003":["personalPayBelongsToID":"U00005", "value":"100"]]]
-//        
-//        let belongsTo = "E00001"
-//        
-//        infoDic["name"] = "breakfast"
-//        infoDic["imageURL"] = "P00001"
-//        infoDic["time"] = "1522548978.472373"
-//        infoDic["memberList"] = memberListDic
-//        infoDic["serviceCharge"] = "false"
-//        infoDic["serviceChargeValue"] = "10"
-//        infoDic["payers"] = payerList
-//        infoDic["payees"] = payeeList
-//        infoDic["personalPays"] = personalPay
-//        infoDic["belongsTo"] = belongsTo
-//        
-//        targetDictionary["P00001"] = infoDic
-
-        let memberListDic = ["U00001":["name":"Shan", "imageURL":"jidjidji"],
-                             "U00002":["name":"Joe", "imageURL":"jidjidji"],
-                             "U00003":["name":"Sunny", "imageURL":"jidjidji"],
-                             "U00004":["name":"Winson", "imageURL":"jidjidji"],
-                             "U00005":["name":"Apple", "imageURL":"jidjidji"],
-                             "U00006":["name":"Kenlin", "imageURL":"jidjidji"]]
-        
-        let payerList = ["U00001":["payValue":"385", "isInvolved":"false"],
-                         "U00005":["payValue":"715", "isInvolved":"true"]]
-        
-        // payeeList: ["payeeID":["payerID":"payValue"]]
-        let payeeList = ["U00002":["U00001":["payValue":"83"], "U00005":["payValue":"200"]],
-                         "U00003":["U00001":["payValue":"83"], "U00005":["payValue":"150"]],
-                         "U00004":["U00001":["payValue":"83"], "U00005":["payValue":"150"]]]
-        
-        
-        // personalPay: ["personalPayID":["payerID":["personalPayBelongsToID", "value"]]]
-        let personalPay = ["PP0001":["U00001":["personalPayBelongsToID":"U00001", "value":"100"]],
-                           "PP0002":["U00005":["personalPayBelongsToID":"U00002", "value":"50"]]]
-        
-        let belongsTo = "E00001"
-        
-        infoDic["name"] = "breakfast"
-        infoDic["imageURL"] = "P00001"
-        infoDic["time"] = "1522548978.472373"
-        infoDic["memberList"] = memberListDic
-        infoDic["serviceCharge"] = "true"
-        infoDic["serviceChargeValue"] = "10"
-        infoDic["payers"] = payerList
-        infoDic["payees"] = payeeList
-        infoDic["personalPays"] = personalPay
-        infoDic["belongsTo"] = belongsTo
-        
-        targetDictionary["P00001"] = infoDic
-        
-        return targetDictionary
-    }
-    
-    func storePayDictionaryIntoFirebase(targetDictionary dic: [String:Any]) {
-        
-//        ref.child(self.exampleDataPath).observeSingleEvent(of: .value, with: { (snapshot) in
-//            if let value = snapshot.value as? NSDictionary {
-//                if value.count != 0 {
-//                    print("example data is alreay here.")
-//                }
-//            } else {
-//                print("should generate data.")
-//                self.ref.child(self.exampleDataPath).setValue(dic)
-//            }
-//        }) { (error) in
-//            print("there is an error.")
-//        }
-    }
-    
-}
-
 extension PadiPay: CustomStringConvertible {
     var description: String {
         
@@ -647,58 +550,6 @@ class ExamplePay {
     }
     
     init() {}
-    
-    func getSinglePay(withPayID id: String, userID: String, completion: @escaping ((_ pay: PadiPay) -> Void)) {
-        
-        var memberList: [String] = []
-        var payeeList: [PayPayee] = []
-        var payerList: [PayPayer] = []
-        var personalPayList: [PersonalPay] = []
-        
-        let payRef = ref.child(DBPathStrings.payDataPath).child(userID).child(id)
-        payRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = JSON(snapshot.value ?? "")
-            
-            let imageURL = value[DBPathStrings.imageURLPath].stringValue
-            let isServiceCharge = value[DBPathStrings.isServiceChargedPath].stringValue == "true" ? true : false
-            
-            let memberListJson = value[DBPathStrings.memberListPath]
-            for (_, memberID) in memberListJson {
-                let id = memberID.stringValue
-                memberList.append(id)
-            }
-            
-            let name = value[DBPathStrings.namePath].stringValue
-            let payees = value[DBPathStrings.payeePath].dictionaryValue
-            for (payeeID, payerInfo) in payees {
-                for (payerID, _) in payerInfo {
-                    let newPayee = PayPayee(ID: payeeID, shouldGiveTo: payerID)
-                    payeeList.append(newPayee)
-                }
-            }
-            let payers = value[DBPathStrings.payerPath]
-            for (payerID, payInfo) in payers {
-                let isInvolved = payInfo[DBPathStrings.isInvolved].stringValue == "true" ? true : false
-                let payerPayValue = payInfo[DBPathStrings.value].floatValue
-                let newPayer = PayPayer(withPayValue: payerPayValue, ID: payerID, isInvolved: isInvolved)
-                payerList.append(newPayer)
-            }
-            let personalPays = value[DBPathStrings.ppPath].dictionaryValue
-            for (ppID, ppInfo) in personalPays {
-                let payerID = ppInfo[DBPathStrings.payerPath].stringValue
-                let valueShouldPay = ppInfo[DBPathStrings.value].floatValue
-                let belongsTo = ppInfo[DBPathStrings.belongsTo].stringValue
-                let newPP = PersonalPay(withID: ppID, Payer: payerID, belongsTo: belongsTo, value: valueShouldPay)
-                personalPayList.append(newPP)
-            }
-            let serviceChareValue = value[DBPathStrings.serviceChargePath].floatValue
-            let time = value[DBPathStrings.timePath].doubleValue
-            
-            // store new pay object.
-            let newPay = PadiPay(payID: id, belongsToEventID: "exampleEvent", name: name, imageURL: imageURL, dateTimeInterval: time, memberList: memberList, isServiceCharged: isServiceCharge, serviceChargeValue: serviceChareValue, payerList: payerList, payeeList: payeeList, personalPayList: personalPayList)
-            completion(newPay)
-        })
-    }
     
     /* get total pay value of a pay, including shared pays, perosnal pays and service charge.
      * note: this is .value single observer.
@@ -871,6 +722,27 @@ class ExamplePay {
         }
     }
     
+    func fetchPayDefaultImageType(payID: String, userID: String, completion: @escaping ((_ type: String) -> Void)) {
+        let imageRef = ref.child(DBPathStrings.payDataPath).child(userID).child(payID).child(DBPathStrings.imageURLPath)
+        imageRef.observeSingleEvent(of: .value) { (snapshot) in
+            let json = JSON(snapshot.value ?? "")
+            if let type = json.string {
+                completion(type)
+            }
+        }
+        
+        let payRef = ref.child(DBPathStrings.payDataPath).child(userID).child(payID)
+        payRef.observe(.childChanged) { (snapshot) in
+            if snapshot.key == DBPathStrings.imageURLPath {
+                let json = JSON(snapshot.value ?? "")
+                if let type = json.string {
+                    completion(type)
+                }
+            }
+        }
+    }
+    
+    /* dynamically fetch the name of pay. */
     func fetchPayName(payID: String, userID: String, completion: @escaping ((_ name: String) -> Void)) {
         let nameRef = ref.child(DBPathStrings.payDataPath).child(userID).child(payID).child(DBPathStrings.namePath)
         nameRef.observeSingleEvent(of: .value) { (snapshot) in
@@ -969,6 +841,11 @@ class ExamplePay {
     func store(imgURL: String, payID: String, userID: String) {
         let imgRef = ref.child(DBPathStrings.payDataPath).child(userID).child(payID).child(DBPathStrings.imageURLPath)
         imgRef.setValue(imgURL)
+    }
+    
+    func store(imageType: String, payID: String, userID: String) {
+        let imgRef = ref.child(DBPathStrings.payDataPath).child(userID).child(payID).child(DBPathStrings.imageURLPath)
+        imgRef.setValue(imageType)
     }
     
     func store(isCharged: Bool, payID: String, userID: String) {

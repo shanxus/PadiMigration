@@ -208,8 +208,8 @@ class AddNewPaymentHelperVC: UIViewController {
         return PPs
     }
     
-    func handleAddingNewPayment(belongsToEvent: String?, paymentNameLabel: UILabel?, imageData: Data?) {
-        guard let belongsToEvent = belongsToEvent, let payName = paymentNameLabel?.text, payName != "請輸入款項名稱", let imageData = imageData else {
+    func handleAddingNewPayment(belongsToEvent: String?, paymentNameLabel: UILabel?, imageType: String) {
+        guard let belongsToEvent = belongsToEvent, let payName = paymentNameLabel?.text, payName != "請輸入款項名稱" else {
             infoNotEnoughAlert()
             return
         }
@@ -231,30 +231,26 @@ class AddNewPaymentHelperVC: UIViewController {
             let payees = handleTransformPayees(selectedPayers: selectedPayers, selectedPayees: selectedPayees)
             let pps = handleTransformPP(selectedPairs: selectedPairs)
             // cal. PayRelations.
-            let relationHelper = RelationTable()
+            //let relationHelper = RelationTable()
             guard let member = self.memberList else {return}            
             
             /* create new pay object */
             let newPayID = UUID().uuidString
             let date = Date()
             let newPayDate = date.timeIntervalSince1970
-            let imageHelper = GeneralService()
             guard let chargedValue = serviceChargeValue else {return}
             
-            imageHelper.upload(image: imageData, uuid: newPayID, path: DBPathStrings.payImagePath, completion: { (downloadURL) in
+            if let storedValue = Float(chargedValue) {
+                let newPayObject = PadiPay(payID: newPayID, belongsToEventID: belongsToEvent, name: payName, imageURL: imageType, dateTimeInterval: newPayDate, memberList: member, isServiceCharged: false, serviceChargeValue: storedValue, payerList: payers, payeeList: payees, personalPayList: pps)
                 
-                if let storedValue = Float(chargedValue) {
-                    let newPayObject = PadiPay(payID: newPayID, belongsToEventID: belongsToEvent, name: payName, imageURL: downloadURL, dateTimeInterval: newPayDate, memberList: member, isServiceCharged: false, serviceChargeValue: storedValue, payerList: payers, payeeList: payees, personalPayList: pps)
-                    
-                    let storeHelper = ExamplePay()
-                    guard let currentUserID = Auth.auth().currentUser?.uid else {return}
-                    storeHelper.storeIntoDB(pay: newPayObject, userID: currentUserID)
-                }
-            })
+                let storeHelper = ExamplePay()
+                guard let currentUserID = Auth.auth().currentUser?.uid else {return}
+                storeHelper.storeIntoDB(pay: newPayObject, userID: currentUserID)
+            }
         }
     }
     
-    func handleSavingChanges(forPay payID: String, userID: String, imageData: Data?, newTitle: String?) {
+    func handleSavingChanges(forPay payID: String, userID: String, imageType: String, newTitle: String?) {
         
         let check = checkCalculateSharedPayRequirementIsMet()
         if check == false {
@@ -265,15 +261,7 @@ class AddNewPaymentHelperVC: UIViewController {
             
             let payHelper = ExamplePay()
             
-            /* change the pay image and store into Firebase. */
-            if let _ = hasImageChanged {
-                if let imageData = imageData {
-                    let imageHelper = GeneralService()
-                    imageHelper.upload(image: imageData, uuid: payID, path: DBPathStrings.payImagePath, completion: { (downloadURL: String) in
-                        payHelper.store(imgURL: downloadURL, payID: payID, userID: userID)
-                    })
-                }
-            }
+            payHelper.store(imgURL: imageType, payID: payID, userID: userID)
             
             if let newTitle = newTitle {
                 payHelper.store(name: newTitle, payID: payID, userID: userID)
