@@ -140,7 +140,9 @@ class AddNewPaymentVC: UIViewController {
             }
         }
         let fromDefault = UIAlertAction(title: "使用預設圖片", style: .default) { (action) in
-            
+            if let defaultIconVC = topVC.storyboard?.instantiateViewController(withIdentifier: "DefaultPayIconVC") as? DefaultIconSelectVC {
+                topVC.present(defaultIconVC, animated: true, completion: nil)
+            }
         }
         let cancel = UIAlertAction(title: "取消", style: .destructive) { (action) in
             
