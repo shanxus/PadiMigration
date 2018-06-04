@@ -89,6 +89,8 @@
 		741EBE8F20C3CA0A0061B342 /* SinglePayInfoHelperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE8E20C3CA0A0061B342 /* SinglePayInfoHelperVC.swift */; };
 		741EBE9220C3CA300061B342 /* MyEventOverviewHelperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EBE9120C3CA2F0061B342 /* MyEventOverviewHelperVC.swift */; };
 		74980E4D084E10606D44BA28 /* Pods_PadiMigration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19E60C47E62DBF45B6A6647 /* Pods_PadiMigration.framework */; };
+		7499736E20C5391B00D7DD91 /* DefaultIconSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499736D20C5391B00D7DD91 /* DefaultIconSelectVC.swift */; };
+		7499737120C5395500D7DD91 /* DefaultIconSelectTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499737020C5395500D7DD91 /* DefaultIconSelectTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +179,8 @@
 		741EBE8E20C3CA0A0061B342 /* SinglePayInfoHelperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SinglePayInfoHelperVC.swift; path = PadiMigration/SinglePayInfoHelperVC.swift; sourceTree = SOURCE_ROOT; };
 		741EBE9120C3CA2F0061B342 /* MyEventOverviewHelperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventOverviewHelperVC.swift; path = PadiMigration/MyEventOverviewHelperVC.swift; sourceTree = SOURCE_ROOT; };
 		741EBE9320C3CD750061B342 /* PadiMigration.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PadiMigration.entitlements; sourceTree = "<group>"; };
+		7499736D20C5391B00D7DD91 /* DefaultIconSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIconSelectVC.swift; sourceTree = "<group>"; };
+		7499737020C5395500D7DD91 /* DefaultIconSelectTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIconSelectTVC.swift; sourceTree = "<group>"; };
 		C9505EC15197C802D5C2DCBC /* Pods-PadiMigration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadiMigration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration.debug.xcconfig"; sourceTree = "<group>"; };
 		E19E60C47E62DBF45B6A6647 /* Pods_PadiMigration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PadiMigration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADDE318F71BC61A6E432A3C /* Pods-PadiMigration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadiMigration.release.xcconfig"; path = "Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration.release.xcconfig"; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 		741EBE0820C3C2310061B342 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				7499736F20C5393300D7DD91 /* DefaultIconSelectVC */,
 				741EBE4F20C3C5970061B342 /* MyEventOverview */,
 				741EBE3E20C3C5240061B342 /* SingleEventView */,
 				741EBE3120C3C4900061B342 /* SinglePayView */,
@@ -477,6 +482,7 @@
 				741EBE6020C3C85B0061B342 /* SignUpVC.swift */,
 				741EBE6620C3C85C0061B342 /* SingleEventViewVC.swift */,
 				741EBE5D20C3C85A0061B342 /* SinglePayVC.swift */,
+				7499736D20C5391B00D7DD91 /* DefaultIconSelectVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -542,6 +548,14 @@
 				741EBE9120C3CA2F0061B342 /* MyEventOverviewHelperVC.swift */,
 			);
 			path = MyEventOverview;
+			sourceTree = "<group>";
+		};
+		7499736F20C5393300D7DD91 /* DefaultIconSelectVC */ = {
+			isa = PBXGroup;
+			children = (
+				7499737020C5395500D7DD91 /* DefaultIconSelectTVC.swift */,
+			);
+			path = DefaultIconSelectVC;
 			sourceTree = "<group>";
 		};
 		BBDAD566BE3C3D5C765B2844 /* Frameworks */ = {
@@ -754,11 +768,13 @@
 				741EBE7220C3C85D0061B342 /* ShowEditTxtFieldVC.swift in Sources */,
 				741EBE5420C3C5DD0061B342 /* MyEventOverviewFavoriteTVC.swift in Sources */,
 				741EBE1E20C3C3A70061B342 /* MyFriendOverviewTVC.swift in Sources */,
+				7499736E20C5391B00D7DD91 /* DefaultIconSelectVC.swift in Sources */,
 				741EBE7A20C3C85D0061B342 /* CurrentUserInfoVC.swift in Sources */,
 				741EBE2A20C3C4520061B342 /* AddNewEventActionTVC.swift in Sources */,
 				741EBE7F20C3C88D0061B342 /* ShowPayeesHelperVC.swift in Sources */,
 				741EBE4A20C3C58D0061B342 /* ShowPaymentTVC.swift in Sources */,
 				741EBE3920C3C5170061B342 /* SinglePayMemberTVC.swift in Sources */,
+				7499737120C5395500D7DD91 /* DefaultIconSelectTVC.swift in Sources */,
 				741EBE1B20C3C3800061B342 /* PayerSelectTVC.swift in Sources */,
 				741EBE1820C3C3480061B342 /* PayeesListCVC.swift in Sources */,
 				741EBDFC20C3C1BF0061B342 /* PadiPay.swift in Sources */,
@@ -912,7 +928,10 @@
 				DEVELOPMENT_TEAM = 2R89L7B5LL;
 				INFOPLIST_FILE = PadiMigration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = shan.PadiMigration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PadiMigration/PadiMigration-Bridging-Header.h";
@@ -933,7 +952,10 @@
 				DEVELOPMENT_TEAM = 2R89L7B5LL;
 				INFOPLIST_FILE = PadiMigration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = shan.PadiMigration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PadiMigration/PadiMigration-Bridging-Header.h";
