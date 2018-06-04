@@ -271,14 +271,11 @@ extension SinglePayVC: UITableViewDataSource {
         
         if indexPath.section == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SinglePayImageCell", for: indexPath) as? SinglePayImageTVC {
+                let helper = ExamplePay()
                 if let user = userID, let pay = payID {
-                    let imgURLRef = ref.child(DBPathStrings.payDataPath).child(user).child(pay).child(DBPathStrings.imageURLPath)
-                    imgURLRef.observeSingleEvent(of: .value, with: { (snapshot) in
-                        let json = JSON(snapshot.value ?? "")
-                        if let url = URL(string: json.stringValue) {
-                            cell.payImage.kf.setImage(with: url)
-                        }
-                    })
+                    helper.fetchPayImage(payID: pay, userID: user) { (type) in
+                        cell.payImage.image = UIImage(named: type)
+                    }
                 }
                 return cell
             }

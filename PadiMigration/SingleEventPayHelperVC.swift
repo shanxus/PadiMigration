@@ -119,9 +119,8 @@ extension SingleEventPayHelperVC: UICollectionViewDataSource {
                         cell.payDate.text = timeString
                     }
                 })
-                helper.fetchPayImage(payID: path, userID: userID, completion: { (url: String) in
-                    let imageUrl = URL(string: url)
-                    cell.payImage.kf.setImage(with: imageUrl)
+                helper.fetchPayImage(payID: path, userID: userID, completion: { (url: String) in                    
+                    cell.payImage.image = UIImage(named: url)
                 })
                 if let userID = self.userID {
                     helper.fetchPayValue(userID: userID, payID: path, completion: { (value: Float) in

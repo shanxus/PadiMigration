@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol defaultIconSelectionDelegate {
+    func pass(selectedType: String)
+}
+
 class DefaultIconSelectVC: UIViewController {
 
     @IBOutlet weak var viewTitleLabel: UILabel!
@@ -19,6 +23,8 @@ class DefaultIconSelectVC: UIViewController {
     var categoriesCH: [String] = ["食物", "交通", "房間"]
     
     var categoryCount: [Int] = [10, 6, 1]
+    
+    var delegate: defaultIconSelectionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,5 +73,13 @@ extension DefaultIconSelectVC: UITableViewDataSource {
 extension DefaultIconSelectVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        delegate?.pass(selectedType: defaultIcons[indexPath.row])
+        self.dismiss(animated: true, completion: nil)
     }
 }
+
+
+
+
+
