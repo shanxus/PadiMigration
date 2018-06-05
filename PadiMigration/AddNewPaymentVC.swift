@@ -164,6 +164,7 @@ extension AddNewPaymentVC: UITableViewDataSource {
             helper.fetchPayImage(payID: pay, userID: user) { (type: String) in
                 DispatchQueue.main.async {
                     cell.paymentImage.image = UIImage(named: type)
+                    self.selectedDefaultIconName = type
                 }
             }
         }

@@ -661,7 +661,7 @@ class ExamplePay {
         }
         
         let ppRef = payRef.child(DBPathStrings.ppPath)
-        /* add of pp. */
+        /* listen to add of pp. */
         ppRef.observe(.childAdded) { (snapshot) in
             let json = JSON(snapshot.value ?? "")
             let newPP = PersonalPay(id: snapshot.key, info: json)
@@ -671,7 +671,7 @@ class ExamplePay {
                 completion(value)
             }
         }
-        /* delete of pp. */
+        /* listen to delete of pp. */
         ppRef.observe(.childRemoved) { (snapshot) in
             let removeID = snapshot.key
             for each in pps {
@@ -685,7 +685,7 @@ class ExamplePay {
                 }
             }
         }
-        /* change of pp. */
+        /* listen to change of pp. */
         ppRef.observe(.childChanged) { (snapshot) in
             let json = JSON(snapshot.value ?? "")
             let changedPP = PersonalPay(id: snapshot.key, info: json)
@@ -693,10 +693,49 @@ class ExamplePay {
                 if each.id == changedPP.id {
                     each.value = changedPP.value
                     let value = self.accumulateFrom(payersArr: sharedPayers, ppsArr:pps)
-                    print("completion4: ", value)
                     completion(value)
                     break
                 }
+            }
+        }
+        
+        let payerRef = payRef.child(DBPathStrings.payerPath)
+        /* listen to add of payer. */
+        payerRef.observe(.childAdded) { (snapshot) in
+            let json = JSON(snapshot.value ?? "")
+            let newPayer = PayPayer(id: snapshot.key, info: json)
+            if sharedPayers.contains(newPayer) == false {
+                sharedPayers.append(newPayer)
+                let value = self.accumulateFrom(payersArr: sharedPayers, ppsArr: pps)
+                completion(value)
+            }
+        }
+        /* listen to remove of payer. */
+        payerRef.observe(.childRemoved) { (snapshot) in
+            let removedID = snapshot.key
+            for (index, each) in sharedPayers.enumerated() {
+                if each.ID == removedID {
+                    sharedPayers.remove(at: index)
+                    break
+                }
+            }
+            let value = self.accumulateFrom(payersArr: sharedPayers, ppsArr: pps)
+            completion(value)
+        }
+        /* listen to change of payer. */
+        payerRef.observe(.childChanged) { (snapshot) in
+            let json = JSON(snapshot.value ?? "")
+            if let changedValue = json[DBPathStrings.value].float {
+                let changedID = snapshot.key
+                
+                for (index, each) in sharedPayers.enumerated() {
+                    if each.ID == changedID {
+                        sharedPayers[index].payValue = changedValue
+                        break
+                    }
+                }
+                let value = self.accumulateFrom(payersArr: sharedPayers, ppsArr: pps)
+                completion(value)
             }
         }
     }
@@ -722,6 +761,7 @@ class ExamplePay {
         }
     }
     
+    /* dynamically fetch the default image of pay. */
     func fetchPayDefaultImageType(payID: String, userID: String, completion: @escaping ((_ type: String) -> Void)) {
         let imageRef = ref.child(DBPathStrings.payDataPath).child(userID).child(payID).child(DBPathStrings.imageURLPath)
         imageRef.observeSingleEvent(of: .value) { (snapshot) in
