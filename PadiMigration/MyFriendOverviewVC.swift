@@ -33,7 +33,7 @@ class MyFriendOverviewVC: UIViewController {
     @IBOutlet weak var friendListingTable: UITableView!
     @IBOutlet weak var actionButton: UIButton!
     
-    let headerColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
+    let headerColor = UIColor(red: 255/255, green: 248/255, blue: 237/255, alpha: 1)
     
     var friends: [String]? {
         didSet{
