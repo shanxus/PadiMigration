@@ -17,5 +17,6 @@ target 'PadiMigration' do
   pod 'Kingfisher', '~> 4.0'
   pod "SkeletonView"
   pod 'Instructions', '~> 1.1.0'
+  pod 'Hero', '~> 1.2'
 
 end

@@ -232,7 +232,7 @@ class ExamplePadiEvent {
         }
     }
     
-    /* dynamically fetch the member list for a event. */
+    /* dynamically fetch the member list for an event. */
     func fetchMemberList(userID: String, eventID: String, completion: @escaping ((_ memberList: [String]) -> Void)) {
         let memberListRef = ref.child(DBPathStrings.eventDataPath).child(userID).child(eventID).child(DBPathStrings.memberListPath)
         var memberList: [String] = []

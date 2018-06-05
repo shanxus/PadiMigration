@@ -64,7 +64,7 @@ class SinglePayVC: UIViewController {
         
         let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInSinglePayVC")
         if finishShowingInstructions == false {
-            self.coachMarksController.start(on: self)
+            //self.coachMarksController.start(on: self)
         }
     }
     
@@ -282,7 +282,7 @@ extension SinglePayVC: UITableViewDataSource {
         } else if indexPath.section == 1 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ShowPaymentCell", for: indexPath) as? ShowPaymentForSinglePayTVC {
                 cell.title.text = "顯示款項付款資訊"
-                cell.indicatorLabel.text = ">"
+                cell.indicatorLabel.text = ""
                 return cell
             }
         } else if indexPath.section == 2 {

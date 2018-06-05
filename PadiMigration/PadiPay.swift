@@ -784,6 +784,40 @@ class ExamplePay {
         }
     }
     
+    /* dynamically fetch the member list for a pay. */
+    func fetchMemberList(payID: String, userID: String, completion: @escaping ((_ memberList: [String]) -> Void)) {
+        let memberListRef = ref.child(DBPathStrings.payDataPath).child(userID).child(payID).child(DBPathStrings.memberListPath)
+        var memberList: [String] = []
+        
+        memberListRef.observeSingleEvent(of: .value) { (snapshot) in
+            let json = JSON(snapshot.value ?? "")
+            for (_, memberID) in json.dictionaryValue {
+                if memberList.contains(memberID.stringValue) == false {
+                    memberList.append(memberID.stringValue)
+                }
+            }
+            completion(memberList)
+        }
+        
+        memberListRef.observe(.childAdded) { (snapshot) in
+            let json = JSON(snapshot.value ?? "")
+            if memberList.contains(json.stringValue) == false {
+                memberList.append(json.stringValue)
+            }
+            completion(memberList)
+        }
+        
+        memberListRef.observe(.childRemoved) { (snapshot) in
+            let json = JSON(snapshot.value ?? "")
+            if memberList.contains(json.stringValue) == true {
+                if let removeIndex = memberList.index(of: json.stringValue) {
+                    memberList.remove(at: removeIndex)
+                }
+            }
+            completion(memberList)
+        }
+    }
+    
     func fetchPayAttribute(for attribute: String, payID: String, userID: String, completion: @escaping((_ attribute: JSON) -> Void)) {
         let payRef = ref.child(DBPathStrings.payDataPath).child(userID).child(payID)
         payRef.observeSingleEvent(of: .value, with: { (snapshot) in

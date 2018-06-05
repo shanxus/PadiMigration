@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import SwiftyJSON
 import Instructions
+import SkeletonView
 
 class SingleEventViewVC: UIViewController {
 
@@ -86,7 +87,7 @@ class SingleEventViewVC: UIViewController {
         
         let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInSingleEventVC")
         if finishShowingInstructions == false {
-            self.coachMarksController.start(on: self)
+            //self.coachMarksController.start(on: self)
         }
     }
     
@@ -279,7 +280,7 @@ extension SingleEventViewVC: UITableViewDataSource {
         } else if indexPath.section == 1 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ShowPaymentCell", for: indexPath) as? ShowPaymentTVC {
                 cell.title.text = "顯示活動付款資訊"
-                cell.indicatorLabel.text = ">"
+                cell.indicatorLabel.text = ""
                 return cell
             }
         } else if indexPath.section == 2 {
@@ -326,25 +327,29 @@ extension SingleEventViewVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventMembersCVC", for: indexPath) as? EventMembersCVC {
             
+            let helper = ExamplePadiMember()
             let memberID = eventMembersID[indexPath.row]
-            let userRef = ref.child(DBPathStrings.userDataPath).child(memberID)
-            userRef.observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                let json = JSON(snapshot.value ?? "")
-                let imgURL = json[DBPathStrings.imageURLPath].stringValue
-                let name = json[DBPathStrings.namePath].stringValue
-                
+            
+            cell.MemberPayValue.text = ""
+            
+            cell.MemberName.isSkeletonable = true
+            cell.MemberName.showAnimatedGradientSkeleton()
+            helper.fetchName(userID: memberID) { (name: String) in
                 DispatchQueue.main.async {
                     cell.MemberName.text = name
+                    cell.MemberName.hideSkeleton()
                 }
-                
-                let url = URL(string: imgURL)
-                cell.MemberImage.kf.setImage(with: url)
-                
-                // should think about what I want to show here (maybe not the payValue).
-                cell.MemberPayValue.text = ""
-                
-            })
+            }
+            
+            cell.MemberImage.isSkeletonable = true
+            cell.MemberImage.showAnimatedGradientSkeleton()
+            helper.fetchUserImageURL(userID: memberID) { (url: String) in
+                DispatchQueue.main.async {
+                    let imgURL = URL(string: url)
+                    cell.MemberImage.kf.setImage(with: imgURL)
+                    cell.MemberImage.hideSkeleton()
+                }
+            }
             return cell
         }
         return UICollectionViewCell()
