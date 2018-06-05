@@ -214,7 +214,7 @@ class SinglePayVC: UIViewController {
             editingView.userID = user
             editingView.payID = pay
             editingView.belongsToEventID = event
-            topVC.present(editingView, animated: true, completion: nil)
+            topVC.present(editingView, animated: true, completion: nil)            
         }
     }
     
@@ -231,14 +231,6 @@ extension SinglePayVC: UITableViewDelegate {
             if let showRelationVC = topVC.storyboard?.instantiateViewController(withIdentifier: "showPayRelationVC") as? ShowPayRelationVC {
                 showRelationVC.userID = userID!
                 showRelationVC.payIDs = [payID!]
-                /* This is the push from right to left transition animation.
-                let transition = CATransition()
-                transition.duration = 0.5
-                transition.type = kCATransitionPush
-                transition.subtype = kCATransitionFromRight
-                transition.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
-                view.window!.layer.add(transition, forKey: kCATransition)
-                */
                 topVC.present(showRelationVC, animated: true, completion: nil)
             }
         }

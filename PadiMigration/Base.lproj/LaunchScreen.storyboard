@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shan Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgO-gY-rJr">
-                                <rect key="frame" x="10" y="629" width="86" height="18"/>
+                                <rect key="frame" x="10" y="639" width="86" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -43,7 +43,7 @@
                             <constraint firstItem="JOk-Ll-kEt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="DDK-yh-fnN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j5h-Rv-Kzx" secondAttribute="trailing" constant="50" id="Mu3-n8-ioD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JOk-Ll-kEt" secondAttribute="trailing" constant="10" id="Y0r-N7-1We"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fgO-gY-rJr" secondAttribute="bottom" constant="20" id="a1F-5C-Sxz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fgO-gY-rJr" secondAttribute="bottom" constant="10" id="a1F-5C-Sxz"/>
                             <constraint firstItem="j5h-Rv-Kzx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="144" id="hPU-mP-iUn"/>
                             <constraint firstItem="j5h-Rv-Kzx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="m0m-eN-cup"/>
                             <constraint firstItem="JOk-Ll-kEt" firstAttribute="top" secondItem="j5h-Rv-Kzx" secondAttribute="bottom" id="md5-jG-Vh2"/>
