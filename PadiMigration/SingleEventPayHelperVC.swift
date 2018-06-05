@@ -106,31 +106,58 @@ extension SingleEventPayHelperVC: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventPayCVC", for: indexPath) as? EventPayCVC {            
             if let path = paysID?[indexPath.row], let userID = userID {
                 let helper = ExamplePay()
+                
+                cell.payTitle.isSkeletonable = true
+                cell.payTitle.showAnimatedGradientSkeleton()
                 helper.fetchPayName(payID: path, userID: userID, completion: { (name: String) in
                     self.paysNameDic[path] = name
-                    cell.payTitle.text = name
-                })
+                    DispatchQueue.main.async {
+                        cell.payTitle.text = name
+                        cell.payTitle.hideSkeleton()
+                    }
+                })                
+                
+                cell.descriptionLabel.isSkeletonable = true
+                cell.descriptionLabel.showAnimatedGradientSkeleton()
                 helper.fetchServiceChargeValue(payID: path, userID: userID, completion: { (value: Float) in
-                    cell.descriptionLabel.text = "服務費: \(value) %"
+                    DispatchQueue.main.async {
+                        cell.descriptionLabel.text = "服務費: \(value) %"
+                        cell.descriptionLabel.hideSkeleton()
+                    }
                 })
+                
+                cell.payDate.isSkeletonable = true
+                cell.payDate.showAnimatedGradientSkeleton()
                 helper.fetchPayAttribute(for: DBPathStrings.timePath, payID: path, userID: userID, completion: { (fetched: JSON) in
                     if let time = fetched.double {
                         let timeString = EntityHelperClass.getPadiEntityDateString(with: time)
-                        cell.payDate.text = timeString
+                        DispatchQueue.main.async {
+                            cell.payDate.text = timeString
+                            cell.payDate.hideSkeleton()
+                        }
                     }
                 })
-                helper.fetchPayImage(payID: path, userID: userID, completion: { (url: String) in                    
-                    cell.payImage.image = UIImage(named: url)
+                
+                cell.payImage.isSkeletonable = true
+                cell.payImage.showAnimatedSkeleton()
+                helper.fetchPayImage(payID: path, userID: userID, completion: { (url: String) in
+                    DispatchQueue.main.async {
+                        cell.payImage.image = UIImage(named: url)
+                        cell.payImage.hideSkeleton()
+                    }
                 })
-                if let userID = self.userID {
-                    helper.fetchPayValue(userID: userID, payID: path, completion: { (value: Float) in
-                        DispatchQueue.main.async {
-                            cell.payValue.text = "$ \(value)"
-                        }
-                    })
-                }
+                
+                cell.payValue.isSkeletonable = true
+                cell.payValue.showAnimatedSkeleton()
+                helper.fetchPayValue(userID: userID, payID: path, completion: { (value: Float) in
+                    DispatchQueue.main.async {
+                        cell.payValue.text = "$ \(value)"
+                        cell.payValue.hideSkeleton()
+                    }
+                })
             }
-            cell.accessIndicator.text = ">"
+            
+            cell.accessIndicator.text = ""
             return cell
         }
         

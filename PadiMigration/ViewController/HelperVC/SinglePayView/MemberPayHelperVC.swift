@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import SwiftyJSON
+import SkeletonView
 
 class MemberPayHelperVC: UIViewController {
 
@@ -448,29 +449,37 @@ extension MemberPayHelperVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MemberShouldPayTVC", for: indexPath) as? MemberShouldPayTVC {
             
+            let memberHelper = ExamplePadiMember()
+            
             if (indexPath.row > (payers.count - 1)) == false { // show for payers.
                 cell.shouldPayTitle.text = "均分款項付款者"
                 let payer = payers[indexPath.row]
                 
                 if imgURLDic[payer.ID] == nil {
-                    payer.getAttribute(for: DBPathStrings.imageURLPath, completion: { (fetched: JSON) in
-                        let url = URL(string: fetched.stringValue)
-                        cell.memberImage.kf.setImage(with: url)
-                        self.imgURLDic[payer.ID] = fetched.stringValue
-                    })
+                    cell.memberImage.isSkeletonable = true
+                    cell.memberImage.showAnimatedGradientSkeleton()
+                    memberHelper.fetchUserImageURL(userID: payer.ID) { (url: String) in
+                        let imgURL = URL(string: url)
+                        self.imgURLDic[payer.ID] = url
+                        DispatchQueue.main.async {
+                            cell.memberImage.kf.setImage(with: imgURL)
+                            cell.memberImage.hideSkeleton()
+                        }
+                    }
                 } else {
                     let url = URL(string: imgURLDic[payer.ID]!)
                     cell.memberImage.kf.setImage(with: url)
                 }
                 
                 if memberNameDic[payer.ID] == nil {
-                    payer.getAttribute(for: DBPathStrings.namePath, completion: { (fetched: JSON) in
-                        let name = fetched.stringValue
-                        self.memberNameDic[payer.ID] = name
+                    cell.memberName.isSkeletonable = true
+                    cell.memberName.showAnimatedGradientSkeleton()
+                    memberHelper.fetchName(userID: payer.ID) { (name: String) in
                         DispatchQueue.main.async {
                             cell.memberName.text = name
+                            cell.memberName.hideSkeleton()
                         }
-                    })
+                    }
                 } else {
                     cell.memberName.text = memberNameDic[payer.ID]!
                 }
@@ -483,37 +492,45 @@ extension MemberPayHelperVC: UITableViewDataSource {
                 let payee = payees[indexPath.row - payers.count]
                 
                 if imgURLDic[payee.ID] == nil {
-                    payee.getAttribute(for: DBPathStrings.imageURLPath, completion: { (fetched: JSON) in
-                        let url = URL(string: fetched.stringValue)
-                        cell.memberImage.kf.setImage(with: url)
-                        self.imgURLDic[payee.ID] = fetched.stringValue
-                    })
+                    memberHelper.fetchUserImageURL(userID: payee.ID) { (url: String) in
+                        let imgURL = URL(string: url)
+                        self.imgURLDic[payee.ID] = url
+                        DispatchQueue.main.async {
+                            cell.memberImage.kf.setImage(with: imgURL)
+                            cell.memberImage.hideSkeleton()
+                        }
+                    }
                 } else {
                     let url = URL(string: imgURLDic[payee.ID]!)
                     cell.memberImage.kf.setImage(with: url)
                 }
                 
                 if memberNameDic[payee.ID] == nil {
-                    payee.getAttribute(for: DBPathStrings.namePath, completion: { (fetched: JSON) in
-                        let name = fetched.stringValue
-                        cell.memberName.text = name
-                        self.memberNameDic[payee.ID] = name
-                    })
+                    cell.memberName.isSkeletonable = true
+                    cell.memberName.showAnimatedGradientSkeleton()
+                    memberHelper.fetchName(userID: payee.ID) { (name: String) in
+                        DispatchQueue.main.async {
+                            cell.memberName.text = name
+                            cell.memberName.hideSkeleton()
+                        }
+                    }
                 } else {
                     cell.memberName.text = memberNameDic[payee.ID]!
                 }
                 
                 if memberNameDic[payee.shouldGiveTo] == nil {
-                    let helper = ExampleMainUser.shareInstance
-                    helper.getAttribute(for: DBPathStrings.namePath, userID: payee.shouldGiveTo, completion: { (fetched: JSON) in
-                        let name = fetched.stringValue
-                        cell.shouldPayValue.text = "付款者: \(name)"
+                    cell.shouldPayValue.isSkeletonable = true
+                    cell.shouldPayValue.showAnimatedGradientSkeleton()
+                    memberHelper.fetchName(userID: payee.shouldGiveTo) { (name: String) in
                         self.memberNameDic[payee.shouldGiveTo] = name
-                    })
+                        DispatchQueue.main.async {
+                            cell.shouldPayValue.text = "付款者: \(name)"
+                            cell.shouldPayValue.hideSkeleton()
+                        }
+                    }
                 } else {
                     cell.shouldPayValue.text = "付款者: \(memberNameDic[payee.shouldGiveTo]!)"
                 }
-                
             } else { // show for pps.
                 
                 cell.shouldPayTitle.text = "個人款項"
@@ -522,30 +539,45 @@ extension MemberPayHelperVC: UITableViewDataSource {
                 let helper = ExampleMainUser.shareInstance
                 
                 if imgURLDic[pp.payerID] == nil {
-                    helper.getAttribute(for: DBPathStrings.imageURLPath, userID: pp.payerID, completion: { (fetched: JSON) in
-                        let imgURL = URL(string: fetched.stringValue)
-                        cell.memberImage.kf.setImage(with: imgURL)
-                        self.imgURLDic[pp.payerID] = fetched.stringValue
-                    })
+                    cell.memberImage.isSkeletonable = true
+                    cell.memberImage.showAnimatedGradientSkeleton()
+                    memberHelper.fetchUserImageURL(userID: pp.payerID) { (url: String) in
+                        let imgURL = URL(string: url)
+                        self.imgURLDic[pp.payerID] = url
+                        DispatchQueue.main.async {
+                            cell.memberImage.kf.setImage(with: imgURL)
+                            cell.memberImage.hideSkeleton()
+                        }
+                    }
                 } else {
                     let url = URL(string: imgURLDic[pp.payerID]!)
                     cell.memberImage.kf.setImage(with: url)
                 }
+                
                 if memberNameDic[pp.payerID] == nil {
-                    helper.getAttribute(for: DBPathStrings.namePath, userID: pp.payerID, completion: { (fetched: JSON) in
-                        let name = fetched.stringValue
-                        cell.memberName.text = name
+                    cell.memberName.isSkeletonable = true
+                    cell.memberName.showAnimatedGradientSkeleton()
+                    memberHelper.fetchName(userID: pp.payerID) { (name: String) in
                         self.memberNameDic[pp.payerID] = name
-                    })
+                        DispatchQueue.main.async {
+                            cell.memberName.text = name
+                            cell.memberName.hideSkeleton()
+                        }
+                    }
                 } else {
                     cell.memberName.text = memberNameDic[pp.payerID]!
                 }
+                
                 if memberNameDic[pp.belongsToMember] == nil {
-                    helper.getAttribute(for: DBPathStrings.namePath, userID: pp.belongsToMember, completion: { (fetched: JSON) in
-                        let name = fetched.stringValue
-                        cell.shouldPayValue.text = "幫 \(name) 付款"
+                    cell.shouldPayValue.isSkeletonable = true
+                    cell.shouldPayValue.showAnimatedGradientSkeleton()
+                    memberHelper.fetchName(userID: pp.belongsToMember) { (name: String) in
                         self.memberNameDic[pp.belongsToMember] = name
-                    })
+                        DispatchQueue.main.async {
+                            cell.shouldPayValue.text = "幫 \(name) 付款"
+                            cell.shouldPayValue.hideSkeleton()
+                        }
+                    }
                 } else {
                     cell.shouldPayValue.text = "幫 \(memberNameDic[pp.belongsToMember]!) 付款"
                 }

@@ -72,7 +72,7 @@ class MyEventsOverview: UIViewController {
             
             let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInOverviewVC")
             if finishShowingInstructions == false {
-                coachMarksController.start(on: self)
+                //coachMarksController.start(on: self)
             }
         } else {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)

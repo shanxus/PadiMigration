@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import SwiftyJSON
+import SkeletonView
 
 class SinglePayInfoHelperVC: UIViewController {
     
@@ -44,28 +45,43 @@ extension SinglePayInfoHelperVC: UITableViewDataSource {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PayInfoDetailTVC", for: indexPath) as? SinglePayInfoDetailTVC {
                 cell.infoTitle.text = "款項名稱"
-                helper.fetchPayAttribute(for: DBPathStrings.namePath, payID: payID, userID: userID, completion: { (fetchedValue: JSON) in
-                    let name = fetchedValue.stringValue
-                    cell.infoDescription.text = name
-                })
+                
+                cell.infoDescription.isSkeletonable = true
+                cell.infoDescription.showAnimatedSkeleton()
+                helper.fetchPayName(payID: payID, userID: userID) { (name: String) in
+                    DispatchQueue.main.async {
+                        cell.infoDescription.text = name
+                        cell.hideSkeleton()
+                    }
+                }
                 return cell
             }
         } else if indexPath.row == 1 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PayInfoDetailTVC", for: indexPath) as? SinglePayInfoDetailTVC {
                 cell.infoTitle.text = "時間"
+                
+                cell.infoDescription.isSkeletonable = true
+                cell.infoDescription.showAnimatedSkeleton()
                 helper.fetchPayAttribute(for: DBPathStrings.timePath, payID: payID, userID: userID, completion: { (fetchedValue: JSON) in
                     let time = fetchedValue.double
                     let timeString = EntityHelperClass.getPadiEntityDateString(with: time!)
-                    cell.infoDescription.text = timeString
+                    DispatchQueue.main.async {
+                        cell.infoDescription.text = timeString
+                        cell.infoDescription.hideSkeleton()
+                    }
                 })                
                 return cell
             }
         } else if indexPath.row == 2 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PayInfoDetailTVC", for: indexPath) as? SinglePayInfoDetailTVC {
                 cell.infoTitle.text = "花費"
+                
+                cell.infoDescription.isSkeletonable = true
+                cell.infoDescription.showAnimatedSkeleton()
                 helper.fetchPayValue(userID: userID, payID: payID) { (value: Float) in
                     DispatchQueue.main.async {
                         cell.infoDescription.text = "$ \(value)"
+                        cell.infoDescription.hideSkeleton()
                     }
                 }                
                 return cell
@@ -73,46 +89,32 @@ extension SinglePayInfoHelperVC: UITableViewDataSource {
         } else if indexPath.row == 3 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PayInfoDetailTVC", for: indexPath) as? SinglePayInfoDetailTVC {
                 cell.infoTitle.text = "成員數"
-                helper.fetchPayAttribute(for: DBPathStrings.memberListPath, payID: payID, userID: userID, completion: { (fetchedValue) in
-                    let members = fetchedValue.arrayValue
-                    let count = members.count
-                    cell.infoDescription.text = "\(count)"
-                })
+                
+                cell.infoDescription.isSkeletonable = true
+                cell.infoDescription.showAnimatedSkeleton()
+                helper.fetchMemberList(payID: payID, userID: userID) { (list: [String]) in
+                    DispatchQueue.main.async {
+                        cell.infoDescription.text = "\(list.count)"
+                        cell.infoDescription.hideSkeleton()
+                    }
+                }
                 return cell
             }
-        /*
-         }
-         else if indexPath.row == 4 {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "PayInfoDetailTVC", for: indexPath) as? SinglePayInfoDetailTVC {
-                cell.infoTitle.text = "均分模式"
-                cell.infoTitle.textColor = UIColor.lightGray
-                // should keep this property?
-                cell.infoDescription.text = "--"
-                cell.infoDescription.textColor = .lightGray
-                return cell
-        }
-        */
         } else if indexPath.row == 4 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PayInfoDetailTVC", for: indexPath) as? SinglePayInfoDetailTVC {
                 cell.infoTitle.text = "服務費"
+                
+                cell.infoDescription.isSkeletonable = true
+                cell.infoDescription.showAnimatedSkeleton()
                 helper.fetchPayAttribute(for: DBPathStrings.serviceChargePath, payID: payID, userID: userID, completion: { (fetchedValue) in
-                    cell.infoDescription.text = "\(fetchedValue.stringValue) %"
+                    DispatchQueue.main.async {
+                        cell.infoDescription.text = "\(fetchedValue.stringValue) %"
+                        cell.infoDescription.hideSkeleton()
+                    }
                 })
-
                 return cell
             }
         }
-        /*
-        else if indexPath.row == 6 {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "PayInfoDetailTVC", for: indexPath) as? SinglePayInfoDetailTVC {
-                cell.infoTitle.text = "退稅"
-                cell.infoTitle.textColor = UIColor.lightGray
-                cell.infoDescription.text = "--"
-                cell.infoDescription.textColor = .lightGray
-                return cell
-            }
-        }
-        */
         return UITableViewCell()
     }
 }
