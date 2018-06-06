@@ -18,35 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Padi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5h-Rv-Kzx">
-                                <rect key="frame" x="50" y="164" width="275" height="72"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect pays with friends since now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOk-Ll-kEt">
-                                <rect key="frame" x="10" y="236" width="355" height="16"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="10" y="332" width="355" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <color key="textColor" red="0.36470588235294116" green="0.3411764705882353" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shan Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgO-gY-rJr">
                                 <rect key="frame" x="10" y="639" width="86" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                <color key="textColor" red="0.36470588235294116" green="0.3411764705882353" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="fMC-3L-thU">
+                                <rect key="frame" x="67" y="90" width="240" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="242" id="9d3-XK-RJq"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97293910420032437" blue="0.92879786239842954" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JOk-Ll-kEt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4fp-Xf-BMP"/>
                             <constraint firstItem="fgO-gY-rJr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ADP-YP-QeT"/>
-                            <constraint firstItem="JOk-Ll-kEt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="DDK-yh-fnN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j5h-Rv-Kzx" secondAttribute="trailing" constant="50" id="Mu3-n8-ioD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JOk-Ll-kEt" secondAttribute="trailing" constant="10" id="Y0r-N7-1We"/>
+                            <constraint firstItem="JOk-Ll-kEt" firstAttribute="top" secondItem="fMC-3L-thU" secondAttribute="bottom" id="DIL-yx-fCc"/>
+                            <constraint firstItem="JOk-Ll-kEt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="WxT-7F-rUb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fgO-gY-rJr" secondAttribute="bottom" constant="10" id="a1F-5C-Sxz"/>
-                            <constraint firstItem="j5h-Rv-Kzx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="144" id="hPU-mP-iUn"/>
-                            <constraint firstItem="j5h-Rv-Kzx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="m0m-eN-cup"/>
-                            <constraint firstItem="JOk-Ll-kEt" firstAttribute="top" secondItem="j5h-Rv-Kzx" secondAttribute="bottom" id="md5-jG-Vh2"/>
+                            <constraint firstItem="fMC-3L-thU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="c3t-t4-xhY"/>
+                            <constraint firstItem="fMC-3L-thU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="fNd-1Q-Kc2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fMC-3L-thU" secondAttribute="trailing" constant="68" id="kAC-VH-nys"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JOk-Ll-kEt" secondAttribute="trailing" constant="10" id="ph9-MJ-mFV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -56,4 +56,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iTunesArtwork" width="512" height="512"/>
+    </resources>
 </document>

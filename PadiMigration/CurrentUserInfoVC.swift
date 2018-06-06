@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import Instructions
+import SkeletonView
 
 class CurrentUserInfoVC: UIViewController {
 
@@ -206,10 +207,14 @@ class CurrentUserInfoVC: UIViewController {
     func loadUserImage() {
         guard let user = userID else {return}
         let helper = ExamplePadiMember()
+        
+        userImage.isSkeletonable = true
+        userImage.showAnimatedGradientSkeleton()
         helper.fetchUserImageURL(userID: user) { (url: String) in
             let imageURL = URL(string: url)
             DispatchQueue.main.async {
                 self.userImage.kf.setImage(with: imageURL)
+                self.userImage.hideSkeleton()
             }
         }
     }
@@ -217,9 +222,12 @@ class CurrentUserInfoVC: UIViewController {
     func loadUserName() {
         guard let user = userID else {return}
         let helper = ExamplePadiMember()
+        userName.isSkeletonable = true
+        userName.showAnimatedGradientSkeleton()
         helper.fetchName(userID: user) { (name: String) in
             DispatchQueue.main.async {
                 self.userName.text = name
+                self.userName.hideSkeleton()
             }
         }
     }

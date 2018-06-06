@@ -11,9 +11,8 @@ import UIKit
 class MyEventOverviewPictureTVC: UITableViewCell {
 
     @IBOutlet weak var picture: UIImageView!
-    @IBOutlet weak var value: UILabel!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var account: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

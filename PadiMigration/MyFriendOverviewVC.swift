@@ -64,10 +64,17 @@ class MyFriendOverviewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let type = friendVCType, type != .eventFriendList {
+            actionButton.setTitle("", for: .normal)
+            actionButton.isUserInteractionEnabled = false
+        } else {
+            actionButton.setTitle("", for: .normal)
+            actionButton.isUserInteractionEnabled = false
+        }
+        
         handleViewTitleTxt()
         handleActionTxt()
         
-        //friendListingTable.isSkeletonable = true
         friendListingTable.dataSource = self
         friendListingTable.delegate = self
         
@@ -186,6 +193,8 @@ extension MyFriendOverviewVC: SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let count = friends?.count else {
             let reminderTxt = UILabel()
+            reminderTxt.font = UIFont.systemFont(ofSize: 13)
+            reminderTxt.alpha = 0.8
             let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
             reminderTxt.frame = frame
             reminderTxt.textAlignment = .center
