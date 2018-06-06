@@ -16,7 +16,7 @@ enum AddNewEventType: String {
 
 class AddNewEventVC: UIViewController {
 
-    let headerColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
+    let headerColor = UIColor(red: 255/255, green: 248/255, blue: 237/255, alpha: 1)
     
     @IBOutlet weak var viewTitle: UILabel!
     @IBOutlet weak var eventInfoBlock: UITableView!

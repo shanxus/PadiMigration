@@ -64,10 +64,14 @@ class MyFriendOverviewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if friendVCType == nil {
+            actionButton.setTitle("", for: .normal)
+            actionButton.isUserInteractionEnabled = false
+        }
+        
         handleViewTitleTxt()
         handleActionTxt()
         
-        //friendListingTable.isSkeletonable = true
         friendListingTable.dataSource = self
         friendListingTable.delegate = self
         
@@ -172,13 +176,14 @@ extension MyFriendOverviewVC: UITableViewDelegate {
                 selected.remove(at: removeIndex)
             } else if cell.accessoryType == .none {
                 cell.accessoryType = .checkmark
+                cell.accessoryView?.backgroundColor = headerColor
                 selected.append(id)
             }
         } else { /* show friend list for friends overview. */
             
         
         }
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
 
@@ -186,6 +191,8 @@ extension MyFriendOverviewVC: SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let count = friends?.count else {
             let reminderTxt = UILabel()
+            reminderTxt.font = UIFont.systemFont(ofSize: 13)
+            reminderTxt.alpha = 0.8
             let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
             reminderTxt.frame = frame
             reminderTxt.textAlignment = .center

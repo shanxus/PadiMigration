@@ -10,7 +10,7 @@ import UIKit
 
 class AddNewEventHelperVC: UIViewController {
 
-    let headerColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
+    let headerColor = UIColor(red: 255/255, green: 248/255, blue: 237/255, alpha: 1)
     
     var viewType: AddNewEventType?
     var selectedMember: [String] = []
@@ -37,7 +37,7 @@ extension AddNewEventHelperVC: UITableViewDataSource {
         } else if section == 1 {
             return 1
         } else if section == 2 {
-            return 1
+            return 0
         } else {
             return 0
         }
@@ -52,7 +52,7 @@ extension AddNewEventHelperVC: UITableViewDataSource {
                     cell.actionTitle.text = "新增活動成員"
                     return cell
                 }
-            } else if indexPath.section == 1{
+            } else if indexPath.section == 1 {
                 if let type = viewType {
                     if type == .addNew {
                         cell.actionTitle.layer.opacity = 0.5

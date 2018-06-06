@@ -18,7 +18,6 @@ class MyEventsOverview: UIViewController {
     @IBOutlet weak var layoutTableView: UITableView!
     @IBOutlet weak var viewTitleLabel: UIView!
     
-    @IBOutlet weak var currentUserImage: UIImageView!
     var eventsCV: UICollectionView!
     var isEventRecordAlertFinished: Bool = true
     
@@ -46,16 +45,12 @@ class MyEventsOverview: UIViewController {
             
             print("email: ", currentUser.email!)
             print("uid: ", currentUser.uid)
-            loadCurrentUserImage()
             coachMarksController.dataSource = self
         }
         
-        currentUserImage.isUserInteractionEnabled = true
-        let tapCurrentUserImage = UITapGestureRecognizer(target: self, action: #selector(currentUserImageTapped))
-        currentUserImage.addGestureRecognizer(tapCurrentUserImage)
-        
         layoutTableView.delegate = self
         layoutTableView.dataSource = self
+        
         
         /* use this blank UIView to avoid contents getting hidden */
         let bottomUIView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 49))
@@ -87,7 +82,7 @@ class MyEventsOverview: UIViewController {
         coachMarksController.stop(immediately: true)
     }
     
-    @objc func currentUserImageTapped(recognizer: UIGestureRecognizer) {
+    func currentUserImageTapped() {
         let topVC = GeneralService.findTopVC()
         if let userInfoVC = topVC.storyboard?.instantiateViewController(withIdentifier: "CurrentUserInfoVC") as? CurrentUserInfoVC {
             if let currentUser = Auth.auth().currentUser {
@@ -167,21 +162,6 @@ class MyEventsOverview: UIViewController {
         }
     }
     
-    func loadCurrentUserImage() {
-        if let currentUserID = Auth.auth().currentUser?.uid {
-            let helper = ExamplePadiMember()
-            currentUserImage.isSkeletonable = true
-            currentUserImage.showAnimatedGradientSkeleton()
-            helper.fetchUserImageURL(userID: currentUserID) { (imageURL: String) in
-                DispatchQueue.main.async {
-                    let url = URL(string: imageURL)
-                    self.currentUserImage.kf.setImage(with: url)
-                    self.currentUserImage.hideSkeleton()
-                }
-            }
-        }
-    }
-    
     func prepareMainUser() {
         guard let currentUser = Auth.auth().currentUser?.uid else {return}
         self.helperDataSource.userID = currentUser
@@ -207,7 +187,10 @@ class MyEventsOverview: UIViewController {
 // MARK: - Delegate of layout TableView.
 extension MyEventsOverview: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
+        if indexPath.section == 0 {
+            currentUserImageTapped()
+        }
     }
 }
 
@@ -216,7 +199,7 @@ extension MyEventsOverview: UITableViewDataSource {
  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 180
+            return 120
         }
         /*
         else if indexPath.section == 1 {
@@ -241,10 +224,34 @@ extension MyEventsOverview: UITableViewDataSource {
         
         if indexPath.section == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MyEventOverviewPictureCell", for: indexPath) as? MyEventOverviewPictureTVC {
-                cell.picture.image = #imageLiteral(resourceName: "CCC")
-                cell.value.text = "$ 300"
-                cell.title.text = "中興新村"
-                cell.date.text = "2017/10/31"
+                
+                guard let currentUser = Auth.auth().currentUser else {return cell}
+                guard let currentUserID = Auth.auth().currentUser?.uid else {return cell}
+                let helper = ExamplePadiMember()
+                
+                cell.name.isSkeletonable = true
+                cell.name.showAnimatedGradientSkeleton()
+                helper.fetchName(userID: currentUserID) { (name: String) in
+                    DispatchQueue.main.async {
+                        cell.name.text = name
+                        cell.hideSkeleton()
+                    }
+                }
+                
+                cell.picture.isSkeletonable = true
+                cell.picture.showAnimatedGradientSkeleton()
+                helper.fetchUserImageURL(userID: currentUserID) { (url: String) in
+                    DispatchQueue.main.async {
+                        let imgURL = URL(string: url)
+                        cell.picture.kf.setImage(with: imgURL)
+                        cell.hideSkeleton()
+                    }
+                }
+                
+                if let account = currentUser.email {
+                    cell.account.text = account
+                }
+                
                 return cell
             }
         }
@@ -374,7 +381,9 @@ extension MyEventsOverview: CoachMarksControllerDataSource, CoachMarksController
     func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
         
         if index == 0 {
-            return coachMarksController.helper.makeCoachMark(for: self.currentUserImage)
+            let targetIndex = IndexPath(row: 0, section: 0)
+            let targetCell = layoutTableView.cellForRow(at: targetIndex) as! MyEventOverviewPictureTVC
+            return coachMarksController.helper.makeCoachMark(for: targetCell.contentView)
         } else {
             return coachMarksController.helper.makeCoachMark(for: self.viewTitleLabel)
         }
