@@ -64,10 +64,7 @@ class MyFriendOverviewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let type = friendVCType, type != .eventFriendList {
-            actionButton.setTitle("", for: .normal)
-            actionButton.isUserInteractionEnabled = false
-        } else {
+        if friendVCType == nil {
             actionButton.setTitle("", for: .normal)
             actionButton.isUserInteractionEnabled = false
         }
@@ -179,13 +176,14 @@ extension MyFriendOverviewVC: UITableViewDelegate {
                 selected.remove(at: removeIndex)
             } else if cell.accessoryType == .none {
                 cell.accessoryType = .checkmark
+                cell.accessoryView?.backgroundColor = headerColor
                 selected.append(id)
             }
         } else { /* show friend list for friends overview. */
             
         
         }
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
 

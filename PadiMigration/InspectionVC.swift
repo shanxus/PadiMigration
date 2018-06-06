@@ -10,6 +10,8 @@ import UIKit
 
 class InspectionVC: UIViewController {
 
+    let headerColor = UIColor(red: 255/255, green: 248/255, blue: 237/255, alpha: 1)
+    
     var payRecordsTableView: UITableView!
     var navigationView: UIView!
     var navigationTitleLabel: UILabel!
@@ -23,7 +25,7 @@ class InspectionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = headerColor
         
         membersIDList = transformSelectedPayersIntoIDsArray()
         
@@ -36,7 +38,7 @@ class InspectionVC: UIViewController {
 
     func handleLayoutNavigationView() {
         navigationView = CustomView()
-        navigationView.backgroundColor = .white
+        navigationView.backgroundColor = headerColor
         self.view.addSubview(navigationView)
         navigationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
         navigationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
@@ -71,6 +73,7 @@ class InspectionVC: UIViewController {
     
     func handleLayoutRecordsTable() {
         payRecordsTableView = UITableView()
+        payRecordsTableView.backgroundColor = headerColor
         payRecordsTableView.tableFooterView = UIView()
         payRecordsTableView.isUserInteractionEnabled = false
         payRecordsTableView.rowHeight = 60
@@ -162,6 +165,8 @@ extension InspectionVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "inspectionTVC", for: indexPath) as? InspectionTVC else { return UITableViewCell() }
+        
+        cell.backgroundColor = headerColor
         
         let helper = ExamplePadiFriends()
         

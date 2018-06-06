@@ -513,6 +513,7 @@
                                                 <constraint firstItem="xpC-dm-HLz" firstAttribute="centerY" secondItem="y1Y-Ny-b2i" secondAttribute="centerY" id="ztI-It-SSQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="friendImage" destination="Ufj-gE-tOS" id="o68-lE-1oG"/>
                                             <outlet property="friendName" destination="xpC-dm-HLz" id="KUk-61-TFP"/>
@@ -586,7 +587,8 @@
                                             <constraint firstAttribute="height" constant="30" id="5Cq-q6-ixX"/>
                                             <constraint firstAttribute="width" constant="50" id="x4Q-hQ-iAz"/>
                                         </constraints>
-                                        <state key="normal" image="edit"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="編輯"/>
                                         <connections>
                                             <action selector="editTapped:" destination="xJj-3M-srz" eventType="touchUpInside" id="zIc-7t-wRx"/>
                                         </connections>
@@ -1571,7 +1573,7 @@
                                                         <constraint firstAttribute="width" constant="150" id="BHM-M1-4kb"/>
                                                         <constraint firstAttribute="height" constant="21" id="fFd-kP-Xjs"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1650,7 +1652,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="119" id="i7U-4K-Of9"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1757,7 +1759,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="5WB-HH-yhf"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2061,7 +2063,7 @@
                                                         <constraint firstAttribute="width" constant="150" id="d4B-Ud-tnw"/>
                                                         <constraint firstAttribute="height" constant="21" id="ukC-xt-Jka"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2140,7 +2142,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="119" id="cc9-La-d5Q"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2183,13 +2185,13 @@
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="應付" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LR-Xt-ntn">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="27" height="16"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbC-MX-ZTb">
-                                                                                <rect key="frame" x="3.5" y="21" width="20.5" height="16"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                                                <rect key="frame" x="3.5" y="21" width="20" height="16"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -3450,7 +3452,6 @@
         <image name="PadiPayDefault" width="147" height="147"/>
         <image name="SharedWithMe75" width="23" height="23"/>
         <image name="back" width="16" height="16"/>
-        <image name="edit" width="16" height="16"/>
         <image name="next" width="16" height="16"/>
         <image name="overview75" width="23" height="23"/>
         <image name="plus75" width="23" height="23"/>

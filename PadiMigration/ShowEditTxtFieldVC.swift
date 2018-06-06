@@ -105,9 +105,7 @@ class ShowEditTxtFieldVC: UIViewController {
         if let flag = viewTxtPrepare.flag?.rawValue {
             switch flag {
             case Flag.findPadiUser.rawValue:
-                print("got \'find padi user\' touched!")
-                if let txt = inputField.text {
-                    print("got input account:...", txt)
+                if let txt = inputField.text {                    
                     let helper = ExampleMainUser.shareInstance
                     helper.findUser(withAccount: txt, completion: { (result, data) in
                         if result == false {

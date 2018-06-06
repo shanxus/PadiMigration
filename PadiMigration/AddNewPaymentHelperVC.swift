@@ -284,9 +284,9 @@ class AddNewPaymentHelperVC: UIViewController {
     }
     
     func handleCellInteraction(cell: AddNewPaymentActionBlockTVC, interaction: Bool) {
-        cell.actionTitle.layer.opacity = interaction ? 1.0 : 0.3
-        cell.descriptionLabel.layer.opacity = interaction ? 1.0 : 0.3
-        cell.indicatorLabel.layer.opacity = interaction ? 1.0 : 0.3
+        cell.actionTitle.layer.opacity = interaction ? 1.0 : 0.5
+        cell.descriptionLabel.layer.opacity = interaction ? 1.0 : 0.5
+        cell.indicatorLabel.layer.opacity = interaction ? 1.0 : 0.5
         cell.isUserInteractionEnabled = interaction ? true : false
     }
     
@@ -436,7 +436,6 @@ extension AddNewPaymentHelperVC: UITableViewDataSource {
                         let nowDateString = EntityHelperClass.getPadiEntityDateString(with: nowDate)
                         cell.indicatorLabel.layer.opacity = 0
                         cell.descriptionLabel.text = nowDateString
-                        cell.descriptionLabel.layer.opacity = 0.5
                     }
                     return cell
                 }
@@ -461,6 +460,7 @@ extension AddNewPaymentHelperVC: UITableViewDataSource {
                 if indexPath.row == 0 {
                     handleCellInteraction(cell: cell, interaction: true)
                     cell.actionTitle.text = "服務費"
+                    handleCellInteraction(cell: cell, interaction: false)
                     if let pay = editPayID, let user = mainUserID, isServiceChargeValueChanged == false {
                         helper.fetchPayAttribute(for: DBPathStrings.serviceChargePath, payID: pay, userID: user, completion: { (fetched: JSON) in
                             cell.descriptionLabel.text = "\(fetched.floatValue) %"
@@ -549,6 +549,7 @@ extension AddNewPaymentHelperVC: UITableViewDataSource {
         footerView.backgroundColor = headerColor
         return footerView
     }
+ 
 }
 
 extension AddNewPaymentHelperVC: UITableViewDelegate {
