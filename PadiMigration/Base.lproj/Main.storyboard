@@ -1589,7 +1589,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-AK-cjp">
-                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="22"/>
+                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="21.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="2KA-9Y-ipt"/>
                                                                             <constraint firstAttribute="height" constant="21" id="NbP-09-ntJ"/>
@@ -1599,7 +1599,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電影影影影" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1J-13-70n">
-                                                                        <rect key="frame" x="93" y="-4" width="200" height="17"/>
+                                                                        <rect key="frame" x="93" y="-4" width="200" height="16.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="200" id="1A7-RB-FkZ"/>
                                                                             <constraint firstAttribute="height" constant="16" id="7ob-nQ-JMW"/>
@@ -1640,7 +1640,7 @@
                                             <outlet property="title" destination="0A2-Ei-Tdj" id="RIG-gj-osk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleEventMembersTVC" rowHeight="200" id="lPK-pP-bgL" customClass="EventMembersTVC" customModule="PadiMigration" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleEventMembersTVC" rowHeight="200" id="lPK-pP-bgL" customClass="EventMembersTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="553" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lPK-pP-bgL" id="tRT-HM-rsU">
@@ -1741,13 +1741,14 @@
                                                 <constraint firstItem="trd-J2-k0U" firstAttribute="leading" secondItem="Ofh-OU-aor" secondAttribute="leading" id="ug8-f0-GSM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="indicatorLabel" destination="OcQ-LB-o4H" id="adc-JD-Srz"/>
                                             <outlet property="membersCollectionView" destination="trd-J2-k0U" id="02m-F7-dWd"/>
                                             <outlet property="title" destination="Ofh-OU-aor" id="c91-8T-aNC"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventPayTVC" rowHeight="285" id="v1l-fN-ST9" customClass="EventPayTVC" customModule="PadiMigration" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventPayTVC" rowHeight="285" id="v1l-fN-ST9" customClass="EventPayTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="753" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v1l-fN-ST9" id="cYm-Tc-SD5">
@@ -1886,6 +1887,7 @@
                                                 <constraint firstItem="A8s-RN-t8o" firstAttribute="leading" secondItem="cYm-Tc-SD5" secondAttribute="leadingMargin" id="uWg-VJ-lbt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="EventPayCollectionView" destination="cwA-EG-IRu" id="Jov-VO-VuQ"/>
                                             <outlet property="title" destination="A8s-RN-t8o" id="Ivv-GD-IwX"/>
@@ -2079,7 +2081,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFb-hM-1yg">
-                                                                        <rect key="frame" x="8" y="-7" width="70" height="22"/>
+                                                                        <rect key="frame" x="8" y="-6" width="70" height="21.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="Gul-Ns-aOD"/>
                                                                             <constraint firstAttribute="width" constant="70" id="nZp-Gw-8rl"/>
@@ -2089,7 +2091,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBD-yJ-qCD">
-                                                                        <rect key="frame" x="93" y="-4.5" width="200" height="17"/>
+                                                                        <rect key="frame" x="93" y="-3.5" width="200" height="16.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="16" id="Rsy-rU-VKq"/>
                                                                             <constraint firstAttribute="width" constant="200" id="kmY-Jb-66o"/>
@@ -2130,7 +2132,7 @@
                                             <outlet property="title" destination="Mcp-DZ-2s1" id="VIs-d5-0jz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SinglePayMembersTVC" rowHeight="531" id="sTr-uC-RCQ" customClass="SinglePayMemberTVC" customModule="PadiMigration" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SinglePayMembersTVC" rowHeight="531" id="sTr-uC-RCQ" customClass="SinglePayMemberTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="553" width="375" height="531"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sTr-uC-RCQ" id="M7P-bl-RFG">
@@ -2228,6 +2230,7 @@
                                                 <constraint firstItem="I8G-WP-13f" firstAttribute="top" secondItem="M7P-bl-RFG" secondAttribute="topMargin" id="fU9-Fa-QE9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="memberPaymentTableView" destination="qw7-mZ-wwg" id="rM4-d4-ZnW"/>
                                             <outlet property="title" destination="I8G-WP-13f" id="Eoq-KD-UGy"/>

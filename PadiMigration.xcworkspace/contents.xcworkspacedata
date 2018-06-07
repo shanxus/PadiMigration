@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Volumes/Transcend/iOS_project/PadiMigration/PadiMigration/PadiEntity/StringConstantControll/InstructionsShowing.swift">
+   </FileRef>
+   <FileRef
       location = "group:PadiMigration.xcodeproj">
    </FileRef>
    <FileRef

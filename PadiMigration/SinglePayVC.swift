@@ -62,9 +62,9 @@ class SinglePayVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInSinglePayVC")
+        let finishShowingInstructions = UserDefaults.standard.bool(forKey: InstructionControlling.showInstrInSinglePayVCFinished)
         if finishShowingInstructions == false {
-            //self.coachMarksController.start(on: self)
+            self.coachMarksController.start(on: self)
         }
     }
     
@@ -269,6 +269,7 @@ extension SinglePayVC: UITableViewDataSource {
                         cell.payImage.image = UIImage(named: type)
                     }
                 }
+                cell.isUserInteractionEnabled = false
                 return cell
             }
         } else if indexPath.section == 1 {
@@ -329,10 +330,11 @@ extension SinglePayVC: CoachMarksControllerDataSource, CoachMarksControllerDeleg
         
         if index == 0 {
             coachViews.bodyView.hintLabel.text = "點擊這邊來編輯此筆分款款項"
-            coachViews.bodyView.nextLabel.text = "Ok!"
+            coachViews.bodyView.nextLabel.text = InstructionsShowing.showNext
         } else {
             coachViews.bodyView.hintLabel.text = "點擊這邊來查看此筆款項的分款資訊"
-            coachViews.bodyView.nextLabel.text = "Ok!"
+            coachViews.bodyView.nextLabel.text = InstructionsShowing.showNext
+            UserDefaults.standard.set(true, forKey: InstructionControlling.showInstrInSinglePayVCFinished)
         }
         
         return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
