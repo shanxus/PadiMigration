@@ -75,7 +75,10 @@ class SingleEventViewVC: UIViewController {
             singleEventPayHelper.eventID = eventID
         }
         
-        addLongPressRecognizer()
+        if isEditingBtnShowing == true {
+            addLongPressRecognizer()
+        }
+        
         listenEventChanges()
         listenEventName()
         
