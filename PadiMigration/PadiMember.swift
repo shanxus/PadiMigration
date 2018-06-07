@@ -54,6 +54,15 @@ class ExamplePadiMember {
         }
         
         let userRef = ref.child(DBPathStrings.userDataPath).child(userID)
+        userRef.observe(.childAdded) { (snapshot) in
+            if snapshot.key == DBPathStrings.namePath {
+                let json = JSON(snapshot.value ?? "")
+                if let newName = json.string {
+                    completion(newName)
+                }
+            }
+        }
+        
         userRef.observe(.childChanged) { (snapshot) in
             if snapshot.key == DBPathStrings.namePath {
                 let json = JSON(snapshot.value ?? "")
@@ -86,7 +95,12 @@ class ExamplePadiMember {
         imageURLRef.observeSingleEvent(of: .value) { (snapshot) in
             let json = JSON(snapshot.value ?? "")
             if let url = json.string {
-                completion(url)
+                if url == "" {
+                    /* return default image */
+                    completion("https://firebasestorage.googleapis.com/v0/b/padi-79987.appspot.com/o/DefaultImages%2FPadiMemberDefault.png?alt=media&token=eaad6cd6-d5ae-445a-8981-984e8535e9e9")
+                } else {
+                    completion(url)
+                }
             }
         }
         

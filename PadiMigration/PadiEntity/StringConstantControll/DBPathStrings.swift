@@ -45,4 +45,7 @@ class DBPathStrings {
     // for user type
     static let padiUser = "PadiUser"
     static let selfDefined = "selfDefined"
+    
+    // for default images
+    static let defaultMemberImageURL = "https://firebasestorage.googleapis.com/v0/b/padi-79987.appspot.com/o/DefaultImages%2FPadiMemberDefault.png?alt=media&token=eaad6cd6-d5ae-445a-8981-984e8535e9e9"
 }

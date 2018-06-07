@@ -943,7 +943,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="16" id="VUD-6Z-Y5k"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -975,7 +975,7 @@
                                                                             <constraint firstAttribute="width" constant="102" id="8WU-3n-GBL"/>
                                                                             <constraint firstAttribute="height" constant="16" id="S8G-Eg-Y1s"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0筆)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xif-rF-EJb">
@@ -1589,7 +1589,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-AK-cjp">
-                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="21.5"/>
+                                                                        <rect key="frame" x="8" y="-7" width="70" height="22"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="2KA-9Y-ipt"/>
                                                                             <constraint firstAttribute="height" constant="21" id="NbP-09-ntJ"/>
@@ -1599,12 +1599,12 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電影影影影" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1J-13-70n">
-                                                                        <rect key="frame" x="93" y="-4" width="200" height="16.5"/>
+                                                                        <rect key="frame" x="93" y="-4.5" width="200" height="17"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="200" id="1A7-RB-FkZ"/>
                                                                             <constraint firstAttribute="height" constant="16" id="7ob-nQ-JMW"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -1836,7 +1836,7 @@
                                                                             <constraint firstAttribute="height" constant="16" id="HTC-hG-rCl"/>
                                                                             <constraint firstAttribute="width" constant="102" id="yaU-2m-MlT"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
