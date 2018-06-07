@@ -47,7 +47,7 @@ class CurrentUserInfoVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInCurrentUserInfoVC")
+        let finishShowingInstructions = UserDefaults.standard.bool(forKey: InstructionControlling.showInstrInCurrentUserInfoVCFinished)
         if finishShowingInstructions == false {
             self.coachMarksController.start(on: self)
         }
@@ -291,6 +291,7 @@ extension CurrentUserInfoVC: CoachMarksControllerDataSource, CoachMarksControlle
         } else if index == 1 {
             coachViews.bodyView.hintLabel.text = "點擊登出會登出目前使用帳號"
             coachViews.bodyView.nextLabel.text = "Ok!"
+            UserDefaults.standard.set(true, forKey: InstructionControlling.showInstrInCurrentUserInfoVCFinished)            
         }
         
         return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)

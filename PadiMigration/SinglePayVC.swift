@@ -55,7 +55,9 @@ class SinglePayVC: UIViewController {
             listenForPayChange(userID: user, payID: pay)
         }
         
-        addLongPressRecognizer()
+        if isEditingBtnShowing == true {
+            addLongPressRecognizer()
+        }
         self.coachMarksController.dataSource = self
     }
     
