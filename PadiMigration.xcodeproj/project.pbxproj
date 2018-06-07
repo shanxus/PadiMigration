@@ -91,6 +91,8 @@
 		74980E4D084E10606D44BA28 /* Pods_PadiMigration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19E60C47E62DBF45B6A6647 /* Pods_PadiMigration.framework */; };
 		7499736E20C5391B00D7DD91 /* DefaultIconSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499736D20C5391B00D7DD91 /* DefaultIconSelectVC.swift */; };
 		7499737120C5395500D7DD91 /* DefaultIconSelectTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499737020C5395500D7DD91 /* DefaultIconSelectTVC.swift */; };
+		749D468A20C9010600E937B5 /* InstructionsShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D468920C9010600E937B5 /* InstructionsShowing.swift */; };
+		749D468C20C901C000E937B5 /* InstructionControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D468B20C901C000E937B5 /* InstructionControlling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,7 +118,7 @@
 		741EBDF520C3C1BF0061B342 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainUser.swift; path = PadiMigration/MainUser.swift; sourceTree = SOURCE_ROOT; };
 		741EBDF620C3C1BF0061B342 /* PayInvolvedMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayInvolvedMember.swift; path = PadiMigration/PayInvolvedMember.swift; sourceTree = SOURCE_ROOT; };
 		741EBDF720C3C1BF0061B342 /* PadiFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PadiFriend.swift; path = PadiMigration/PadiFriend.swift; sourceTree = SOURCE_ROOT; };
-		741EBDF820C3C1BF0061B342 /* DBPathStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBPathStrings.swift; path = PadiMigration/DBPathStrings.swift; sourceTree = SOURCE_ROOT; };
+		741EBDF820C3C1BF0061B342 /* DBPathStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBPathStrings.swift; path = PadiMigration/PadiEntity/StringConstantControll/DBPathStrings.swift; sourceTree = SOURCE_ROOT; };
 		741EBDF920C3C1BF0061B342 /* PadiMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PadiMember.swift; path = PadiMigration/PadiMember.swift; sourceTree = SOURCE_ROOT; };
 		741EBE0420C3C2180061B342 /* MyEventOverviewEventsCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventOverviewEventsCVC.swift; path = PadiMigration/MyEventOverviewEventsCVC.swift; sourceTree = SOURCE_ROOT; };
 		741EBE0520C3C2180061B342 /* MyEventOverviewFavoriteCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventOverviewFavoriteCVC.swift; path = PadiMigration/MyEventOverviewFavoriteCVC.swift; sourceTree = SOURCE_ROOT; };
@@ -181,6 +183,8 @@
 		741EBE9320C3CD750061B342 /* PadiMigration.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PadiMigration.entitlements; sourceTree = "<group>"; };
 		7499736D20C5391B00D7DD91 /* DefaultIconSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIconSelectVC.swift; sourceTree = "<group>"; };
 		7499737020C5395500D7DD91 /* DefaultIconSelectTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIconSelectTVC.swift; sourceTree = "<group>"; };
+		749D468920C9010600E937B5 /* InstructionsShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstructionsShowing.swift; path = /Volumes/Transcend/iOS_project/PadiMigration/PadiMigration/PadiEntity/StringConstantControll/InstructionsShowing.swift; sourceTree = "<absolute>"; };
+		749D468B20C901C000E937B5 /* InstructionControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionControlling.swift; sourceTree = "<group>"; };
 		C9505EC15197C802D5C2DCBC /* Pods-PadiMigration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadiMigration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration.debug.xcconfig"; sourceTree = "<group>"; };
 		E19E60C47E62DBF45B6A6647 /* Pods_PadiMigration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PadiMigration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADDE318F71BC61A6E432A3C /* Pods-PadiMigration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadiMigration.release.xcconfig"; path = "Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,7 +290,7 @@
 		741EBDF020C3C1750061B342 /* PadiEntity */ = {
 			isa = PBXGroup;
 			children = (
-				741EBDF820C3C1BF0061B342 /* DBPathStrings.swift */,
+				749D468820C900A200E937B5 /* StringConstantControll */,
 				741EBDF520C3C1BF0061B342 /* MainUser.swift */,
 				741EBDF220C3C1BF0061B342 /* PadiEvent.swift */,
 				741EBDF720C3C1BF0061B342 /* PadiFriend.swift */,
@@ -558,6 +562,16 @@
 			path = DefaultIconSelectVC;
 			sourceTree = "<group>";
 		};
+		749D468820C900A200E937B5 /* StringConstantControll */ = {
+			isa = PBXGroup;
+			children = (
+				749D468920C9010600E937B5 /* InstructionsShowing.swift */,
+				741EBDF820C3C1BF0061B342 /* DBPathStrings.swift */,
+				749D468B20C901C000E937B5 /* InstructionControlling.swift */,
+			);
+			path = StringConstantControll;
+			sourceTree = "<group>";
+		};
 		BBDAD566BE3C3D5C765B2844 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,10 +787,12 @@
 				7499736E20C5391B00D7DD91 /* DefaultIconSelectVC.swift in Sources */,
 				741EBE7A20C3C85D0061B342 /* CurrentUserInfoVC.swift in Sources */,
 				741EBE2A20C3C4520061B342 /* AddNewEventActionTVC.swift in Sources */,
+				749D468A20C9010600E937B5 /* InstructionsShowing.swift in Sources */,
 				741EBE7F20C3C88D0061B342 /* ShowPayeesHelperVC.swift in Sources */,
 				741EBE4A20C3C58D0061B342 /* ShowPaymentTVC.swift in Sources */,
 				741EBE3920C3C5170061B342 /* SinglePayMemberTVC.swift in Sources */,
 				7499737120C5395500D7DD91 /* DefaultIconSelectTVC.swift in Sources */,
+				749D468C20C901C000E937B5 /* InstructionControlling.swift in Sources */,
 				741EBE1B20C3C3800061B342 /* PayerSelectTVC.swift in Sources */,
 				741EBE1820C3C3480061B342 /* PayeesListCVC.swift in Sources */,
 				741EBDFC20C3C1BF0061B342 /* PadiPay.swift in Sources */,
@@ -930,7 +946,10 @@
 				DEVELOPMENT_TEAM = 2R89L7B5LL;
 				INFOPLIST_FILE = PadiMigration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = shan.PadiMigration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PadiMigration/PadiMigration-Bridging-Header.h";
@@ -951,7 +970,10 @@
 				DEVELOPMENT_TEAM = 2R89L7B5LL;
 				INFOPLIST_FILE = PadiMigration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = shan.PadiMigration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PadiMigration/PadiMigration-Bridging-Header.h";

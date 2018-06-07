@@ -85,9 +85,9 @@ class SingleEventViewVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInSingleEventVC")
+        let finishShowingInstructions = UserDefaults.standard.bool(forKey: InstructionControlling.showInstrInSingleEventVCFinished)
         if finishShowingInstructions == false {
-            //self.coachMarksController.start(on: self)
+            self.coachMarksController.start(on: self)
         }
     }
     
@@ -359,7 +359,7 @@ extension SingleEventViewVC: UICollectionViewDataSource {
 //MARK: - delegate of the singleEvent members collectionView.
 extension SingleEventViewVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        collectionView.deselectItem(at: indexPath, animated: false)
     }
 }
 
@@ -376,7 +376,7 @@ extension SingleEventViewVC: UICollectionViewDelegateFlowLayout {
 
 extension SingleEventViewVC: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
     func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
-        return 2
+        return 3
     }
     
     func coachMarksController(_ coachMarksController: CoachMarksController,
@@ -384,8 +384,13 @@ extension SingleEventViewVC: CoachMarksControllerDataSource, CoachMarksControlle
         
         if index == 0 {
             return coachMarksController.helper.makeCoachMark(for: editBtn)
-        } else {
+        } else if index == 1 {
             let targetIndex = IndexPath(row: 0, section: 1)
+            let cell = layoutTableView.cellForRow(at: targetIndex)
+            let targetView = cell!.contentView
+            return coachMarksController.helper.makeCoachMark(for: targetView)
+        } else {
+            let targetIndex = IndexPath(row: 0, section: 3)
             let cell = layoutTableView.cellForRow(at: targetIndex)
             let targetView = cell!.contentView
             return coachMarksController.helper.makeCoachMark(for: targetView)
@@ -397,10 +402,14 @@ extension SingleEventViewVC: CoachMarksControllerDataSource, CoachMarksControlle
         
         if index == 0 {
             coachViews.bodyView.hintLabel.text = "點擊這邊來編輯此筆分款活動"
-            coachViews.bodyView.nextLabel.text = "Ok!"
-        } else {
+            coachViews.bodyView.nextLabel.text = InstructionsShowing.showNext
+        } else if index == 1 {
             coachViews.bodyView.hintLabel.text = "點擊這邊來查看此筆活動的分款資訊"
-            coachViews.bodyView.nextLabel.text = "Ok!"
+            coachViews.bodyView.nextLabel.text = InstructionsShowing.showNext
+        } else {
+            coachViews.bodyView.hintLabel.text = "活動成員可以瀏覽此筆分款活動的資訊，並即時看到任何改變"
+            coachViews.bodyView.nextLabel.text = InstructionsShowing.showNext
+            UserDefaults.standard.set(true, forKey: InstructionControlling.showInstrInSingleEventVCFinished)
         }
         
         return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)

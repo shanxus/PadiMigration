@@ -321,6 +321,9 @@ class ExamplePadiEvent {
                 completion(accumulaor)
             }
         }
+        
+        /* return a default value. */
+        completion(0)
     }
     
     func payValueAccumulationWith(payList: [String:Float]) -> Float {

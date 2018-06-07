@@ -40,14 +40,6 @@ class ShowPayRelationVC: UIViewController {
     }
 
     @IBAction func dismissTapped(_ sender: Any) {
-        /* This is a push animation for transition.
-        let transition = CATransition()
-        transition.duration = 0.3
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionDefault)
-        view.window!.layer.add(transition, forKey: kCATransition)
-        */
         self.dismiss(animated: true, completion: nil)
     }
     

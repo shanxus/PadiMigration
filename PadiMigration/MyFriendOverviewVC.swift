@@ -95,7 +95,10 @@ class MyFriendOverviewVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.coachMarksController.start(on: self)
+        let finishShowingInstructions = UserDefaults.standard.bool(forKey: InstructionControlling.showInstrInFriendsOverviewFinished)
+        if finishShowingInstructions == false {
+            self.coachMarksController.start(on: self)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -273,6 +276,7 @@ extension MyFriendOverviewVC: CoachMarksControllerDataSource, CoachMarksControll
         
         coachViews.bodyView.hintLabel.text = "您的好友將會顯示在這個頁面"
         coachViews.bodyView.nextLabel.text = "Ok!"
+        UserDefaults.standard.set(true, forKey: InstructionControlling.showInstrInFriendsOverviewFinished)
         
         return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
     }

@@ -30,11 +30,12 @@ class GeneralService {
         let userNameRef = userRef.child(DBPathStrings.namePath)
         userNameRef.observeSingleEvent(of: .value) { (snapshot) in
             let json = JSON(snapshot.value ?? "")
-            if let name = json.string {
+            if let _ = json.string {
                 // do nothing because name exists.                
             } else {
                 userRef.setValue(["\(DBPathStrings.accountPath)":email,
-                                  "\(DBPathStrings.namePath)":name])
+                                  "\(DBPathStrings.namePath)":name,
+                                  "\(DBPathStrings.imageURLPath)":DBPathStrings.defaultMemberImageURL])
             }
         }
     }
@@ -72,7 +73,7 @@ class GeneralService {
         let targetRef = folderRef.child(uid)
         targetRef.delete { (error) in
             if let error = error {
-                print("deleting \(folderPath) image fails: ", error.localizedDescription ?? "")
+                print("deleting \(folderPath) image fails: ", error.localizedDescription )
             } else {
                 print("deleting \(folderPath) image successes.")
             }

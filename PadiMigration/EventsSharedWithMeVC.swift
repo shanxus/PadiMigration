@@ -43,7 +43,7 @@ class EventsSharedWithMeVC: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let finishShowingInstructions = UserDefaults.standard.bool(forKey: "showInstrInEventsSharedWithMeVC")
+        let finishShowingInstructions = UserDefaults.standard.bool(forKey: InstructionControlling.showInstrInEventsSharedWithMeVCFinished)
         if finishShowingInstructions == false {
             self.coachMarksController.start(on: self)
         }
@@ -121,7 +121,6 @@ extension EventsSharedWithMeVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "sharedEventsCell", for: indexPath) as? SharedEventsTVC else { return UITableViewCell() }
         
-        guard let currentUserID = Auth.auth().currentUser?.uid else {return cell}
         guard let eventID = sharedEvents?[indexPath.row] else {return cell}
         let helper = ExamplePadiEvent()
         
@@ -159,7 +158,8 @@ extension EventsSharedWithMeVC: CoachMarksControllerDataSource, CoachMarksContro
         let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
         
         coachViews.bodyView.hintLabel.text = "當您朋友將您加入一筆分款活動中時，您可以立即在這邊看到"
-        coachViews.bodyView.nextLabel.text = "Ok!"
+        coachViews.bodyView.nextLabel.text = InstructionsShowing.showNext
+        UserDefaults.standard.set(true, forKey: InstructionControlling.showInstrInEventsSharedWithMeVCFinished)
         
         return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
     }
