@@ -2313,7 +2313,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowPayRelationTVC" id="sIc-4T-Nz6" customClass="ShowPayRelationTVC" customModule="PadiMigration" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowPayRelationTVC" id="sIc-4T-Nz6" customClass="ShowPayRelationTVC" customModule="PadiMigration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sIc-4T-Nz6" id="3ih-jx-yP3">
@@ -2390,6 +2390,7 @@
                                                 <constraint firstItem="IoP-Kn-8ew" firstAttribute="top" secondItem="3ih-jx-yP3" secondAttribute="top" constant="10" id="zDw-Hf-XCn"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="leftSideDescription" destination="QfF-eR-nFp" id="lsW-AS-Uss"/>
                                             <outlet property="leftSideImage" destination="IoP-Kn-8ew" id="bL0-QY-9jN"/>
