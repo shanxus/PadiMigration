@@ -97,7 +97,19 @@ extension SingleEventPayHelperVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let count = paysID?.count else {return 0}
+        guard let count = paysID?.count else {
+            let reminderTxt = UILabel()
+            reminderTxt.font = UIFont.systemFont(ofSize: 13)
+            reminderTxt.alpha = 0.8
+            let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+            reminderTxt.frame = frame
+            reminderTxt.textAlignment = .center
+            reminderTxt.text = "您還沒有建立任何一筆分款項目哦！\n快跟好友進行分款吧！"
+            reminderTxt.numberOfLines = 0
+            reminderTxt.sizeToFit()
+            collectionView.backgroundView = reminderTxt
+            return 0
+        }
         return count
     }
     

@@ -46,7 +46,7 @@ extension AddNewEventHelperVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "eventActionBlock", for: indexPath) as? AddNewEventActionTVC {
             
-            cell.indicatorLabel.text = ">"
+            cell.indicatorLabel.text = ""
             if indexPath.section == 0 {
                 if indexPath.row == 0 {
                     cell.actionTitle.text = "新增活動成員"
@@ -89,27 +89,88 @@ extension AddNewEventHelperVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 0 {
+            return 30
+        } else if section == 1 {
+            return 30
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 3 {
+        if section == 0 {
+            return 50
+        } else if section == 1 {
             return 50
         } else {
             return 0
-        }        
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = headerColor
+        if section == 0 {
+            var descriptionLabel: UILabel {
+                let des = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.bounds.width-10, height: 50))
+                des.text = "活動成員"
+                des.textColor = UIColor.darkGray
+                des.numberOfLines = 0
+                des.font = UIFont.boldSystemFont(ofSize: 13)
+                des.sizeToFit()
+                return des
+            }
+            headerView.addSubview(descriptionLabel)
+            return headerView
+        } else if section == 1 {
+            var descriptionLabel: UILabel {
+                let des = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.bounds.width-10, height: 50))
+                des.text = "活動款項"
+                des.textColor = UIColor.darkGray
+                des.numberOfLines = 0
+                des.font = UIFont.boldSystemFont(ofSize: 13)
+                des.sizeToFit()
+                return des
+            }
+            headerView.addSubview(descriptionLabel)
+            return headerView
+        }
+        
         return headerView
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = headerColor
-        return headerView
+        let footerView = UIView()
+        footerView.backgroundColor = headerColor
+        
+        if section == 0 {
+            var paymentMemberDescription: UILabel {
+                // because autolayout doesn't work in tableView header, use CGRect to define the frame of label in here.
+                let descriptionLabel = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.bounds.width-10, height: 50))
+                descriptionLabel.text = "Padi使用者成員們將可以即時看到這筆分款活動的所有款項，以及任何款項變動。"
+                descriptionLabel.numberOfLines = 0
+                descriptionLabel.font = UIFont.systemFont(ofSize: 13)
+                descriptionLabel.textColor = .lightGray
+                descriptionLabel.sizeToFit()
+                return descriptionLabel
+            }
+            footerView.addSubview(paymentMemberDescription)
+            return footerView
+        } else if section == 1 {
+            var paymentMemberDescription: UILabel {
+                // because autolayout doesn't work in tableView header, use CGRect to define the frame of label in here.
+                let descriptionLabel = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.bounds.width-10, height: 50))
+                descriptionLabel.text = "新增一筆新的分款款項到此活動中。"
+                descriptionLabel.numberOfLines = 0
+                descriptionLabel.font = UIFont.systemFont(ofSize: 13)
+                descriptionLabel.textColor = .lightGray
+                descriptionLabel.sizeToFit()
+                return descriptionLabel
+            }
+            footerView.addSubview(paymentMemberDescription)
+            return footerView
+        }
+        return footerView
     }
 }
 

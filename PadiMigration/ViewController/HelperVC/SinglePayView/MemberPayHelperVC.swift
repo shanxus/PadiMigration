@@ -13,7 +13,8 @@ import SkeletonView
 
 class MemberPayHelperVC: UIViewController {
 
-    let sharedPayLabelColor = UIColor(red: 237/255, green: 106/255, blue: 90/255, alpha: 1)
+    let sharedPayPayerLabelColor = UIColor(red: 237/255, green: 106/255, blue: 90/255, alpha: 1)
+    let sharedPayPayeeLabelColor = UIColor(red: 93/255, green: 87/255, blue: 107/255, alpha: 1)
     let ppLabelColor = UIColor(red: 155/255, green: 193/255, blue: 188/255, alpha: 1)
     
     var thisTV: UITableView!
@@ -456,7 +457,7 @@ extension MemberPayHelperVC: UITableViewDataSource {
             
             if (indexPath.row > (payers.count - 1)) == false { // show for payers.
                 cell.shouldPayTitle.text = "均分款項付款者"
-                cell.shouldPayTitle.textColor = sharedPayLabelColor
+                cell.shouldPayTitle.textColor = sharedPayPayerLabelColor
                 
                 let payer = payers[indexPath.row]
                 
@@ -494,7 +495,7 @@ extension MemberPayHelperVC: UITableViewDataSource {
                 }
             } else if indexPath.row > (payers.count - 1), (indexPath.row > (payers.count + payees.count - 1)) == false { // show for payees
                 cell.shouldPayTitle.text = "均分款項參與者"
-                cell.shouldPayTitle.textColor = sharedPayLabelColor
+                cell.shouldPayTitle.textColor = sharedPayPayeeLabelColor
                 let payee = payees[indexPath.row - payers.count]
                 
                 if imgURLDic[payee.ID] == nil {
