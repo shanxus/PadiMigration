@@ -50,6 +50,9 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - SkeletonView (1.2)
+  - SwiftMessages (4.1.4):
+    - SwiftMessages/App (= 4.1.4)
+  - SwiftMessages/App (4.1.4)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
@@ -62,6 +65,7 @@ DEPENDENCIES:
   - Instructions (~> 1.1.0)
   - Kingfisher (~> 4.0)
   - SkeletonView
+  - SwiftMessages
   - SwiftyJSON
 
 SPEC REPOS:
@@ -82,6 +86,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - SkeletonView
+    - SwiftMessages
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -101,8 +106,9 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SkeletonView: d68962d45d1af038f6a110d2274b183df8f82752
+  SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 06815ff60f2381a3213620b0a99f55d95b3e7704
+PODFILE CHECKSUM: 2df7bb9a5a524b8a89bb55bb1f16167c35295ce4
 
 COCOAPODS: 1.5.0

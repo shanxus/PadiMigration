@@ -18,5 +18,6 @@ target 'PadiMigration' do
   pod "SkeletonView"
   pod 'Instructions', '~> 1.1.0'
   pod 'Hero', '~> 1.2'
+  pod 'SwiftMessages'
 
 end
