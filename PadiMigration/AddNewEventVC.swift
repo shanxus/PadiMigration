@@ -96,17 +96,23 @@ class AddNewEventVC: UIViewController {
     
     @IBAction func addBtnTapped(_ sender: Any) {
         guard let type = viewType else {return}
+        let topVC = GeneralService.findTopVC()
         if eventNameHolder == "" || eventNameHolder == "請輸入活動名稱" {
-            // should show alert.
-            print("not set name?")
+            let alert = UIAlertController(title: "小提醒", message: "請記得設定活動名稱", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            
+            topVC.present(alert, animated: true, completion: nil)
             return
         }
         
         if type == .addNew {
-            
             if eventPhoto == nil {
-                // should show alert.
-                print("not set image?")
+                let alert = UIAlertController(title: "小提醒", message: "請記得設定活動照片", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(ok)
+                
+                topVC.present(alert, animated: true, completion: nil)
                 return
             }
             

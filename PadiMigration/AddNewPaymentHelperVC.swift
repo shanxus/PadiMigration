@@ -399,7 +399,7 @@ class AddNewPaymentHelperVC: UIViewController {
 extension AddNewPaymentHelperVC: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -407,11 +407,9 @@ extension AddNewPaymentHelperVC: UITableViewDataSource {
             return 1
         } else if section == 1 {
             return 2
-        } else if section == 2 {
+        } else {
             return 1
-        } else  {
-            return 2
-        } 
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -419,7 +417,7 @@ extension AddNewPaymentHelperVC: UITableViewDataSource {
             
             let helper = ExamplePay()
             
-            cell.indicatorLabel.text = ">"
+            cell.indicatorLabel.text = ""
             
             if indexPath.section == 0 {
                 if indexPath.row == 0 {
@@ -456,8 +454,7 @@ extension AddNewPaymentHelperVC: UITableViewDataSource {
                 cell.actionTitle.text = "新增個人款項"
                 cell.descriptionLabel.text = ""
                 return cell
-            } else {
-                if indexPath.row == 0 {
+            } else if indexPath.section == 3 {
                     handleCellInteraction(cell: cell, interaction: true)
                     cell.actionTitle.text = "服務費"
                     handleCellInteraction(cell: cell, interaction: false)
@@ -474,82 +471,137 @@ extension AddNewPaymentHelperVC: UITableViewDataSource {
                         }
                     }
                     return cell
+            } else {
+                let check = checkCalculateSharedPayRequirementIsMet()
+                if check == true {
+                    handleCellInteraction(cell: cell, interaction: true)
                 } else {
-                    let check = checkCalculateSharedPayRequirementIsMet()
-                    if check == true {
-                        handleCellInteraction(cell: cell, interaction: true)
-                    } else {
-                        handleCellInteraction(cell: cell, interaction: false)
-                    }
-                    cell.actionTitle.text = "檢視"
-                    cell.descriptionLabel.text = ""
-                    return cell
+                    handleCellInteraction(cell: cell, interaction: false)
                 }
+                cell.actionTitle.text = "檢視"
+                cell.descriptionLabel.text = ""
+                return cell
             }
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 3 {
-            return 50
+        if section == 1 {
+            return 30
+        } else if section == 2 {
+            return 30
         } else {
             return 0
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = headerColor
-        
         if section == 1 {
             var descriptionLabel: UILabel {
-                let des = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.bounds.width-20, height: 10))
-                if let desTitle = modeFooterDescription {
-                    des.text = desTitle
-                    des.textColor = .lightGray
-                    if desTitle == "尚未設定付款模式。" {
-                        des.textColor = .red
-                    }
-                } else {
-                    des.text = ""
-                    des.textColor = .lightGray
-                }
+                let des = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.bounds.width-10, height: 50))
+                des.text = "均分款項"
+                des.textColor = UIColor.darkGray
+                des.numberOfLines = 0
+                des.font = UIFont.boldSystemFont(ofSize: 13)
+                des.sizeToFit()
+                return des
+            }
+            headerView.addSubview(descriptionLabel)
+            return headerView
+        } else if section == 2 {
+            var descriptionLabel: UILabel {
+                let des = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.bounds.width-10, height: 50))
+                des.text = "個人款項"
+                des.textColor = UIColor.darkGray
+                des.numberOfLines = 0
+                des.font = UIFont.boldSystemFont(ofSize: 13)
+                des.sizeToFit()
+                return des
+            }
+            headerView.addSubview(descriptionLabel)
+            return headerView
+        } else {
+            return headerView
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = headerColor
+        if section == 0 {
+            var descriptionLabel: UILabel {
+                let des = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.bounds.width-10, height: 50))
+                des.text = "款項時間尚未開放修改。"
+                des.textColor = .lightGray
                 des.numberOfLines = 0
                 des.font = UIFont.systemFont(ofSize: 13)
                 des.sizeToFit()
                 return des
             }
-            headerView.addSubview(descriptionLabel)
-        } else if section == 2 {
+            footerView.addSubview(descriptionLabel)
+            return footerView
+
+        } else if section == 1 {
             var paymentMemberDescription: UILabel {
-                
                 // because autolayout doesn't work in tableView header, use CGRect to define the frame of label in here.
-                let descriptionLabel = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.bounds.width-20, height: 10))
-                if let description = memberSelectDescription {
-                    descriptionLabel.text = description
-                }
+                let descriptionLabel = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.bounds.width-10, height: 50))
+                descriptionLabel.text = "新增均分款項：可選擇多位付款者，以及各付款者之付款金額。所選擇之參與成員將會一同均分款項金額。"
                 descriptionLabel.numberOfLines = 0
                 descriptionLabel.font = UIFont.systemFont(ofSize: 13)
                 descriptionLabel.textColor = .lightGray
                 descriptionLabel.sizeToFit()
                 return descriptionLabel
             }
-            headerView.addSubview(paymentMemberDescription)
+            footerView.addSubview(paymentMemberDescription)
+            return footerView
+        } else if section == 2 {
+            var paymentMemberDescription: UILabel {
+                // because autolayout doesn't work in tableView header, use CGRect to define the frame of label in here.
+                let descriptionLabel = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.bounds.width-10, height: 50))
+                descriptionLabel.text = "新增個人款項：直接選擇一對一的付款者、付款金額以及款項成員。"
+                descriptionLabel.numberOfLines = 0
+                descriptionLabel.font = UIFont.systemFont(ofSize: 13)
+                descriptionLabel.textColor = .lightGray
+                descriptionLabel.sizeToFit()
+                return descriptionLabel
+            }
+            footerView.addSubview(paymentMemberDescription)
+            return footerView
+        } else if section == 3 {
+            var paymentMemberDescription: UILabel {
+                // because autolayout doesn't work in tableView header, use CGRect to define the frame of label in here.
+                let descriptionLabel = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.bounds.width-10, height: 50))
+                descriptionLabel.text = "服務費功能尚未開放"
+                descriptionLabel.numberOfLines = 0
+                descriptionLabel.font = UIFont.systemFont(ofSize: 13)
+                descriptionLabel.textColor = .lightGray
+                descriptionLabel.sizeToFit()
+                return descriptionLabel
+            }
+            footerView.addSubview(paymentMemberDescription)
+            return footerView
+        } else {
+            var paymentMemberDescription: UILabel {
+                // because autolayout doesn't work in tableView header, use CGRect to define the frame of label in here.
+                let descriptionLabel = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.bounds.width-10, height: 50))
+                descriptionLabel.text = "在儲存之前檢視已建立之款項。"
+                descriptionLabel.numberOfLines = 0
+                descriptionLabel.font = UIFont.systemFont(ofSize: 13)
+                descriptionLabel.textColor = .lightGray
+                descriptionLabel.sizeToFit()
+                return descriptionLabel
+            }
+            footerView.addSubview(paymentMemberDescription)
+            return footerView
         }
-        return headerView
     }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView()
-        footerView.backgroundColor = headerColor
-        return footerView
-    }
- 
 }
 
 extension AddNewPaymentHelperVC: UITableViewDelegate {
@@ -575,12 +627,10 @@ extension AddNewPaymentHelperVC: UITableViewDelegate {
             }
         } else if indexPath.section == 2 {
             handleAddingPersonalPay()
-        } else if indexPath.section == 3 {
-            if indexPath.row == 0 {
-                handlePresentServiceCharge()
-            } else if indexPath.row == 1 {
-                handleShowInspectionVC()
-            }
+        } else if indexPath.section == 3 {            
+            handlePresentServiceCharge()
+        } else if indexPath.section == 4 {
+            handleShowInspectionVC()
         }
     }
 }

@@ -87,6 +87,9 @@ class MyFriendOverviewVC: UIViewController {
         if let currentUserID = Auth.auth().currentUser?.uid {
             helper.fetchFriendsList(userID: currentUserID) { (list: [String]) in
                 self.friends = list
+                DispatchQueue.main.async {
+                    self.friendListingTable.reloadData()
+                }
             }
         }
         
