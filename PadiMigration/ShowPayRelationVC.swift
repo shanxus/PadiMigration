@@ -56,7 +56,7 @@ class ShowPayRelationVC: UIViewController {
         
         let request = GADRequest()
         // remeber to remove below
-        //request.testDevices = [ kGADSimulatorID ]
+        request.testDevices = [ kGADSimulatorID, "5ff0dffbe6c8dfb7a1d61033b1a9059c" ]        
         interstitial.load(request)
         interstitial.delegate = self
         

@@ -75,7 +75,6 @@ class MyFriendOverviewVC: UIViewController {
         friendListingTable.dataSource = self
         friendListingTable.delegate = self
         
-        
         friendListingTable.isUserInteractionEnabled = false
         friendListingTable.tableFooterView = UIView()
         friendListingTable.backgroundColor = headerColor
@@ -137,12 +136,20 @@ class MyFriendOverviewVC: UIViewController {
                     topVC.present(currentUserinfoVC, animated: true, completion: nil)
                 }
             }
+            
+            let delete = UIAlertAction(title: "刪除", style: .destructive) { (action) in
+                let helper = ExamplePadiFriends()
+                guard let currentUser = Auth.auth().currentUser else {return}
+                helper.delete(friendID: friendID, type: .selfDefinedUser, userID: currentUser.uid)
+            }
+            
             let cancel = UIAlertAction(title: "取消", style: .cancel) { (action) in
                 self.isEditingAlertShowing = false
             }
             
             alert.addAction(edit)
             alert.addAction(cancel)
+            //alert.addAction(delete)
             topVC.present(alert, animated: true, completion: nil)
         }
     }
