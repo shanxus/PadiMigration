@@ -272,11 +272,20 @@ extension AddNewPersonalPayVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = selectedPair?.count {
-            return count
-        } else {
+        guard let count = selectedPair?.count else {
+            let reminderTxt = UILabel()
+            reminderTxt.font = UIFont.systemFont(ofSize: 13)
+            reminderTxt.alpha = 0.8
+            let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+            reminderTxt.frame = frame
+            reminderTxt.textAlignment = .center
+            reminderTxt.text = "您還沒有建立任何一筆個人款項哦！\n透過先按著成員，再將手指拖移到某一位付款者來新增個人款項吧！"
+            reminderTxt.numberOfLines = 0
+            reminderTxt.sizeToFit()
+            tableView.backgroundView = reminderTxt
             return 0
         }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

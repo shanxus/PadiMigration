@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import SkeletonView
 import Instructions
+import SwiftMessages
 
 enum FriendsVCType: String {
     case friendOverview = "friendOverview"
@@ -102,6 +103,14 @@ class MyFriendOverviewVC: UIViewController {
         if finishShowingInstructions == false {
             self.coachMarksController.start(on: self)
         }
+        
+        // test swiftMessage.
+        let msgView = MessageView.viewFromNib(layout: .cardView)
+        msgView.button?.removeFromSuperview()
+        msgView.configureContent(title: "title", body: "body")
+        msgView.configureTheme(.success)
+        msgView.configureDropShadow()
+        SwiftMessages.show(view: msgView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
