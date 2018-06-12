@@ -36,6 +36,7 @@ PODS:
   - FirebaseStorage (3.0.0):
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - Google-Mobile-Ads-SDK (7.31.0)
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/DynamicLinks
   - Firebase/Storage
+  - Google-Mobile-Ads-SDK
   - Hero (~> 1.2)
   - Instructions (~> 1.1.0)
   - Kingfisher (~> 4.0)
@@ -78,6 +80,7 @@ SPEC REPOS:
     - FirebaseDynamicLinks
     - FirebaseInstanceID
     - FirebaseStorage
+    - Google-Mobile-Ads-SDK
     - GoogleToolboxForMac
     - GTMSessionFetcher
     - Hero
@@ -98,6 +101,7 @@ SPEC CHECKSUMS:
   FirebaseDynamicLinks: d624a7adc81a8fd70d52be5a6a47a2bc0644b923
   FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
+  Google-Mobile-Ads-SDK: 6e529e748b45507a2ca904e0b5a52669ba3920c4
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   Hero: 33dadf2cd1c98af71e213dcbc2902e6e03622a4e
@@ -109,6 +113,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 2df7bb9a5a524b8a89bb55bb1f16167c35295ce4
+PODFILE CHECKSUM: ab691c21c96809c352c7f4ecfca1e091a0200bba
 
 COCOAPODS: 1.5.0
