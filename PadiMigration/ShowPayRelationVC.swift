@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import GoogleMobileAds
 
 class ShowPayRelationVC: UIViewController {
 
@@ -15,8 +16,9 @@ class ShowPayRelationVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var relationTable: UITableView!
 
+    var interstitial: GADInterstitial?
+    
     var userID: String?
-    //var payID: String?
     
     var payIDs: [String] = []
     
@@ -33,6 +35,8 @@ class ShowPayRelationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        interstitial = createAndLoadInterstitial()
+        
         relationTable.delegate = self
         relationTable.dataSource = self
         relationTable.tableFooterView = UIView()
@@ -41,6 +45,22 @@ class ShowPayRelationVC: UIViewController {
 
     @IBAction func dismissTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func createAndLoadInterstitial() -> GADInterstitial? {
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-1195213068628759/6310070367")
+        
+        guard let interstitial = interstitial else {
+            return nil
+        }
+        
+        let request = GADRequest()
+        // remeber to remove below
+        //request.testDevices = [ kGADSimulatorID ]
+        interstitial.load(request)
+        interstitial.delegate = self
+        
+        return interstitial
     }
     
     func fetchPayInfo() {
@@ -167,6 +187,16 @@ extension ShowPayRelationVC: UITableViewDataSource {
     }
 }
 
+extension ShowPayRelationVC: GADInterstitialDelegate {
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("interstitial loaded successfully")
+        ad.present(fromRootViewController: self)
+    }
+    
+    func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
+        print("fail to receive interstitial")
+    }
+}
 
 
 

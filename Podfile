@@ -19,5 +19,6 @@ target 'PadiMigration' do
   pod 'Instructions', '~> 1.1.0'
   pod 'Hero', '~> 1.2'
   pod 'SwiftMessages'
+  pod 'Google-Mobile-Ads-SDK'
 
 end

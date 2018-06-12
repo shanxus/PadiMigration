@@ -35,7 +35,7 @@ class InspectionVC: UIViewController {
         handleLayoutRecordsTable()
         
     }
-
+    
     func handleLayoutNavigationView() {
         navigationView = CustomView()
         navigationView.backgroundColor = headerColor
@@ -238,8 +238,6 @@ extension InspectionVC: UITableViewDelegate {
         // should figure out why category label is weird when cell is selected. 
     }
 }
-
-
 
 
 
