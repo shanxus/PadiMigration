@@ -10,7 +10,6 @@ import UIKit
 import FirebaseAuth
 import SkeletonView
 import Instructions
-import SwiftMessages
 
 enum FriendsVCType: String {
     case friendOverview = "friendOverview"
@@ -76,7 +75,6 @@ class MyFriendOverviewVC: UIViewController {
         friendListingTable.dataSource = self
         friendListingTable.delegate = self
         
-        
         friendListingTable.isUserInteractionEnabled = false
         friendListingTable.tableFooterView = UIView()
         friendListingTable.backgroundColor = headerColor
@@ -103,14 +101,6 @@ class MyFriendOverviewVC: UIViewController {
         if finishShowingInstructions == false {
             self.coachMarksController.start(on: self)
         }
-        
-        // test swiftMessage.
-        let msgView = MessageView.viewFromNib(layout: .cardView)
-        msgView.button?.removeFromSuperview()
-        msgView.configureContent(title: "title", body: "body")
-        msgView.configureTheme(.success)
-        msgView.configureDropShadow()
-        SwiftMessages.show(view: msgView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -146,12 +136,20 @@ class MyFriendOverviewVC: UIViewController {
                     topVC.present(currentUserinfoVC, animated: true, completion: nil)
                 }
             }
+            
+            let delete = UIAlertAction(title: "刪除", style: .destructive) { (action) in
+                let helper = ExamplePadiFriends()
+                guard let currentUser = Auth.auth().currentUser else {return}
+                helper.delete(friendID: friendID, type: .selfDefinedUser, userID: currentUser.uid)
+            }
+            
             let cancel = UIAlertAction(title: "取消", style: .cancel) { (action) in
                 self.isEditingAlertShowing = false
             }
             
             alert.addAction(edit)
             alert.addAction(cancel)
+            //alert.addAction(delete)
             topVC.present(alert, animated: true, completion: nil)
         }
     }

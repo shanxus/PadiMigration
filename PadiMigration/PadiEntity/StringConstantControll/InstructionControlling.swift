@@ -15,4 +15,5 @@ class InstructionControlling {
     static let showInstrInEventsSharedWithMeVCFinished = "showInstrInEventsSharedWithMeVC"
     static let showInstrInFriendsOverviewFinished = "showInstrInFriendsOverview"
     static let showInstrInCurrentUserInfoVCFinished = "showInstrInCurrentUserInfoVC"
+    static let showInstrInAddNewSelfDefinedFriendVCFinished = "showInstrInAddNewSelfDefinedFriendVC"
 }

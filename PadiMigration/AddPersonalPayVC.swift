@@ -272,7 +272,7 @@ extension AddNewPersonalPayVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = selectedPair?.count else {
+        guard let selectedPair = selectedPair, selectedPair.count != 0 else {
             let reminderTxt = UILabel()
             reminderTxt.font = UIFont.systemFont(ofSize: 13)
             reminderTxt.alpha = 0.8
@@ -284,8 +284,9 @@ extension AddNewPersonalPayVC: UITableViewDataSource {
             reminderTxt.sizeToFit()
             tableView.backgroundView = reminderTxt
             return 0
-        }
-        return count
+        }        
+        tableView.backgroundView = UIView()
+        return selectedPair.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -310,7 +311,6 @@ extension AddNewPersonalPayVC: UITableViewDataSource {
             })
             
             cell.relation.text = "應該付$\(value)給"
-            
             return cell
         }
         return UITableViewCell()

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import SwiftyJSON
+import SwiftMessages
 
 class AddNewPaymentHelperVC: UIViewController {
 
@@ -226,8 +227,7 @@ class AddNewPaymentHelperVC: UIViewController {
             let payers = handleTransformPayers(selectedPayers: selectedPayers, selectedPayees: selectedPayees)
             let payees = handleTransformPayees(selectedPayers: selectedPayers, selectedPayees: selectedPayees)
             let pps = handleTransformPP(selectedPairs: selectedPairs)
-            // cal. PayRelations.
-            //let relationHelper = RelationTable()
+            
             guard let member = self.memberList else {return}            
             
             /* create new pay object */
@@ -242,6 +242,13 @@ class AddNewPaymentHelperVC: UIViewController {
                 let storeHelper = ExamplePay()
                 guard let currentUserID = Auth.auth().currentUser?.uid else {return}
                 storeHelper.storeIntoDB(pay: newPayObject, userID: currentUserID)
+                /* swiftMessage. */
+                let msgView = MessageView.viewFromNib(layout: .cardView)
+                msgView.button?.removeFromSuperview()
+                msgView.configureContent(title: "新增款項成功", body: "您新增了一筆分款款項")
+                msgView.configureTheme(.success)
+                msgView.configureDropShadow()
+                SwiftMessages.show(view: msgView)
             }
         }
     }

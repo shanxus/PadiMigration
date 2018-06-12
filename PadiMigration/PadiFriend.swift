@@ -132,6 +132,13 @@ class ExamplePadiFriends {
         finalRef.setValue(value)
     }
     
+    func delete(friendID: String, type: PadiFriendType, userID: String) {
+        if type == .selfDefinedUser {
+            let deleteRef = ref.child(DBPathStrings.friendDataPath).child(userID).child(friendID)
+            deleteRef.removeValue()
+        }
+    }
+    
     func storeIntoDB(friend: PadiFriend, userID: String) {
         let id = friend.getID()
         let type = friend.getType()

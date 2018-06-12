@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SwiftMessages
 
 enum AddNewEventType: String {
     case addNew = "新增活動"
@@ -154,7 +155,25 @@ class AddNewEventVC: UIViewController {
             helper.store(members: soretedMemberList, eventID: event, userID: user)
         }
         
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            if type == .addNew {
+                /* swiftMessage. */
+                let msgView = MessageView.viewFromNib(layout: .cardView)
+                msgView.button?.removeFromSuperview()
+                msgView.configureContent(title: "新增活動成功", body: "您新增了一筆分款活動")
+                msgView.configureTheme(.success)
+                msgView.configureDropShadow()
+                SwiftMessages.show(view: msgView)
+            } else if type == .edit {
+                /* swiftMessage. */
+                let msgView = MessageView.viewFromNib(layout: .cardView)
+                msgView.button?.removeFromSuperview()
+                msgView.configureContent(title: "修改活動成功", body: "您修改了一筆分款活動")
+                msgView.configureTheme(.success)
+                msgView.configureDropShadow()
+                SwiftMessages.show(view: msgView)
+            }
+        })
     }
     
     @objc func rotated() {
