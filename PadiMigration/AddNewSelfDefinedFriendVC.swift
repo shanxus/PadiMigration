@@ -9,10 +9,14 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import Instructions
+import SwiftMessages
 
 class AddNewSelfDefinedFriendVC: UIViewController {
     @IBOutlet weak var friendImage: UIImageView!
     @IBOutlet weak var friendName: UILabel!
+    
+    let coachMarksController = CoachMarksController()
     
     var selectedImageData: Data?
     
@@ -22,6 +26,8 @@ class AddNewSelfDefinedFriendVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.coachMarksController.dataSource = self
         
         if let data = UIImageJPEGRepresentation(#imageLiteral(resourceName: "PadifriendDefault"), 1.0) as Data? {
             selectedImageData = data
@@ -36,6 +42,15 @@ class AddNewSelfDefinedFriendVC: UIViewController {
         friendName.addGestureRecognizer(nameTapped)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let finishShowingInstructions = UserDefaults.standard.bool(forKey: InstructionControlling.showInstrInAddNewSelfDefinedFriendVCFinished)
+        if finishShowingInstructions == false {
+            self.coachMarksController.start(on: self)
+        }
+    }
+    
     @IBAction func cancelTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -58,7 +73,15 @@ class AddNewSelfDefinedFriendVC: UIViewController {
             
             let friendTargetRef = self.ref.child(DBPathStrings.friendDataPath).child(currentUserID).child(uuid)
             friendTargetRef.setValue(["\(DBPathStrings.friendTypePath)":DBPathStrings.selfDefined])
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: {
+                /* swiftMessage. */
+                let msgView = MessageView.viewFromNib(layout: .cardView)
+                msgView.button?.removeFromSuperview()
+                msgView.configureContent(title: "新增自定義好友成功", body: "您新增了一位自定義好友")
+                msgView.configureTheme(.success)
+                msgView.configureDropShadow()
+                SwiftMessages.show(view: msgView)
+            })
         }
     }
     
@@ -110,7 +133,6 @@ class AddNewSelfDefinedFriendVC: UIViewController {
         let topVC = GeneralService.findTopVC()
         topVC.present(alert, animated: true, completion: nil)
     }
-
 }
 
 extension AddNewSelfDefinedFriendVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -131,6 +153,45 @@ extension AddNewSelfDefinedFriendVC: UIImagePickerControllerDelegate, UINavigati
         picker.dismiss(animated: true, completion: nil)
     }
 }
+
+extension AddNewSelfDefinedFriendVC: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 2
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController,
+                              coachMarkAt index: Int) -> CoachMark {
+        if index == 0 {
+            return coachMarksController.helper.makeCoachMark(for: friendImage)
+        } else {
+            return coachMarksController.helper.makeCoachMark(for: friendName)
+        }
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
+        
+        if index == 0 {
+            coachViews.bodyView.hintLabel.text = "點擊圖片來編輯自定義好友的照片"
+            coachViews.bodyView.nextLabel.text = InstructionsShowing.showNext
+        } else if index == 1 {
+            coachViews.bodyView.hintLabel.text = "點擊這邊來編輯自定義好友的名稱"
+            coachViews.bodyView.nextLabel.text = InstructionsShowing.showNext            
+            UserDefaults.standard.set(true, forKey: InstructionControlling.showInstrInAddNewSelfDefinedFriendVCFinished)
+        }
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

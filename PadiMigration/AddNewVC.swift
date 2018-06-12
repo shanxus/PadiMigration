@@ -48,7 +48,7 @@ extension AddNewVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AddNewTVC", for: indexPath) as? AddNewTVC {
             cell.selectionTitle.text = selectionArray[indexPath.row]
-            cell.indicatorLabel.text = ">"
+            cell.indicatorLabel.text = ""
             return cell
         }
         return UITableViewCell()
