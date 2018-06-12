@@ -106,7 +106,7 @@ class MyFriendOverviewVC: UIViewController {
         
         // test swiftMessage.
         let msgView = MessageView.viewFromNib(layout: .cardView)
-        msgView.button?.removeFromSuperview()        
+        msgView.button?.removeFromSuperview()
         msgView.configureContent(title: "title", body: "body")
         msgView.configureTheme(.success)
         msgView.configureDropShadow()

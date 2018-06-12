@@ -76,10 +76,6 @@ class AddNewPaymentHelperVC: UIViewController {
             /* load payers*/
             helper.fetchPayAttribute(for: DBPathStrings.payerPath, payID: pay, userID: user) { (fetched: JSON) in
                 for (key, info) in fetched.dictionaryValue {
-                    let isInvolved = info[DBPathStrings.isInvolved].boolValue
-                    if isInvolved == true {
-                        self.selectedPayees.append(key)
-                    }
                     let value = info[DBPathStrings.value].floatValue
                     self.selectedPayers[key] = value
                 }
@@ -137,7 +133,7 @@ class AddNewPaymentHelperVC: UIViewController {
     }
     
     func infoNotEnoughAlert() {
-        let alert = UIAlertController(title: "必要資訊不足", message: "請填好新增款項所有的必要資訊", preferredStyle: .alert)
+        let alert = UIAlertController(title: "必要資訊不足", message: "請填好新增款項所有的必要資訊，如款項名稱以及款項圖片", preferredStyle: .alert)
         let sureAction = UIAlertAction(title: "知道了", style: .default, handler: nil)
         alert.addAction(sureAction)
         let topVC = GeneralService.findTopVC()
@@ -209,7 +205,7 @@ class AddNewPaymentHelperVC: UIViewController {
     }
     
     func handleAddingNewPayment(belongsToEvent: String?, paymentNameLabel: UILabel?, imageType: String) {
-        guard let belongsToEvent = belongsToEvent, let payName = paymentNameLabel?.text, payName != "請輸入款項名稱" else {
+        guard let belongsToEvent = belongsToEvent, let payName = paymentNameLabel?.text, payName != "請輸入款項名稱", imageType != "" else {
             infoNotEnoughAlert()
             return
         }

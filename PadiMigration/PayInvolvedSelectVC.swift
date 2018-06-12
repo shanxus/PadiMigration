@@ -95,7 +95,9 @@ class PayInvolvedSelectVC: UIViewController {
     func handleAddSelectedPayee(index: Int) {
         guard let friends = friends else {return}
         let id = friends[index]
-        selectedPayees.append(id)
+        if selectedPayees.contains(id) == false {
+            selectedPayees.append(id)
+        }
     }
     
     func handleRemoveSelectedPayee(index: Int) {
