@@ -40,6 +40,14 @@ class GeneralService {
         }
     }
     
+    static func storeUserMessageToken(userID: String, token: String) {
+        var ref: DatabaseReference! {
+            return Database.database().reference()
+        }
+        let tokenRef = ref.child(DBPathStrings.userDataPath).child(userID).child(DBPathStrings.token)
+        tokenRef.setValue(token)
+    }
+    
     func upload(image: Data, uuid: String, path: String, completion: @escaping ((_ downloadURL: String) -> Void)) {
         var ref: StorageReference {
             return Storage.storage().reference().child(path)

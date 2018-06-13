@@ -34,6 +34,7 @@ class DBPathStrings {
     static let isServiceChargedPath = "isServiceCharge"
     static let memberListPath = "members"
     static let namePath = "name"
+    static let token = "token"
     static let serviceChargePath = "serviceChargeValue"
     static let timePath = "timeInterval"
     
