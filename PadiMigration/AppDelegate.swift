@@ -9,17 +9,29 @@
 import UIKit
 import Firebase
 import GoogleMobileAds
+import FirebaseMessaging
+import FirebaseInstanceID
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        application.registerForRemoteNotifications()
+        
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (_, _) in
+            
+        }
+        Messaging.messaging().delegate = self
+        
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1195213068628759/6310070367")
-        
         return true
     }
  
@@ -31,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        Messaging.messaging().shouldEstablishDirectChannel = false
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -39,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -78,9 +92,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             })
             return handled
-            
         }
         return false
     }
+ 
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert])
+    }
+        
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
+    }
 }
+
+
+
+
+
+
+
 

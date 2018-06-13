@@ -13,6 +13,9 @@ PODS:
   - Firebase/DynamicLinks (5.1.0):
     - Firebase/Core
     - FirebaseDynamicLinks (= 3.0.1)
+  - Firebase/Messaging (5.1.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.0.1)
   - Firebase/Storage (5.1.0):
     - Firebase/CoreOnly
     - FirebaseStorage (= 3.0.0)
@@ -33,11 +36,18 @@ PODS:
     - FirebaseAnalytics (~> 5.0)
   - FirebaseInstanceID (3.0.0):
     - FirebaseCore (~> 5.0)
+  - FirebaseMessaging (3.0.1):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
   - FirebaseStorage (3.0.0):
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - Google-Mobile-Ads-SDK (7.31.0)
   - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/Logger (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
@@ -50,6 +60,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Protobuf (3.5.0)
   - SkeletonView (1.2)
   - SwiftMessages (4.1.4):
     - SwiftMessages/App (= 4.1.4)
@@ -61,6 +72,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/DynamicLinks
+  - Firebase/Messaging
   - Firebase/Storage
   - Google-Mobile-Ads-SDK
   - Hero (~> 1.2)
@@ -79,6 +91,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseDynamicLinks
     - FirebaseInstanceID
+    - FirebaseMessaging
     - FirebaseStorage
     - Google-Mobile-Ads-SDK
     - GoogleToolboxForMac
@@ -88,6 +101,7 @@ SPEC REPOS:
     - Kingfisher
     - leveldb-library
     - nanopb
+    - Protobuf
     - SkeletonView
     - SwiftMessages
     - SwiftyJSON
@@ -100,6 +114,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 482bad9c2abd422bb2321194fb8c937e67426a89
   FirebaseDynamicLinks: d624a7adc81a8fd70d52be5a6a47a2bc0644b923
   FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
+  FirebaseMessaging: ec6fde5a77824c6da0218f9ca220feb251aa17d5
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   Google-Mobile-Ads-SDK: 6e529e748b45507a2ca904e0b5a52669ba3920c4
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
@@ -109,10 +124,11 @@ SPEC CHECKSUMS:
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SkeletonView: d68962d45d1af038f6a110d2274b183df8f82752
   SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: ab691c21c96809c352c7f4ecfca1e091a0200bba
+PODFILE CHECKSUM: 31509e277eb77d6851dfdec200317f528625e6cc
 
 COCOAPODS: 1.5.0
