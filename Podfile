@@ -20,5 +20,6 @@ target 'PadiMigration' do
   pod 'Hero', '~> 1.2'
   pod 'SwiftMessages'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'Firebase/Messaging'
 
 end
