@@ -18,36 +18,27 @@ exports.sharedEvent = functions.database.instance('padi-79987').ref('sharedEvent
   // const sharedUserID = context.auth.uid;
   // console.log("sharedUserID: ", sharedUserID);
 
-  //
+  /* get beenShared user ID */
   const beenSharedID = context.params.uid;
   console.log("user who had been shared: ", beenSharedID);
 
+  const beenSharedUserTokenPromise = admin.database().ref().child('User').child(beenSharedID).child('token').once('value');
+
+  return Promise.all([beenSharedUserTokenPromise]).then(result => {
+    const beenSharedUserToken = result[0].val();
+    console.log("notification token: ", beenSharedUserToken);
+
+    /* send notification */
+    var payload = {
+      notification: {
+        title: 'New Padi Event.',
+        body: 'You got an new Padi event shared with you!'
+      }
+    };
+
+    return admin.messaging().sendToDevice(beenSharedUserToken, payload);
+  })
+
   // const eventID = snapshot.val();
   // console.log("eventID: ", eventID);
-
-  var payload = {
-    notification: {
-      title: 'Hello',
-      body: 'It\'s Padi!'
-    }
-  };
-
-  // var options = {
-  //   priority: 'high',
-  //   timeToLive: 60 * 60 * 24
-  // };
-
-  const registrationToken = "fHn6wiH37Ec:APA91bGbrPpurnAQa2H1H-WDEk1wfoPL9YaZqF0fOXfGSmpRbZlhm927Oh2_URb_OAFNSFWm3_7QW_SBwVtLLdMX0GwBmvX3A1I-pf0qndbdCovUdUx9e6NtUQ3zIzIICpE3c3ZRooh1";
-
-  return admin.messaging().sendToDevice(registrationToken, payload);
-  /*
-  .then(function(response) {
-    // See the MessagingDevicesResponse reference documentation for
-    // the contents of response.
-    console.log('Successfully sent message:', response);
-  })
-  .catch(function(error) {
-    console.log('Error sending message:', error);
-  });
-  */
 })
