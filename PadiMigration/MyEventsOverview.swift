@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import SkeletonView
 import Instructions
+import FirebaseInstanceID
 
 class MyEventsOverview: UIViewController {
 
@@ -46,6 +47,10 @@ class MyEventsOverview: UIViewController {
             print("email: ", currentUser.email!)
             print("uid: ", currentUser.uid)
             coachMarksController.dataSource = self
+            
+            if let fcmToken = InstanceID.instanceID().token() {                
+                GeneralService.storeUserMessageToken(userID: currentUser.uid, token: fcmToken)
+            }
         }
         
         layoutTableView.delegate = self
