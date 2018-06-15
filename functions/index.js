@@ -11,7 +11,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
  response.send("Hello from Firebase!");
 });
 
-/* This is a Firebase Function used to notifiy users about shared events. */
+/* This is a Firebase Function used to notifiy users about new shared events. */
 exports.sharedEvent = functions.database.instance('padi-79987').ref('sharedEvents/{uid}/{eventKey}').onCreate((snapshot, context) => {
   console.log("This is Padi for onCreate 2.");
 
@@ -52,5 +52,35 @@ exports.sharedEvent = functions.database.instance('padi-79987').ref('sharedEvent
 
     /* send notification */
     return admin.messaging().sendToDevice(beenSharedUserToken, payload);
+  })
+})
+
+/* This is a Firebase Function used to notify user that he/she got a friend. */
+exports.newFriend = functions.database.instance('padi-79987').ref('exampleFriend/{uid}/{friendID}').onCreate((snapshot, context) => {
+  /* got uids. */
+  const userID = context.params.uid;
+  //console.log("userID: ", userID);
+  const friendID = context.params.friendID;
+  //console.log("friendID: ", friendID);
+
+  /* got promises of tokens. */
+  const userTokenPromise = admin.database().ref().child('User').child(userID).child('token').once('value');
+  const friendTokenPromise = admin.database().ref().child('User').child(friendID).child('token').once('value');
+
+  return Promise.all([userTokenPromise, friendTokenPromise]).then(result => {
+    const userToken = result[0].val();
+    const friendToken = result[1].val();
+    console.log("userToken: ", userToken);
+    console.log("friendToken: ", friendToken);
+
+    var payload = {
+      notification: {
+        title: '新的好友',
+        body: "您新增了一位好友！"
+      }
+    };
+
+    /* send notification */
+    return admin.messaging().sendToDevice(userToken, payload);
   })
 })

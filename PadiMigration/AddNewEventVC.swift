@@ -281,7 +281,8 @@ extension AddNewEventVC: UITableViewDelegate {
             let txtInfo = EditTxtInfo(flag: Flag.addEventName.rawValue, titleTxt: "編輯活動名稱", inputTxt: self.eventNameHolder, actionTxt: "儲存")
             showEditTxtFieldVC.viewTxtPrepare = txtInfo
             showEditTxtFieldVC.passEventNameDelegate = self
-            self.present(showEditTxtFieldVC, animated:true, completion:nil)
+            let topVC = GeneralService.findTopVC()
+            topVC.present(showEditTxtFieldVC, animated: true, completion: nil)            
         }
     }
     

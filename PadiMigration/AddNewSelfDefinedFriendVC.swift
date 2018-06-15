@@ -109,7 +109,7 @@ class AddNewSelfDefinedFriendVC: UIViewController {
         }
         alert.addAction(fromPhotoLibrary)
         alert.addAction(fromCamera)
-        alert.addAction(fromDefault)
+        //alert.addAction(fromDefault)
         alert.addAction(cancel)
         
         topVC.present(alert, animated: true, completion: nil)

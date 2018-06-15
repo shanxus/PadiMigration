@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import Instructions
+import SkeletonView
 
 class EventsSharedWithMeVC: UIViewController {
 
@@ -125,17 +126,23 @@ extension EventsSharedWithMeVC: UITableViewDataSource {
         let helper = ExamplePadiEvent()
         
         // fetch eventImage.
+        cell.eventImage.isSkeletonable = true
+        cell.eventImage.showSkeleton()
         helper.fetchSharedEventImageURL(eventID: eventID) { (url) in
             let imgURL = URL(string: url)
             DispatchQueue.main.async {
                 cell.eventImage.kf.setImage(with: imgURL)
+                cell.eventImage.hideSkeleton()
             }
         }
         
         // fetch event name.
+        cell.eventName.isSkeletonable = true
+        cell.eventName.showSkeleton()
         helper.fetchSharedEventName(eventID: eventID) { (name: String) in
             DispatchQueue.main.async {
                 cell.eventName.text = name
+                cell.eventName.hideSkeleton()
             }
         }
         
