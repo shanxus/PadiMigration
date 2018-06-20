@@ -70,6 +70,7 @@ class SignUpVC: UIViewController {
         detailedInstruction.text = "請使用有效信箱來進行註冊/登入，我們將會寄一封驗證信給您。"
         continueBtn.setTitle("繼續", for: .normal)
         cancel.isUserInteractionEnabled = false
+        accountTF.isUserInteractionEnabled = true
     }
     
     @objc func handleViewTapEndEditing(recognizer: UIGestureRecognizer) {
