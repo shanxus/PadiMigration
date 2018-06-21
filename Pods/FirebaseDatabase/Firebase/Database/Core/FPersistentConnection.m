@@ -474,10 +474,10 @@ static void reachabilityCallback(SCNetworkReachabilityRef ref, SCNetworkReachabi
                                                    object:nil];
     }
     // An empty address is interpreted a generic internet access
-    struct sockaddr_in zeroAddress;
+    struct sockaddr_in6 zeroAddress;
     bzero(&zeroAddress, sizeof(zeroAddress));
-    zeroAddress.sin_len = sizeof(zeroAddress);
-    zeroAddress.sin_family = AF_INET;
+    zeroAddress.sin6_len = sizeof(zeroAddress);
+    zeroAddress.sin6_family = AF_INET6;
     reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr *)&zeroAddress);
     SCNetworkReachabilityContext ctx = {0, (__bridge void *)(self), NULL, NULL, NULL};
     if (SCNetworkReachabilitySetCallback(reachability, reachabilityCallback, &ctx)) {
