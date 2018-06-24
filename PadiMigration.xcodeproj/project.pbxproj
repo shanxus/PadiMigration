@@ -93,6 +93,7 @@
 		7499737120C5395500D7DD91 /* DefaultIconSelectTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499737020C5395500D7DD91 /* DefaultIconSelectTVC.swift */; };
 		749D468A20C9010600E937B5 /* InstructionsShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D468920C9010600E937B5 /* InstructionsShowing.swift */; };
 		749D468C20C901C000E937B5 /* InstructionControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D468B20C901C000E937B5 /* InstructionControlling.swift */; };
+		74E297EA20DFCDB700F39AD9 /* EventActionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E297E920DFCDB700F39AD9 /* EventActionTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -185,6 +186,7 @@
 		7499737020C5395500D7DD91 /* DefaultIconSelectTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIconSelectTVC.swift; sourceTree = "<group>"; };
 		749D468920C9010600E937B5 /* InstructionsShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstructionsShowing.swift; path = /Volumes/Transcend/iOS_project/PadiMigration/PadiMigration/PadiEntity/StringConstantControll/InstructionsShowing.swift; sourceTree = "<absolute>"; };
 		749D468B20C901C000E937B5 /* InstructionControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionControlling.swift; sourceTree = "<group>"; };
+		74E297E920DFCDB700F39AD9 /* EventActionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventActionTVC.swift; sourceTree = "<group>"; };
 		C9505EC15197C802D5C2DCBC /* Pods-PadiMigration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadiMigration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration.debug.xcconfig"; sourceTree = "<group>"; };
 		E19E60C47E62DBF45B6A6647 /* Pods_PadiMigration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PadiMigration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADDE318F71BC61A6E432A3C /* Pods-PadiMigration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadiMigration.release.xcconfig"; path = "Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration.release.xcconfig"; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 				741EBE4620C3C58D0061B342 /* EventPayTVC.swift */,
 				741EBE4120C3C58D0061B342 /* EventPictureTVC.swift */,
 				741EBE4220C3C58D0061B342 /* ShowPaymentTVC.swift */,
+				74E297E920DFCDB700F39AD9 /* EventActionTVC.swift */,
 			);
 			path = SingleEventView;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				741EBE4D20C3C58D0061B342 /* EventInfoTVC.swift in Sources */,
 				741EBE3B20C3C5170061B342 /* SinglePayImageTVC.swift in Sources */,
 				741EBE6E20C3C85D0061B342 /* SinglePayVC.swift in Sources */,
+				74E297EA20DFCDB700F39AD9 /* EventActionTVC.swift in Sources */,
 				741EBE8A20C3C9320061B342 /* MemberPayHelperVC.swift in Sources */,
 				741EBDEF20C3C1660061B342 /* EditEventNameProtocol.swift in Sources */,
 				741EBE2620C3C40F0061B342 /* AddNewPaymentInfoBlockTVC.swift in Sources */,

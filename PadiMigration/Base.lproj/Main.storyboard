@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bbN-aL-G51">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bbN-aL-G51">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1564,8 +1564,34 @@
                                             <outlet property="title" destination="R9x-I7-D78" id="l5t-0P-eZp"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventActionTVC" rowHeight="50" id="mSd-0E-blE" customClass="EventActionTVC" customModule="PadiMigration" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="268" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mSd-0E-blE" id="xJr-VZ-Gfj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="statisticsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fuN-KZ-sd1">
+                                                    <rect key="frame" x="20" y="9" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="jNa-rR-pZs"/>
+                                                        <constraint firstAttribute="width" constant="30" id="u16-2A-gXE"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="fuN-KZ-sd1" firstAttribute="leading" secondItem="xJr-VZ-Gfj" secondAttribute="leading" constant="20" id="8tw-vd-eUY"/>
+                                                <constraint firstItem="fuN-KZ-sd1" firstAttribute="centerY" secondItem="xJr-VZ-Gfj" secondAttribute="centerY" id="iqg-xh-pqx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="statistics" destination="fuN-KZ-sd1" id="eYG-if-oKa"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventInfoCell" rowHeight="285" id="m3A-2q-V37" customClass="EventInfoTVC" customModule="PadiMigration" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="268" width="375" height="285"/>
+                                        <rect key="frame" x="0.0" y="318" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3A-2q-V37" id="qRe-JC-IaK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="284.5"/>
@@ -1593,7 +1619,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-AK-cjp">
-                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="22"/>
+                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="21.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="2KA-9Y-ipt"/>
                                                                             <constraint firstAttribute="height" constant="21" id="NbP-09-ntJ"/>
@@ -1603,7 +1629,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電影影影影" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1J-13-70n">
-                                                                        <rect key="frame" x="93" y="-4" width="200" height="17"/>
+                                                                        <rect key="frame" x="93" y="-4" width="200" height="16.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="200" id="1A7-RB-FkZ"/>
                                                                             <constraint firstAttribute="height" constant="16" id="7ob-nQ-JMW"/>
@@ -1645,7 +1671,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleEventMembersTVC" rowHeight="200" id="lPK-pP-bgL" customClass="EventMembersTVC" customModule="PadiMigration" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="553" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="603" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lPK-pP-bgL" id="tRT-HM-rsU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
@@ -1753,7 +1779,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventPayTVC" rowHeight="285" id="v1l-fN-ST9" customClass="EventPayTVC" customModule="PadiMigration" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="753" width="375" height="285"/>
+                                        <rect key="frame" x="0.0" y="803" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v1l-fN-ST9" id="cYm-Tc-SD5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="284.5"/>
@@ -2085,7 +2111,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFb-hM-1yg">
-                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="22"/>
+                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="21.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="Gul-Ns-aOD"/>
                                                                             <constraint firstAttribute="width" constant="70" id="nZp-Gw-8rl"/>
@@ -2095,7 +2121,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBD-yJ-qCD">
-                                                                        <rect key="frame" x="93" y="-4" width="200" height="17"/>
+                                                                        <rect key="frame" x="93" y="-4" width="200" height="16.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="16" id="Rsy-rU-VKq"/>
                                                                             <constraint firstAttribute="width" constant="200" id="kmY-Jb-66o"/>
@@ -3466,6 +3492,7 @@
         <image name="back" width="16" height="16"/>
         <image name="overview75" width="23" height="23"/>
         <image name="plus75" width="23" height="23"/>
+        <image name="statisticsIcon" width="32" height="32"/>
         <image name="user96" width="32" height="32"/>
     </resources>
 </document>
