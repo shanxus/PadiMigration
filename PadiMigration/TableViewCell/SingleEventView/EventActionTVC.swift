@@ -15,7 +15,7 @@ class EventActionTVC: UITableViewCell {
         super.awakeFromNib()
         
         statistics.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapStatistics(_:)))
         statistics.addGestureRecognizer(tap)
     }
 
@@ -25,8 +25,14 @@ class EventActionTVC: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @objc func handleTap(_ sender: UIGestureRecognizer) {
-        print("cell tapped...")
+    @objc func handleTapStatistics(_ sender: UIGestureRecognizer) {
+        let topVC = GeneralService.findTopVC()
+        if let showStatisticsVC = topVC.storyboard?.instantiateViewController(withIdentifier: "showStatisticsVC") as? ShowStatisticsVC {
+            if let singleEventID = UserDefaults.standard.value(forKey: "rightNowSingleEventID") as? String {
+                showStatisticsVC.singleEventID = singleEventID
+                topVC.present(showStatisticsVC, animated: true, completion: nil)
+            }
+        }
     }
 
 }

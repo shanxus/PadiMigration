@@ -60,6 +60,8 @@ class SingleEventViewVC: UIViewController {
         
         if let userID = userID, let eventID = eventID {
             
+            UserDefaults.standard.setValue(eventID, forKey: "rightNowSingleEventID")
+            
             helperDataSource.userID = userID
             helperDataSource.eventID = eventID
             
@@ -249,7 +251,7 @@ extension SingleEventViewVC: UITableViewDataSource {
         } else if indexPath.section == 1 {
             return 40
         } else if indexPath.section == 2 {
-            return 40
+            return 60
         } else if indexPath.section == 3 {
             return 150
         } else if indexPath.section == 4 {

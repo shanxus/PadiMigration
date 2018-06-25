@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		741A081720E12B1800E086FE /* ShowStatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741A081620E12B1800E086FE /* ShowStatisticsVC.swift */; };
 		741EBDCB20C3B9C60061B342 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 741EBDCA20C3B9C60061B342 /* Assets.xcassets */; };
 		741EBDCE20C3B9C60061B342 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 741EBDCC20C3B9C60061B342 /* LaunchScreen.storyboard */; };
 		741EBDD620C3BE330061B342 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 741EBDD520C3BE320061B342 /* GoogleService-Info.plist */; };
@@ -97,6 +98,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		741A081620E12B1800E086FE /* ShowStatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStatisticsVC.swift; sourceTree = "<group>"; };
 		741EBDC020C3B9C30061B342 /* PadiMigration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadiMigration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		741EBDCA20C3B9C60061B342 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		741EBDCD20C3B9C60061B342 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 				741EBE6620C3C85C0061B342 /* SingleEventViewVC.swift */,
 				741EBE5D20C3C85A0061B342 /* SinglePayVC.swift */,
 				7499736D20C5391B00D7DD91 /* DefaultIconSelectVC.swift */,
+				741A081620E12B1800E086FE /* ShowStatisticsVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
@@ -683,6 +687,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
@@ -760,6 +765,7 @@
 				741EBE7B20C3C85D0061B342 /* AddNewFriendVC.swift in Sources */,
 				741EBE0720C3C2180061B342 /* MyEventOverviewFavoriteCVC.swift in Sources */,
 				741EBE7320C3C85D0061B342 /* MyFriendOverviewVC.swift in Sources */,
+				741A081720E12B1800E086FE /* ShowStatisticsVC.swift in Sources */,
 				741EBE7020C3C85D0061B342 /* InspectionVC.swift in Sources */,
 				741EBE3820C3C5170061B342 /* MemberShouldPayTVC.swift in Sources */,
 				741EBE7620C3C85D0061B342 /* PayInvolvedSelectVC.swift in Sources */,
