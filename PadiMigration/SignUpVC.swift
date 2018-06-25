@@ -16,6 +16,14 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var instructionTitle: UILabel!
     @IBOutlet weak var detailedInstruction: UILabel!
+    @IBOutlet weak var loginSegment: UISegmentedControl!
+    
+    /* components below are for the account/password login. */
+    var accountTitle: UILabel!
+    var accountLoginTF: UITextField!
+    var passwordTitle: UILabel!
+    var passwordLoginTF: UITextField!
+    var accountInstruction: UILabel!
     
     var isViewMovingUp: Bool = false
     var keyboardHeight: CGFloat = 0
@@ -32,6 +40,18 @@ class SignUpVC: UIViewController {
         accountTF.delegate = self
         
         setCancelNotInteractable()
+    }
+    
+    @IBAction func loginSegmentTapped(_ sender: Any) {
+        if let segment = sender as? UISegmentedControl {
+            if segment.selectedSegmentIndex == 0 {
+                handleEmailVerificationLogin(showComponents: true)
+                handleAccountPasswordLogin(showComponents: false)
+            } else if segment.selectedSegmentIndex == 1 {
+                handleEmailVerificationLogin(showComponents: false)
+                handleAccountPasswordLogin(showComponents: true)
+            }
+        }
     }
     
     @IBAction func continueTapped(_ sender: Any) {
@@ -113,11 +133,13 @@ class SignUpVC: UIViewController {
         accountTF.isUserInteractionEnabled = true
         cancel.alpha = 1.0
         self.detailedInstruction.text = "我們已經寄驗證信到您的信箱，請透過信內提及的連結來登入Padi。"
+        /* redesign the alert animation.
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.05, initialSpringVelocity: 0.1, options: .curveEaseIn, animations: {
             self.detailedInstruction.center.x -= 100
         }) { (true) in
             
         }
+        */
         accountTF.isUserInteractionEnabled = false
         
         continueBtn.setTitle("重寄", for: .normal)
@@ -127,6 +149,107 @@ class SignUpVC: UIViewController {
     func setCancelNotInteractable() {
         cancel.isUserInteractionEnabled = false
         cancel.alpha = 0.5
+    }
+    
+    func handleEmailVerificationLogin(showComponents show: Bool) {
+        if show == true {
+            instructionTitle.isUserInteractionEnabled = false
+            instructionTitle.alpha = 1
+            
+            accountTF.isUserInteractionEnabled = true
+            accountTF.alpha = 1
+            
+            detailedInstruction.isUserInteractionEnabled = false
+            detailedInstruction.alpha = 1
+        } else {
+            instructionTitle.isUserInteractionEnabled = false
+            instructionTitle.alpha = 0
+            
+            accountTF.isUserInteractionEnabled = false
+            accountTF.resignFirstResponder()
+            accountTF.alpha = 0
+            
+            detailedInstruction.isUserInteractionEnabled = false
+            detailedInstruction.alpha = 0
+        }
+    }
+    
+    func handleAccountPasswordLogin(showComponents show: Bool) {
+        
+        if show == true {
+            accountTitle = UILabel()
+            accountTitle.text = "帳號:"
+            accountTitle.font = UIFont.systemFont(ofSize: 15)
+            accountTitle.textAlignment = .left
+            
+            view.addSubview(accountTitle)
+            accountTitle.leadingAnchor.constraint(equalTo: loginSegment.leadingAnchor, constant: 10).isActive = true
+            accountTitle.trailingAnchor.constraint(equalTo: loginSegment.trailingAnchor, constant: 0).isActive = true
+            accountTitle.topAnchor.constraint(equalTo: loginSegment.bottomAnchor, constant: 40).isActive = true
+            accountTitle.translatesAutoresizingMaskIntoConstraints = false
+            
+            accountInstruction = UILabel()
+            accountInstruction.text = "請使用您的 email 帳號來作為 Padi 帳號。"
+            accountInstruction.textAlignment = .left
+            accountInstruction.textColor = UIColor.darkGray
+            accountInstruction.font = UIFont.systemFont(ofSize: 13)
+            
+            view.addSubview(accountInstruction)
+            accountInstruction.leadingAnchor.constraint(equalTo: accountTitle.leadingAnchor, constant: 0).isActive = true
+            accountInstruction.trailingAnchor.constraint(equalTo: accountTitle.trailingAnchor, constant: 0).isActive = true
+            accountInstruction.topAnchor.constraint(equalTo: accountTitle.bottomAnchor, constant: 0).isActive = true
+            accountInstruction.translatesAutoresizingMaskIntoConstraints = false
+            
+            accountLoginTF = UITextField()
+            accountLoginTF.placeholder = "yourEmailAccount@gmail.com"
+            accountLoginTF.font = UIFont.systemFont(ofSize: 13)
+            accountLoginTF.borderStyle = .roundedRect
+            accountLoginTF.backgroundColor = UIColor(red: 243/255, green: 237/255, blue: 228/255, alpha: 1)
+            
+            view.addSubview(accountLoginTF)
+            accountLoginTF.topAnchor.constraint(equalTo: accountInstruction.bottomAnchor, constant: 0).isActive = true
+            accountLoginTF.leadingAnchor.constraint(equalTo: accountTitle.leadingAnchor, constant: 0).isActive = true
+            accountLoginTF.trailingAnchor.constraint(equalTo: accountTitle.trailingAnchor, constant: 0).isActive = true
+            accountLoginTF.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            accountLoginTF.translatesAutoresizingMaskIntoConstraints = false
+            
+            passwordTitle = UILabel()
+            passwordTitle.text = "密碼:"
+            passwordTitle.font = UIFont.systemFont(ofSize: 17)
+            passwordTitle.textAlignment = .left
+            
+            view.addSubview(passwordTitle)
+            passwordTitle.leadingAnchor.constraint(equalTo: loginSegment.leadingAnchor, constant: 10).isActive = true
+            passwordTitle.trailingAnchor.constraint(equalTo: loginSegment.trailingAnchor, constant: 0).isActive = true
+            passwordTitle.topAnchor.constraint(equalTo: accountLoginTF.bottomAnchor, constant: 20).isActive = true
+            passwordTitle.translatesAutoresizingMaskIntoConstraints = false
+            
+            passwordLoginTF = UITextField()
+            passwordLoginTF.placeholder = "your password"
+            passwordLoginTF.font = UIFont.systemFont(ofSize: 13)
+            passwordLoginTF.borderStyle = .roundedRect
+            passwordLoginTF.backgroundColor = UIColor(red: 243/255, green: 237/255, blue: 228/255, alpha: 1)
+            
+            view.addSubview(passwordLoginTF)
+            passwordLoginTF.topAnchor.constraint(equalTo: passwordTitle.bottomAnchor, constant: 5).isActive = true
+            passwordLoginTF.leadingAnchor.constraint(equalTo: passwordTitle.leadingAnchor, constant: 0).isActive = true
+            passwordLoginTF.trailingAnchor.constraint(equalTo: passwordTitle.trailingAnchor, constant: 0).isActive = true
+            passwordLoginTF.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            passwordLoginTF.translatesAutoresizingMaskIntoConstraints = false
+            
+        } else {
+            accountTitle.removeFromSuperview()
+            accountTitle = nil
+            
+            accountLoginTF.removeFromSuperview()
+            accountLoginTF = nil
+            
+            passwordTitle.removeFromSuperview()
+            passwordTitle = nil
+            
+            passwordLoginTF.removeFromSuperview()
+            passwordLoginTF = nil
+        }
     }
 }
 

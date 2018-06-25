@@ -1619,7 +1619,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-AK-cjp">
-                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="21.5"/>
+                                                                        <rect key="frame" x="8" y="-7" width="70" height="22"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="2KA-9Y-ipt"/>
                                                                             <constraint firstAttribute="height" constant="21" id="NbP-09-ntJ"/>
@@ -1629,7 +1629,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電影影影影" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1J-13-70n">
-                                                                        <rect key="frame" x="93" y="-4" width="200" height="16.5"/>
+                                                                        <rect key="frame" x="93" y="-4.5" width="200" height="17"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="200" id="1A7-RB-FkZ"/>
                                                                             <constraint firstAttribute="height" constant="16" id="7ob-nQ-JMW"/>
@@ -2111,7 +2111,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFb-hM-1yg">
-                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="21.5"/>
+                                                                        <rect key="frame" x="8" y="-7" width="70" height="22"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="Gul-Ns-aOD"/>
                                                                             <constraint firstAttribute="width" constant="70" id="nZp-Gw-8rl"/>
@@ -2121,7 +2121,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBD-yJ-qCD">
-                                                                        <rect key="frame" x="93" y="-4" width="200" height="16.5"/>
+                                                                        <rect key="frame" x="93" y="-4.5" width="200" height="17"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="16" id="Rsy-rU-VKq"/>
                                                                             <constraint firstAttribute="width" constant="200" id="kmY-Jb-66o"/>
@@ -3438,11 +3438,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TEs-Vk-v6U">
+                                <rect key="frame" x="26" y="320.5" width="323" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="BGa-sE-vDm"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="信箱驗證"/>
+                                    <segment title="帳密登入"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="loginSegmentTapped:" destination="6vS-OK-BGR" eventType="valueChanged" id="nUI-tN-r7i"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="TEs-Vk-v6U" secondAttribute="trailing" constant="10" id="94H-Hk-9GY"/>
                             <constraint firstItem="eAL-sY-7gn" firstAttribute="centerX" secondItem="OLy-CT-50V" secondAttribute="centerX" id="Cgc-9b-2xs"/>
                             <constraint firstItem="LpH-od-DSG" firstAttribute="centerX" secondItem="OLy-CT-50V" secondAttribute="centerX" id="DYk-0o-jsv"/>
+                            <constraint firstItem="TEs-Vk-v6U" firstAttribute="centerY" secondItem="OLy-CT-50V" secondAttribute="centerY" id="I36-68-hD0"/>
                             <constraint firstItem="eAL-sY-7gn" firstAttribute="top" secondItem="VNm-iP-WxW" secondAttribute="bottom" constant="101" id="JQT-fw-KCz"/>
                             <constraint firstItem="xiw-1E-CHa" firstAttribute="top" secondItem="eAL-sY-7gn" secondAttribute="bottom" constant="5" id="LVL-kP-4mU"/>
                             <constraint firstItem="51o-EC-nC3" firstAttribute="centerX" secondItem="OLy-CT-50V" secondAttribute="centerX" id="Mfn-ws-Om3"/>
@@ -3450,6 +3466,7 @@
                             <constraint firstItem="xiw-1E-CHa" firstAttribute="centerX" secondItem="OLy-CT-50V" secondAttribute="centerX" id="THu-vk-FF4"/>
                             <constraint firstItem="KnI-n3-rWP" firstAttribute="leading" secondItem="51o-EC-nC3" secondAttribute="leading" constant="10" id="gJT-oI-iLf"/>
                             <constraint firstItem="bzb-J1-Wbg" firstAttribute="top" secondItem="KnI-n3-rWP" secondAttribute="bottom" constant="30" id="kuS-iC-bfc"/>
+                            <constraint firstItem="TEs-Vk-v6U" firstAttribute="leading" secondItem="OLy-CT-50V" secondAttribute="leadingMargin" constant="10" id="lPX-ff-XAg"/>
                             <constraint firstItem="51o-EC-nC3" firstAttribute="top" secondItem="QMb-ve-pUg" secondAttribute="bottom" constant="10" id="qvF-yP-PnE"/>
                             <constraint firstItem="bzb-J1-Wbg" firstAttribute="top" secondItem="51o-EC-nC3" secondAttribute="bottom" constant="189" id="rxx-vM-t07"/>
                             <constraint firstItem="bzb-J1-Wbg" firstAttribute="top" secondItem="HW6-js-Pv3" secondAttribute="bottom" constant="30" id="t34-vX-nnJ"/>
@@ -3463,6 +3480,7 @@
                         <outlet property="continueBtn" destination="HW6-js-Pv3" id="4F6-kZ-jmC"/>
                         <outlet property="detailedInstruction" destination="LpH-od-DSG" id="HpV-Cl-tYI"/>
                         <outlet property="instructionTitle" destination="QMb-ve-pUg" id="rF2-Go-Kba"/>
+                        <outlet property="loginSegment" destination="TEs-Vk-v6U" id="tZ3-Sl-q3T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1p7-U4-HCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
