@@ -1296,7 +1296,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIF-ZG-tqE" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="統計資料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bav-NW-iQ7">
                                         <rect key="frame" x="152.5" y="31" width="69.5" height="21"/>
@@ -1330,20 +1330,24 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1m-qn-x8u" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="234" width="375" height="433"/>
+                                <rect key="frame" x="0.0" y="214" width="375" height="453"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K3d-QX-eD1">
-                                <rect key="frame" x="26" y="196" width="323" height="29"/>
+                                <rect key="frame" x="26" y="176" width="323" height="29"/>
                                 <segments>
                                     <segment title="長條圖"/>
                                     <segment title="圓餅圖"/>
                                 </segments>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentTapped:" destination="I1d-88-Chp" eventType="valueChanged" id="qpZ-pP-Ext"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OIF-ZG-tqE" firstAttribute="top" secondItem="CbN-zH-hId" secondAttribute="bottom" id="6Pd-Ss-0nB"/>
+                            <constraint firstItem="OIF-ZG-tqE" firstAttribute="top" secondItem="nEn-ZJ-inE" secondAttribute="top" id="6Pd-Ss-0nB"/>
                             <constraint firstItem="Q1m-qn-x8u" firstAttribute="top" secondItem="OIF-ZG-tqE" secondAttribute="bottom" constant="150" id="7eY-1U-vC0"/>
                             <constraint firstItem="K3d-QX-eD1" firstAttribute="leading" secondItem="nEn-ZJ-inE" secondAttribute="leadingMargin" constant="10" id="FsB-cl-hQK"/>
                             <constraint firstItem="OIF-ZG-tqE" firstAttribute="leading" secondItem="nEn-ZJ-inE" secondAttribute="leading" id="JYH-Jv-b6C"/>
@@ -1356,7 +1360,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="chartViewBase" destination="Q1m-qn-x8u" id="2Im-3R-E0y"/>
+                        <outlet property="barChartViewBG" destination="Q1m-qn-x8u" id="2Im-3R-E0y"/>
                         <outlet property="chartsSegment" destination="K3d-QX-eD1" id="aOh-DY-QSE"/>
                         <outlet property="navigationLabel" destination="OIF-ZG-tqE" id="kxw-Ma-VKX"/>
                         <outlet property="navigationTitleLabel" destination="bav-NW-iQ7" id="4vO-uf-HrN"/>
@@ -1702,7 +1706,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-AK-cjp">
-                                                                        <rect key="frame" x="8" y="-6" width="70" height="21.5"/>
+                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="22"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="2KA-9Y-ipt"/>
                                                                             <constraint firstAttribute="height" constant="21" id="NbP-09-ntJ"/>
@@ -1712,7 +1716,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電影影影影" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1J-13-70n">
-                                                                        <rect key="frame" x="93" y="-3.5" width="200" height="16.5"/>
+                                                                        <rect key="frame" x="93" y="-4" width="200" height="17"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="200" id="1A7-RB-FkZ"/>
                                                                             <constraint firstAttribute="height" constant="16" id="7ob-nQ-JMW"/>
@@ -2194,7 +2198,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFb-hM-1yg">
-                                                                        <rect key="frame" x="8" y="-6" width="70" height="21.5"/>
+                                                                        <rect key="frame" x="8" y="-6.5" width="70" height="22"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="Gul-Ns-aOD"/>
                                                                             <constraint firstAttribute="width" constant="70" id="nZp-Gw-8rl"/>
@@ -2204,7 +2208,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBD-yJ-qCD">
-                                                                        <rect key="frame" x="93" y="-3.5" width="200" height="16.5"/>
+                                                                        <rect key="frame" x="93" y="-4" width="200" height="17"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="16" id="Rsy-rU-VKq"/>
                                                                             <constraint firstAttribute="width" constant="200" id="kmY-Jb-66o"/>
