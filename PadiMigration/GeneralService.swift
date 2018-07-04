@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import SwiftyJSON
 
-class GeneralService {
+final class GeneralService {
     static func findTopVC() -> UIViewController {
         var topController:UIViewController = (UIApplication.shared.keyWindow?.rootViewController)!
         // find the topmost view to present another view.

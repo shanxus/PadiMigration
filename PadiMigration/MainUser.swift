@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import SwiftyJSON
 
-class MainUser {
+final class MainUser {
     
     // MARK: - properties.
     private var account: String!
@@ -154,7 +154,7 @@ class ExampleMainUser {
             // should show alert later.
         } else {
             if let json = friend {
-                for (friendID, friendInfo) in json {
+                for (friendID, _) in json {
                     // should show friend info with a "adding" btn.
                     
                     /* add friendID into userID's friend list. */

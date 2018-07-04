@@ -30,7 +30,7 @@ class AddNewVC: UIViewController {
         if segue.identifier == "showAddNewEventVC" {
             if let dest = segue.destination as? AddNewEventVC {
                 dest.viewType = .addNew
-                dest.eventNameHolder = "請輸入活動名稱"
+                dest.eventNameHolder = "請點擊輸入活動名稱"
             }
         }
     }

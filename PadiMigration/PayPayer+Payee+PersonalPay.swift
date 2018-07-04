@@ -11,7 +11,7 @@ import UIKit
 import SwiftyJSON
 import FirebaseDatabase
 
-class PayPayer: PayInvolvedMember {
+final class PayPayer: PayInvolvedMember {
     var payValue: Float!
     var isInvolved: Bool!
     
@@ -37,7 +37,7 @@ class PayPayer: PayInvolvedMember {
     }
 }
 
-class PayPayee: PayInvolvedMember {
+final class PayPayee: PayInvolvedMember {
     var valueShouldPay: Float!
     var shouldGiveTo: String!
     
@@ -58,7 +58,7 @@ class PayPayee: PayInvolvedMember {
     
 }
 
-class PersonalPay {
+final class PersonalPay {
     var id: String!
     var payerID: String!
     var belongsToMember: String!

@@ -82,6 +82,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                                 let email = currentUser.email!
                                                 let name = email.components(separatedBy: "@").first!
                                                 GeneralService.createUserInDB(userID: id, email: email, name: name)
+                                                
+                                                UIApplication.shared.registerForRemoteNotifications()
                                             }
                                         })
                                     }

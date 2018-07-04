@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
-class EntityHelperClass {            
+final class EntityHelperClass {            
     static var ref: DatabaseReference! {
         return Database.database().reference()
     }

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SwiftyJSON
 
-class PadiEvent {
+final class PadiEvent {
     
     // MARK: - properties.
     private var eventName: String!

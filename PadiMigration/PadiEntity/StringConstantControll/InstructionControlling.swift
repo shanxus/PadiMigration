@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InstructionControlling {
+final class InstructionControlling {
     static let showInstrInOverviewVCFinished = "showInstrInOverviewVC"
     static let showInstrInSingleEventVCFinished = "showInstrInSingleEventVC"
     static let showInstrInSinglePayVCFinished = "showInstrInSinglePayVC"

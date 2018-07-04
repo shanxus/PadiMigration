@@ -40,7 +40,7 @@ class ShowEditTxtFieldVC: UIViewController {
     
     var viewTxtPrepare = EditTxtInfo()
     
-    var passEventNameDelegate: PassEventNameBack?
+    weak var passEventNameDelegate: PassEventNameBack?
     
     var searchResultLabel: UILabel!
     

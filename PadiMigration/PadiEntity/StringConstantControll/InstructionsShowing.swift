@@ -7,7 +7,7 @@
 
 import Foundation
 
-class InstructionsShowing {
+final class InstructionsShowing {
     static let showNext = "Ok！"
     
 }

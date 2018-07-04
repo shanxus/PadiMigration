@@ -60,11 +60,13 @@ class SingleEventViewVC: UIViewController {
         
         if let userID = userID, let eventID = eventID {
             
+            UserDefaults.standard.setValue(eventID, forKey: "rightNowSingleEventID")
+            
             helperDataSource.userID = userID
             helperDataSource.eventID = eventID
             
             /* show pays for single event view */
-            let cellAccessIndex = IndexPath(row: 0, section: 4)
+            let cellAccessIndex = IndexPath(row: 0, section: 5)
             if let targetCell = layoutTableView.cellForRow(at: cellAccessIndex) as? EventPayTVC {
                 if let CV = targetCell.EventPayCollectionView {
                     paysCollectonView = CV
@@ -249,8 +251,10 @@ extension SingleEventViewVC: UITableViewDataSource {
         } else if indexPath.section == 1 {
             return 40
         } else if indexPath.section == 2 {
-            return 150
+            return 60
         } else if indexPath.section == 3 {
+            return 150
+        } else if indexPath.section == 4 {
             return 180
         } else {
             return self.view.bounds.height*0.66
@@ -258,7 +262,7 @@ extension SingleEventViewVC: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -287,13 +291,18 @@ extension SingleEventViewVC: UITableViewDataSource {
                 return cell
             }
         } else if indexPath.section == 2 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "EventActionTVC", for: indexPath) as? EventActionTVC {
+                cell.statistics.image = #imageLiteral(resourceName: "statisticsIcon")
+                return cell
+            }
+        } else if indexPath.section == 3 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "EventInfoCell", for: indexPath) as? EventInfoTVC {
                 cell.title.text = "活動資訊"
                 cell.infoTableView.dataSource = self.helperDataSource
                 cell.infoTableView.tableFooterView = UIView()
                 return cell
             }
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SingleEventMembersTVC", for: indexPath) as? EventMembersTVC {
                 cell.title.text = "活動成員"
                 // think about how to use this indicator label.
@@ -303,7 +312,7 @@ extension SingleEventViewVC: UITableViewDataSource {
                 eventMemberCV = cell.membersCollectionView
                 return cell
             }
-        } else if indexPath.section == 4 {
+        } else if indexPath.section == 5 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "EventPayTVC", for: indexPath) as? EventPayTVC {
                 cell.title.text = "活動款項"
                 cell.EventPayCollectionView.dataSource = self.singleEventPayHelper
@@ -393,7 +402,7 @@ extension SingleEventViewVC: CoachMarksControllerDataSource, CoachMarksControlle
             let targetView = cell!.contentView
             return coachMarksController.helper.makeCoachMark(for: targetView)
         } else {
-            let targetIndex = IndexPath(row: 0, section: 3)
+            let targetIndex = IndexPath(row: 0, section: 4)
             let cell = layoutTableView.cellForRow(at: targetIndex)
             let targetView = cell!.contentView
             return coachMarksController.helper.makeCoachMark(for: targetView)

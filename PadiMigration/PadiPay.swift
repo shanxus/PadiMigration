@@ -26,7 +26,7 @@ enum serviceCharge {
     case notCharged
 }
 
-class PadiPay {
+final class PadiPay {
     
     let exampleDataPath = "examplePayData"
     
@@ -544,7 +544,7 @@ extension PadiPay: CustomStringConvertible {
     }
 }
 
-class ExamplePay {
+final class ExamplePay {
     var ref: DatabaseReference! {
         return Database.database().reference()
     }

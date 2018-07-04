@@ -69,6 +69,7 @@ class CurrentUserInfoVC: UIViewController {
     @IBAction func signOutTapped(_ sender: Any) {
         do {
             try Auth.auth().signOut()
+            UIApplication.shared.unregisterForRemoteNotifications()
             
             let topVC = GeneralService.findTopVC()
             if let loginVC = topVC.storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpVC {

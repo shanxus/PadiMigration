@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bbN-aL-G51">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bbN-aL-G51">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1283,6 +1283,93 @@
             </objects>
             <point key="canvasLocation" x="-1562.4000000000001" y="1314.6926536731635"/>
         </scene>
+        <!--Show StatisticsVC-->
+        <scene sceneID="kPV-bb-xMv">
+            <objects>
+                <viewController storyboardIdentifier="showStatisticsVC" id="I1d-88-Chp" customClass="ShowStatisticsVC" customModule="PadiMigration" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CbN-zH-hId"/>
+                        <viewControllerLayoutGuide type="bottom" id="Up9-XX-6pM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nEn-ZJ-inE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIF-ZG-tqE" customClass="CustomView" customModule="PadiMigration" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="統計資料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bav-NW-iQ7">
+                                        <rect key="frame" x="152.5" y="31" width="69.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2t-bO-ECR">
+                                        <rect key="frame" x="10" y="26.5" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="2Ni-db-chJ"/>
+                                            <constraint firstAttribute="height" constant="30" id="wSu-uM-l3q"/>
+                                        </constraints>
+                                        <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="cancelTapped:" destination="iLc-RB-JdU" eventType="touchUpInside" id="uB5-nt-15C"/>
+                                            <action selector="dismissAddNewPaymentView:" destination="fvk-pc-2og" eventType="touchUpInside" id="kJ9-uN-BtQ"/>
+                                            <action selector="dismissTapped:" destination="TFy-X7-aee" eventType="touchUpInside" id="OJ0-zW-oFT"/>
+                                            <action selector="dismissTapped:" destination="dX4-81-d3x" eventType="touchUpInside" id="ijb-c4-CWA"/>
+                                            <action selector="dismissTapped:" destination="I1d-88-Chp" eventType="touchUpInside" id="qYn-Bk-Nje"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.36470588240000001" green="0.3411764706" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="bav-NW-iQ7" firstAttribute="centerY" secondItem="m2t-bO-ECR" secondAttribute="centerY" id="7Tg-nR-ppd"/>
+                                    <constraint firstItem="bav-NW-iQ7" firstAttribute="centerX" secondItem="OIF-ZG-tqE" secondAttribute="centerX" id="D84-me-b1I"/>
+                                    <constraint firstAttribute="bottom" secondItem="m2t-bO-ECR" secondAttribute="bottom" constant="7.5" id="qvB-mq-Ok8"/>
+                                    <constraint firstItem="m2t-bO-ECR" firstAttribute="leading" secondItem="OIF-ZG-tqE" secondAttribute="leading" constant="10" id="v4E-gt-9kf"/>
+                                    <constraint firstAttribute="height" constant="64" id="w1d-XX-IGa"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1m-qn-x8u" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="214" width="375" height="453"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K3d-QX-eD1">
+                                <rect key="frame" x="26" y="176" width="323" height="29"/>
+                                <segments>
+                                    <segment title="長條圖"/>
+                                    <segment title="圓餅圖"/>
+                                </segments>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentTapped:" destination="I1d-88-Chp" eventType="valueChanged" id="qpZ-pP-Ext"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OIF-ZG-tqE" firstAttribute="top" secondItem="nEn-ZJ-inE" secondAttribute="top" id="6Pd-Ss-0nB"/>
+                            <constraint firstItem="Q1m-qn-x8u" firstAttribute="top" secondItem="OIF-ZG-tqE" secondAttribute="bottom" constant="150" id="7eY-1U-vC0"/>
+                            <constraint firstItem="K3d-QX-eD1" firstAttribute="leading" secondItem="nEn-ZJ-inE" secondAttribute="leadingMargin" constant="10" id="FsB-cl-hQK"/>
+                            <constraint firstItem="OIF-ZG-tqE" firstAttribute="leading" secondItem="nEn-ZJ-inE" secondAttribute="leading" id="JYH-Jv-b6C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K3d-QX-eD1" secondAttribute="trailing" constant="10" id="UcS-0z-RgE"/>
+                            <constraint firstAttribute="trailing" secondItem="Q1m-qn-x8u" secondAttribute="trailing" id="dEW-qX-88M"/>
+                            <constraint firstAttribute="trailing" secondItem="OIF-ZG-tqE" secondAttribute="trailing" id="h49-NY-Lbh"/>
+                            <constraint firstItem="Q1m-qn-x8u" firstAttribute="leading" secondItem="nEn-ZJ-inE" secondAttribute="leading" id="j2H-qB-zVX"/>
+                            <constraint firstItem="Up9-XX-6pM" firstAttribute="top" secondItem="Q1m-qn-x8u" secondAttribute="bottom" id="qJp-NS-DJP"/>
+                            <constraint firstItem="Q1m-qn-x8u" firstAttribute="top" secondItem="K3d-QX-eD1" secondAttribute="bottom" constant="10" id="xFL-Pt-oeX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="barChartViewBG" destination="Q1m-qn-x8u" id="2Im-3R-E0y"/>
+                        <outlet property="chartsSegment" destination="K3d-QX-eD1" id="aOh-DY-QSE"/>
+                        <outlet property="navigationLabel" destination="OIF-ZG-tqE" id="kxw-Ma-VKX"/>
+                        <outlet property="navigationTitleLabel" destination="bav-NW-iQ7" id="4vO-uf-HrN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPB-Us-xVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1562" y="2107"/>
+        </scene>
         <!--FirstView-->
         <scene sceneID="4mG-ie-FZs">
             <objects>
@@ -1564,8 +1651,34 @@
                                             <outlet property="title" destination="R9x-I7-D78" id="l5t-0P-eZp"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventActionTVC" rowHeight="50" id="mSd-0E-blE" customClass="EventActionTVC" customModule="PadiMigration" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="268" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mSd-0E-blE" id="xJr-VZ-Gfj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="statisticsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fuN-KZ-sd1">
+                                                    <rect key="frame" x="20" y="9" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="jNa-rR-pZs"/>
+                                                        <constraint firstAttribute="width" constant="30" id="u16-2A-gXE"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="fuN-KZ-sd1" firstAttribute="leading" secondItem="xJr-VZ-Gfj" secondAttribute="leading" constant="20" id="8tw-vd-eUY"/>
+                                                <constraint firstItem="fuN-KZ-sd1" firstAttribute="centerY" secondItem="xJr-VZ-Gfj" secondAttribute="centerY" id="iqg-xh-pqx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="statistics" destination="fuN-KZ-sd1" id="eYG-if-oKa"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventInfoCell" rowHeight="285" id="m3A-2q-V37" customClass="EventInfoTVC" customModule="PadiMigration" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="268" width="375" height="285"/>
+                                        <rect key="frame" x="0.0" y="318" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3A-2q-V37" id="qRe-JC-IaK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="284.5"/>
@@ -1645,7 +1758,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleEventMembersTVC" rowHeight="200" id="lPK-pP-bgL" customClass="EventMembersTVC" customModule="PadiMigration" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="553" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="603" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lPK-pP-bgL" id="tRT-HM-rsU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
@@ -1753,7 +1866,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventPayTVC" rowHeight="285" id="v1l-fN-ST9" customClass="EventPayTVC" customModule="PadiMigration" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="753" width="375" height="285"/>
+                                        <rect key="frame" x="0.0" y="803" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v1l-fN-ST9" id="cYm-Tc-SD5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="284.5"/>
@@ -3412,11 +3525,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TEs-Vk-v6U">
+                                <rect key="frame" x="26" y="320.5" width="323" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="BGa-sE-vDm"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="信箱驗證"/>
+                                    <segment title="帳密登入"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="loginSegmentTapped:" destination="6vS-OK-BGR" eventType="valueChanged" id="nUI-tN-r7i"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97293910419999996" blue="0.92879786239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="TEs-Vk-v6U" secondAttribute="trailing" constant="10" id="94H-Hk-9GY"/>
                             <constraint firstItem="eAL-sY-7gn" firstAttribute="centerX" secondItem="OLy-CT-50V" secondAttribute="centerX" id="Cgc-9b-2xs"/>
                             <constraint firstItem="LpH-od-DSG" firstAttribute="centerX" secondItem="OLy-CT-50V" secondAttribute="centerX" id="DYk-0o-jsv"/>
+                            <constraint firstItem="TEs-Vk-v6U" firstAttribute="centerY" secondItem="OLy-CT-50V" secondAttribute="centerY" id="I36-68-hD0"/>
                             <constraint firstItem="eAL-sY-7gn" firstAttribute="top" secondItem="VNm-iP-WxW" secondAttribute="bottom" constant="101" id="JQT-fw-KCz"/>
                             <constraint firstItem="xiw-1E-CHa" firstAttribute="top" secondItem="eAL-sY-7gn" secondAttribute="bottom" constant="5" id="LVL-kP-4mU"/>
                             <constraint firstItem="51o-EC-nC3" firstAttribute="centerX" secondItem="OLy-CT-50V" secondAttribute="centerX" id="Mfn-ws-Om3"/>
@@ -3424,6 +3553,7 @@
                             <constraint firstItem="xiw-1E-CHa" firstAttribute="centerX" secondItem="OLy-CT-50V" secondAttribute="centerX" id="THu-vk-FF4"/>
                             <constraint firstItem="KnI-n3-rWP" firstAttribute="leading" secondItem="51o-EC-nC3" secondAttribute="leading" constant="10" id="gJT-oI-iLf"/>
                             <constraint firstItem="bzb-J1-Wbg" firstAttribute="top" secondItem="KnI-n3-rWP" secondAttribute="bottom" constant="30" id="kuS-iC-bfc"/>
+                            <constraint firstItem="TEs-Vk-v6U" firstAttribute="leading" secondItem="OLy-CT-50V" secondAttribute="leadingMargin" constant="10" id="lPX-ff-XAg"/>
                             <constraint firstItem="51o-EC-nC3" firstAttribute="top" secondItem="QMb-ve-pUg" secondAttribute="bottom" constant="10" id="qvF-yP-PnE"/>
                             <constraint firstItem="bzb-J1-Wbg" firstAttribute="top" secondItem="51o-EC-nC3" secondAttribute="bottom" constant="189" id="rxx-vM-t07"/>
                             <constraint firstItem="bzb-J1-Wbg" firstAttribute="top" secondItem="HW6-js-Pv3" secondAttribute="bottom" constant="30" id="t34-vX-nnJ"/>
@@ -3437,6 +3567,7 @@
                         <outlet property="continueBtn" destination="HW6-js-Pv3" id="4F6-kZ-jmC"/>
                         <outlet property="detailedInstruction" destination="LpH-od-DSG" id="HpV-Cl-tYI"/>
                         <outlet property="instructionTitle" destination="QMb-ve-pUg" id="rF2-Go-Kba"/>
+                        <outlet property="loginSegment" destination="TEs-Vk-v6U" id="tZ3-Sl-q3T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1p7-U4-HCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3463,9 +3594,10 @@
         <image name="PadiMemberDefault" width="147" height="147"/>
         <image name="PadiPayDefault" width="147" height="147"/>
         <image name="SharedWithMe75" width="23" height="23"/>
-        <image name="back" width="16" height="16"/>
+        <image name="back" width="32" height="32"/>
         <image name="overview75" width="23" height="23"/>
         <image name="plus75" width="23" height="23"/>
+        <image name="statisticsIcon" width="32" height="32"/>
         <image name="user96" width="32" height="32"/>
     </resources>
 </document>

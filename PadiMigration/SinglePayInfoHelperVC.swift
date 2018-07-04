@@ -102,13 +102,14 @@ extension SinglePayInfoHelperVC: UITableViewDataSource {
             }
         } else if indexPath.row == 4 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PayInfoDetailTVC", for: indexPath) as? SinglePayInfoDetailTVC {
-                cell.infoTitle.text = "服務費"
+                // this is 服務費 block, implement or remove this later.
+                cell.infoTitle.text = ""
                 
                 cell.infoDescription.isSkeletonable = true
                 cell.infoDescription.showAnimatedSkeleton()
                 helper.fetchPayAttribute(for: DBPathStrings.serviceChargePath, payID: payID, userID: userID, completion: { (fetchedValue) in
                     DispatchQueue.main.async {
-                        cell.infoDescription.text = "\(fetchedValue.stringValue) %"
+                        cell.infoDescription.text = ""
                         cell.infoDescription.hideSkeleton()
                     }
                 })

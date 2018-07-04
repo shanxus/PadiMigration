@@ -14,7 +14,7 @@ class AddNewEventHelperVC: UIViewController {
     
     var viewType: AddNewEventType?
     var selectedMember: [String] = []
-    var passSelectedMemberDelegate: PassSelectedMemberback?
+    weak var passSelectedMemberDelegate: PassSelectedMemberback?
     
     /* this variable is used when user wants to add a new pay in the editing event mode. */
     var eventID: String?

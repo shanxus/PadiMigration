@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import SwiftyJSON
 
-class PadiMember {
+final class PadiMember {
     private var ID: String!
     
     init(withID ID: String) {
@@ -23,7 +23,7 @@ class PadiMember {
     }
 }
 
-class ExamplePadiMember {
+final class ExamplePadiMember {
     var ref: DatabaseReference! {
         return Database.database().reference()
     }
