@@ -52,8 +52,8 @@ class PayInvolvedSelectVC: UIViewController {
     
     var VCType: InvolvedMemberType?
     
-    var handleSelectedPayersDelegate: PassSelectedInvolvedPayer?
-    var handleSelectedPayeesDelegate: PassSelectedInvoledPayee?
+    weak var handleSelectedPayersDelegate: PassSelectedInvolvedPayer?
+    weak var handleSelectedPayeesDelegate: PassSelectedInvoledPayee?
     
     var eventID: String?
     

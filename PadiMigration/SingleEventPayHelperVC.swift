@@ -133,7 +133,7 @@ extension SingleEventPayHelperVC: UICollectionViewDataSource {
                 cell.descriptionLabel.showAnimatedGradientSkeleton()
                 helper.fetchServiceChargeValue(payID: path, userID: userID, completion: { (value: Float) in
                     DispatchQueue.main.async {
-                        cell.descriptionLabel.text = "服務費: \(value) %"
+                        cell.descriptionLabel.text = ""
                         cell.descriptionLabel.hideSkeleton()
                     }
                 })

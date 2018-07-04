@@ -116,7 +116,7 @@ class AddNewPersonalPayVC: UIViewController {
         }
     }
     
-    var passSelectedPairsDelegate: PassSelectedPersonalPay?
+    weak var passSelectedPairsDelegate: PassSelectedPersonalPay?
     
     override func viewDidLoad() {
         super.viewDidLoad()

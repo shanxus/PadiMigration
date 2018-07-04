@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RelationTable {
+final class RelationTable {
     
     func buildTable(memberList: [String], payers: [PayPayer], payees: [PayPayee], personalPays: [PersonalPay]) -> [[Float]] {
         let length = memberList.count
@@ -98,7 +98,7 @@ class RelationTable {
     }
 }
 
-class PayRelation {
+final class PayRelation {
     var payerID: String?
     var payeeID: String?
     var valueShouldPay: Float?

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DBPathStrings {
+final class DBPathStrings {
     
     static let mainUserID = "fakeUserToken"
     

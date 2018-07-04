@@ -95,6 +95,7 @@
 		749D468A20C9010600E937B5 /* InstructionsShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D468920C9010600E937B5 /* InstructionsShowing.swift */; };
 		749D468C20C901C000E937B5 /* InstructionControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D468B20C901C000E937B5 /* InstructionControlling.swift */; };
 		74E297EA20DFCDB700F39AD9 /* EventActionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E297E920DFCDB700F39AD9 /* EventActionTVC.swift */; };
+		74F6756920ECCE63000B7F24 /* PassSelectedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6756820ECCE63000B7F24 /* PassSelectedImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -189,6 +190,7 @@
 		749D468920C9010600E937B5 /* InstructionsShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstructionsShowing.swift; path = /Volumes/Transcend/iOS_project/PadiMigration/PadiMigration/PadiEntity/StringConstantControll/InstructionsShowing.swift; sourceTree = "<absolute>"; };
 		749D468B20C901C000E937B5 /* InstructionControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionControlling.swift; sourceTree = "<group>"; };
 		74E297E920DFCDB700F39AD9 /* EventActionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventActionTVC.swift; sourceTree = "<group>"; };
+		74F6756820ECCE63000B7F24 /* PassSelectedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassSelectedImage.swift; sourceTree = "<group>"; };
 		C9505EC15197C802D5C2DCBC /* Pods-PadiMigration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadiMigration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration.debug.xcconfig"; sourceTree = "<group>"; };
 		E19E60C47E62DBF45B6A6647 /* Pods_PadiMigration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PadiMigration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADDE318F71BC61A6E432A3C /* Pods-PadiMigration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadiMigration.release.xcconfig"; path = "Pods/Target Support Files/Pods-PadiMigration/Pods-PadiMigration.release.xcconfig"; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 		741EBDEA20C3C1130061B342 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				74F6756720ECCE26000B7F24 /* AddNewEventVC */,
 				741EBDEB20C3C11F0061B342 /* AddNewPayment */,
 				741EBDEE20C3C1650061B342 /* EditEventNameProtocol.swift */,
 			);
@@ -578,6 +581,14 @@
 			path = StringConstantControll;
 			sourceTree = "<group>";
 		};
+		74F6756720ECCE26000B7F24 /* AddNewEventVC */ = {
+			isa = PBXGroup;
+			children = (
+				74F6756820ECCE63000B7F24 /* PassSelectedImage.swift */,
+			);
+			path = AddNewEventVC;
+			sourceTree = "<group>";
+		};
 		BBDAD566BE3C3D5C765B2844 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -759,6 +770,7 @@
 				74E297EA20DFCDB700F39AD9 /* EventActionTVC.swift in Sources */,
 				741EBE8A20C3C9320061B342 /* MemberPayHelperVC.swift in Sources */,
 				741EBDEF20C3C1660061B342 /* EditEventNameProtocol.swift in Sources */,
+				74F6756920ECCE63000B7F24 /* PassSelectedImage.swift in Sources */,
 				741EBE2620C3C40F0061B342 /* AddNewPaymentInfoBlockTVC.swift in Sources */,
 				741EBE5620C3C5DD0061B342 /* MyEventOverViewTitleTVC.swift in Sources */,
 				741EBE2120C3C3D30061B342 /* AddNewFriendTVC.swift in Sources */,
@@ -972,7 +984,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "PadiMigration/PadiMigration-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -995,7 +1007,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PadiMigration/PadiMigration-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

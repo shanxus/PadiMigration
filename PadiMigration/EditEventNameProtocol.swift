@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol PassEventNameBack {
+protocol PassEventNameBack: AnyObject {
     func passEventName(event name: String)
 }
 
-protocol PassSelectedMemberback {
+protocol PassSelectedMemberback: AnyObject {
     func passSelectedMember(member: [String])
 }

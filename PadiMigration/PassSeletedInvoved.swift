@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol PassSelectedInvoledPayee {
+protocol PassSelectedInvoledPayee: AnyObject {
     func passSelectedInvolvedIDBack(IDs: [String])
 }
 
-protocol PassSelectedInvolvedPayer {
+protocol PassSelectedInvolvedPayer: AnyObject {
     func passSelectedInvolvedPayerBack(info: [String:Float])
 }
 
-protocol PassSelectedPersonalPay {
+protocol PassSelectedPersonalPay: AnyObject {
     func passSelectedPersonalPay(pairs: [PersonalPayInfo])
 }

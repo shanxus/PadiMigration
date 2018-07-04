@@ -15,7 +15,7 @@ enum PadiFriendType: String{
     case selfDefinedUser
 }
 
-class PadiFriend {
+final class PadiFriend {
     private var id: String!
     private var friendType: PadiFriendType!
     

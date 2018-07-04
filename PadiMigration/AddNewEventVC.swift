@@ -67,15 +67,11 @@ class AddNewEventVC: UIViewController {
                 addNewEventActionHelper.eventID = eventID
             }
         }
-                        
-        NotificationCenter.default.addObserver(self, selector: #selector(AddNewEventVC.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         eventInfoBlock.dataSource = self
         eventInfoBlock.delegate = self
         eventInfoBlock.tableFooterView = UIView()
         eventInfoBlock.isScrollEnabled = false
-        
-        handleGenerateDummyEventImage()
         
         /* pass the members that had already been selected. */
         if selectedMember.count != 0 {
@@ -175,53 +171,6 @@ class AddNewEventVC: UIViewController {
             }
         })
     }
-    
-    @objc func rotated() {
-        handleGenerateDummyEventImage()
-    }
-    
-    func handleGenerateDummyEventImage() {
-        
-        guard let thisTableView = eventInfoBlock else {return}
-        let imgIndex = IndexPath(row: 0, section: 0)
-        guard let cell = thisTableView.cellForRow(at: imgIndex) as? AddNewEventInfoBlockTVC else {return}
-        if let imgView = cell.eventImage {
-            eventImgView = imgView
-            let frame = imgView.frame
-            
-            let dummyImgView = UIView(frame: frame)
-            dummyImgView.isUserInteractionEnabled = true
-            dummyImgView.backgroundColor = UIColor.clear
-            dummyImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleChangeEventPhoto)))
-            cell.addSubview(dummyImgView)
-        }
-    }
-    
-    @objc func handleChangeEventPhoto() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        let actionSheet = UIAlertController(title: "編輯款項照片", message: "請選擇照片來源", preferredStyle: .actionSheet)
-        
-        actionSheet.addAction(UIAlertAction(title: "相機", style: .default, handler: { (action:UIAlertAction) in
-           
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                imagePicker.sourceType = .camera
-                self.present(imagePicker, animated: true, completion: nil)
-            } else {
-                print("Camera is not available")
-            }
-        }))
-        
-        actionSheet.addAction(UIAlertAction(title: "相片圖庫", style: .default, handler: { (action:UIAlertAction) in
-           imagePicker.sourceType = .photoLibrary
-            self.present(imagePicker, animated: true, completion: nil)
-        }))
-        
-        actionSheet.addAction(UIAlertAction(title: "取消", style: .destructive, handler: nil))
-        self.present(actionSheet, animated: true, completion: nil)
-    }
-    
 }
 
 extension AddNewEventVC: UITableViewDataSource {
@@ -235,6 +184,8 @@ extension AddNewEventVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventInfoBlock", for: indexPath) as! AddNewEventInfoBlockTVC
+        
+        cell.passImageDelegate = self
         
         guard let type = viewType else { return cell }
         
@@ -274,7 +225,7 @@ extension AddNewEventVC: UITableViewDataSource {
 }
 
 extension AddNewEventVC: UITableViewDelegate {
- 
+    
     func handleGenerateEventIntoChangeAlert() {
         if let showEditTxtFieldVC = self.storyboard?.instantiateViewController(withIdentifier: "showEditTxtFieldVC") as? ShowEditTxtFieldVC {
             
@@ -307,24 +258,13 @@ extension AddNewEventVC: PassSelectedMemberback {
     }
 }
 
-extension AddNewEventVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        guard let resizedImg = UIImageJPEGRepresentation(image, 0.3) else {return}
-        print("new image size: ", resizedImg.count)
-        
-        eventPhoto = UIImage(data: resizedImg)
+extension AddNewEventVC: PassSelectedImage {
+    func pass(withImageData data: Data) {
+        eventPhoto = UIImage(data: data)
         eventPhotoHasChanged = true
-        eventPhotoData = resizedImg
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
+        eventPhotoData = data
     }
 }
-
 
 
 
