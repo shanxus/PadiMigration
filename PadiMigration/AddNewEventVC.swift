@@ -94,8 +94,11 @@ class AddNewEventVC: UIViewController {
     @IBAction func addBtnTapped(_ sender: Any) {
         guard let type = viewType else {return}
         let topVC = GeneralService.findTopVC()
-        if eventNameHolder == "" || eventNameHolder == "請輸入活動名稱" {
-            let alert = UIAlertController(title: "小提醒", message: "請記得設定活動名稱", preferredStyle: .alert)
+        
+        let nameLabelCellIndex = IndexPath(row: 0, section: 0)
+        guard let eventInfoCell = eventInfoBlock.cellForRow(at: nameLabelCellIndex) as? AddNewEventInfoBlockTVC else {return}
+        guard let name = eventInfoCell.eventName.text, name != "" || name != "請點擊輸入活動名稱" else {
+            let alert = UIAlertController(title: "提醒", message: "請記得設定活動名稱", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(ok)
             
@@ -120,7 +123,7 @@ class AddNewEventVC: UIViewController {
                 
                 /* create new event obj. */
                 let time = EntityHelperClass.getDateNow()
-                let newEvent = PadiEvent(withName: self.eventNameHolder, ID: newUUID, imageURL: imageDownloadURL, date: time, isFavorite: false, payCollection: [], memberList: self.selectedMember)
+                let newEvent = PadiEvent(withName: name, ID: newUUID, imageURL: imageDownloadURL, date: time, isFavorite: false, payCollection: [], memberList: self.selectedMember)
                 
                 /* store new event obj to firebase */
                 let storeEventHelper = ExamplePadiEvent()
@@ -143,9 +146,7 @@ class AddNewEventVC: UIViewController {
             }
             
             /* store new event name. */
-            if let newEventName = eventNameHolder {
-                helper.store(name: newEventName, eventID: event, userID: user)
-            }
+            helper.store(name: name, eventID: event, userID: user)
             
             let soretedMemberList = selectedMember.sorted()
             helper.store(members: soretedMemberList, eventID: event, userID: user)
@@ -186,6 +187,8 @@ extension AddNewEventVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventInfoBlock", for: indexPath) as! AddNewEventInfoBlockTVC
         
         cell.passImageDelegate = self
+        cell.eventNameHolder = eventNameHolder
+        cell.passNameDelegate = self
         
         guard let type = viewType else { return cell }
         
@@ -241,7 +244,7 @@ extension AddNewEventVC: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.row == 0 {
-            handleGenerateEventIntoChangeAlert()
+            //handleGenerateEventIntoChangeAlert()
         }
     }
 }

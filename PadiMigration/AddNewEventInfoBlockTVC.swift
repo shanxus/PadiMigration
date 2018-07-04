@@ -15,6 +15,18 @@ class AddNewEventInfoBlockTVC: UITableViewCell {
     @IBOutlet weak var indicatorLabel: UILabel!
     
     weak var passImageDelegate: PassSelectedImage?
+    weak var passNameDelegate: PassEventNameBack?
+    
+    var isNameChanged = false
+    var eventNameHolder: String? {
+        didSet {
+            guard let name = eventNameHolder else {return}
+            if isNameChanged == true {
+                eventName.text = name
+                isNameChanged = false
+            }
+        }
+    }
     
     override func awakeFromNib() {
         print("awake...")
@@ -33,22 +45,21 @@ class AddNewEventInfoBlockTVC: UITableViewCell {
     }
     
     @objc func handleNameCellTapped() {
-        
+        handleGenerateEventIntoChangeAlert()
     }
     
-    /*
     func handleGenerateEventIntoChangeAlert() {
         let topVC = GeneralService.findTopVC()
         if let showEditTxtFieldVC = topVC.storyboard?.instantiateViewController(withIdentifier: "showEditTxtFieldVC") as? ShowEditTxtFieldVC {
-            
-            let txtInfo = EditTxtInfo(flag: Flag.addEventName.rawValue, titleTxt: "編輯活動名稱", inputTxt: self.eventNameHolder, actionTxt: "儲存")
-            showEditTxtFieldVC.viewTxtPrepare = txtInfo
-            showEditTxtFieldVC.passEventNameDelegate = self
-            let topVC = GeneralService.findTopVC()
-            topVC.present(showEditTxtFieldVC, animated: true, completion: nil)
+            if let nameHolder = eventNameHolder {
+                let txtInfo = EditTxtInfo(flag: Flag.addEventName.rawValue, titleTxt: "編輯活動名稱", inputTxt: nameHolder, actionTxt: "儲存")
+                showEditTxtFieldVC.viewTxtPrepare = txtInfo
+                showEditTxtFieldVC.passEventNameDelegate = self
+                let topVC = GeneralService.findTopVC()
+                topVC.present(showEditTxtFieldVC, animated: true, completion: nil)
+            }
         }
     }
-    */
     
     func handleChangeEventPhoto() {
         let imagePicker = UIImagePickerController()
@@ -94,6 +105,13 @@ extension AddNewEventInfoBlockTVC: UIImagePickerControllerDelegate, UINavigation
     }
 }
 
-
+extension AddNewEventInfoBlockTVC: PassEventNameBack {
+    func passEventName(event name: String) {
+        isNameChanged = true
+        self.eventNameHolder = name
+        
+        passNameDelegate?.passEventName(event: name)
+    }
+}
 
 
