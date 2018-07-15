@@ -1,3 +1,3 @@
 #PadiMigration
 
-![](Assets/Header.jpg =400x100)
+![](Assets/Header.jpg)
