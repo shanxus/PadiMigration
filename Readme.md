@@ -4,7 +4,7 @@ Padi is a tool to help you share pays with your friends online.
 
 Padi is now available in APP Store. 🍻
 
-![](Assets/Header.jpg)
+<img src="Assets/Header.jpg"  width="400" height="300">
 
 ## 🌟 Features
 
@@ -24,26 +24,25 @@ Padi is now available in APP Store. 🍻
 Padi is built by three entities: event, payment and member.
 
 ### EventOverview
-![](Assets/EventOverview.PNG)
-<img src="Assets/EventOverview.PNG"  width="120" height="120">
+<img src="Assets/EventOverview.PNG"  width="400" height="700">
 
 ### SingleEventView
-![](Assets/SingleEventView.PNG)
+<img src="Assets/SingleEventView.PNG"  width="400" height="700">
 
 ### SinglePaymentView
-![](Assets/SinglePaymentView.PNG)
+<img src="Assets/SinglePaymentView.PNG"  width="400" height="700">
 
 ### ResultView
-![](Assets/ResultView.PNG)
+<img src="Assets/ResultView.PNG"  width="400" height="700">
 
 ### Settings
-![](Assets/SettingView.PNG)
+<img src="Assets/SettingView.PNG"  width="400" height="700">
 
 ### ⚡️  Beta 
 
 Statisics about the event are showing now. We will make this better.
 
-![](Assets/StatisticsView.PNG)
+<img src="Assets/StatisticsView.PNG"  width="400" height="700">
 
 ### 🖥 About the Implement.
 
