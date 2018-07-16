@@ -24,14 +24,25 @@ Padi is now available in APP Store. 🍻
 Padi is built by three entities: event, payment and member.
 
 ### EventOverview
-
+![](Assets/EventOverview.PNG)
 
 ### SingleEventView
-
+![](Assets/SingleEventView.PNG)
 
 ### SinglePaymentView
-
+![](Assets/SinglePaymentView.PNG)
 
 ### ResultView
+![](Assets/ResultView.PNG)
 
+### Settings
+![](Assets/SettingView.PNG)
+
+### ⚡️  Beta 
+
+Statisics about the event are showing now. We will make this better.
+
+![](Assets/StatisticsView.PNG)
+
+### 🖥 About the Implement.
 
