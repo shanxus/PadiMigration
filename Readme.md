@@ -25,6 +25,7 @@ Padi is built by three entities: event, payment and member.
 
 ### EventOverview
 ![](Assets/EventOverview.PNG)
+<img src="Assets/EventOverview.PNG"  width="120" height="120">
 
 ### SingleEventView
 ![](Assets/SingleEventView.PNG)
