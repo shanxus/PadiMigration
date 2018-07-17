@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol defaultIconSelectionDelegate {
+protocol defaultIconSelectionDelegate: AnyObject {
     func pass(selectedType: String)
 }
 
@@ -24,7 +24,7 @@ class DefaultIconSelectVC: UIViewController {
     
     var categoryCount: [Int] = [10, 6, 1]
     
-    var delegate: defaultIconSelectionDelegate?
+    weak var delegate: defaultIconSelectionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()

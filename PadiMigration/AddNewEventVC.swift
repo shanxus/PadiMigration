@@ -229,23 +229,9 @@ extension AddNewEventVC: UITableViewDataSource {
 
 extension AddNewEventVC: UITableViewDelegate {
     
-    func handleGenerateEventIntoChangeAlert() {
-        if let showEditTxtFieldVC = self.storyboard?.instantiateViewController(withIdentifier: "showEditTxtFieldVC") as? ShowEditTxtFieldVC {
-            
-            let txtInfo = EditTxtInfo(flag: Flag.addEventName.rawValue, titleTxt: "編輯活動名稱", inputTxt: self.eventNameHolder, actionTxt: "儲存")
-            showEditTxtFieldVC.viewTxtPrepare = txtInfo
-            showEditTxtFieldVC.passEventNameDelegate = self
-            let topVC = GeneralService.findTopVC()
-            topVC.present(showEditTxtFieldVC, animated: true, completion: nil)            
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.row == 0 {
-            //handleGenerateEventIntoChangeAlert()
-        }
     }
 }
 

@@ -44,8 +44,6 @@ class AddNewPaymentVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(AddNewPaymentVC.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         paymentInfoBlockTableView.dataSource = self
         paymentInfoBlockTableView.delegate = self
@@ -68,16 +66,20 @@ class AddNewPaymentVC: UIViewController {
             addNewPaymentHelper.eventID = eventID
         }
         
-        handleGenerateDummyPayImage()
-        
         prepareForEditingPay(isEditing: self.isEditingPay)
     }
 
     @IBAction func addNewPaymentTapped(_ sender: Any) {
+        
+        let payInfoCellIndex = IndexPath(row: 0, section: 0)
+        guard let infoCell = paymentInfoBlockTableView.cellForRow(at: payInfoCellIndex) as? AddNewPaymentInfoBlockTVC else {return}
+        paymentNameLabel = infoCell.paymentTitle
+        
         if self.isEditingPay == true {  // saving changes for a existing pay.
             guard let pay = payID, let user = userID else {return}
             addNewPaymentHelper.handleSavingChanges(forPay: pay, userID: user, imageType: selectedDefaultIconName, newTitle: paymentNameLabel?.text)
         } else {    // saving new created pay.
+            
             addNewPaymentHelper.handleAddingNewPayment(belongsToEvent: belongsToEventID, paymentNameLabel: paymentNameLabel, imageType: selectedDefaultIconName)
         }
     }
@@ -103,36 +105,6 @@ class AddNewPaymentVC: UIViewController {
             addButton.setTitle("新增", for: .normal)
         }
     }
-    
-    @objc func rotated() {
-        handleGenerateDummyPayImage()
-    }
-    
-    func handleGenerateDummyPayImage() {
-        guard let thisTableView = paymentInfoBlockTableView else {return}
-        let imgIndexPath = IndexPath(row: 0, section: 0)
-        guard let cell = thisTableView.cellForRow(at: imgIndexPath) as? AddNewPaymentInfoBlockTVC else {return}
-        if let imgView = cell.paymentImage {
-            
-            paymentImgView = imgView
-            let frame = imgView.frame
-            
-            let dummyImgView = UIView(frame: frame)
-            dummyImgView.isUserInteractionEnabled = true
-            dummyImgView.backgroundColor = UIColor.clear
-            dummyImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleChangePayImage)))
-            cell.addSubview(dummyImgView)
-        }
-    }
-    
-    @objc func handleChangePayImage() {
-        let topVC = GeneralService.findTopVC()
-        if let defaultIconVC = topVC.storyboard?.instantiateViewController(withIdentifier: "DefaultPayIconVC") as? DefaultIconSelectVC {
-            defaultIconVC.delegate = self
-            topVC.present(defaultIconVC, animated: true, completion: nil)
-        }
-        
-    }
 }
 
 extension AddNewPaymentVC: UITableViewDataSource {
@@ -147,6 +119,9 @@ extension AddNewPaymentVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventInfoBlock", for: indexPath) as! AddNewPaymentInfoBlockTVC
         cell.paymentImage.contentMode = .scaleAspectFill
+        
+        cell.selectedPayIconDelegate = self
+        
         if isEditingPay == false {
             cell.paymentTitle.text = "請輸入款項名稱"
             cell.paymentImage.image = #imageLiteral(resourceName: "PadiPayDefault")
@@ -183,29 +158,6 @@ extension AddNewPaymentVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        // should refactor this getting thisTableView code later.
-        guard let thisTableView = paymentInfoBlockTableView else {return}
-        let index = IndexPath(row: 0, section: 0)
-        guard let cell = thisTableView.cellForRow(at: index) as? AddNewPaymentInfoBlockTVC else {return}
-        guard let payNameForNow = cell.paymentTitle.text else {return}
-        paymentNameLabel = cell.paymentTitle
-        
-        let topVC = GeneralService.findTopVC()
-        if let showEditTxtFieldVC = self.storyboard?.instantiateViewController(withIdentifier: "showEditTxtFieldVC") as? ShowEditTxtFieldVC {
-            
-            let txtInfo = EditTxtInfo(flag: Flag.addEventName.rawValue, titleTxt: "更改款項名稱", inputTxt: payNameForNow, actionTxt: "儲存")
-            showEditTxtFieldVC.viewTxtPrepare = txtInfo
-            showEditTxtFieldVC.passEventNameDelegate = self
-            // delegate here
-            topVC.present(showEditTxtFieldVC, animated: true, completion: nil)
-        }
-    }
-}
-
-extension AddNewPaymentVC: PassEventNameBack {
-    func passEventName(event name: String) {
-        paymentNameLabel?.text = name
     }
 }
 
